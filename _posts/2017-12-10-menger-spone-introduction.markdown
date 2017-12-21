@@ -5,6 +5,9 @@ date:   2017-12-10 19:30:42 +0800
 mathjax: true
 categories: fractal 
 ---
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 <center><img src="/assets/menger/00.png"></center>
 
