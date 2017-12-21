@@ -2,6 +2,7 @@
 layout: post
 title:  "Menger Carpet 2D 与 Space Folding"
 date:   2017-12-10 19:30:42 +0800
+mathjax: true
 categories: fractal 
 ---
 
