@@ -2,16 +2,16 @@
 main:
     #- title: "Quick-Start Guide"
     #url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-    #- title: "About"
-    #url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "home"
     url: "https://evil-ryu.github.io/"
-  - title: "Posts"
+  - title: "Articles"
     url: /year-archive/
+  - title: "About"
+    url: /sample-page/
     #- title: "Sample Collections"
     #url: /collection-archive/
-  - title: "Sitemap"
-    url: /sitemap/
+#  - title: "Sitemap"
+#    url: /sitemap/
 
 # sidebar navigation list sample
 sidebar-sample:

@@ -93,6 +93,7 @@ GEM
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
     thread_safe (0.3.6)
+    tin (1.0.2)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
 
@@ -101,6 +102,7 @@ PLATFORMS
 
 DEPENDENCIES
   minimal-mistakes-jekyll!
+  tin
 
 BUNDLED WITH
    1.16.0
