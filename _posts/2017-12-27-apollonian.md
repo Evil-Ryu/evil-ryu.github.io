@@ -2,7 +2,7 @@
 title: "利用 Circle Inversion 实现 Apollonian Fractal"
 categories:
   - Fractal
-date:   2017-12-27 19:30:42 +0800
+date:   2017-12-31 19:30:42 +0800
 tags:
   - Fractal
   - Graphics
