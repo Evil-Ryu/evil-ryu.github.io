@@ -24,16 +24,30 @@ $$z_{n+1} = {z_{n}}^2 + c$$
 
 下 $$z$$ 值永远小于等于$$2$$，那么这个点属于 Mandelbrot Set。
 
-很容易计算得到，Mandelbrot Set 的 orbit 是 
+根据定义，我们就可以对平面上所有像素计算这个迭代，从而得到每个像素是否属于Mandelbrot Set.
+
+注：这里定义中所谓的 orbit 表示迭代过程中点的轨迹，每次迭代计算得到的结果，即为 orbit 中的一点。很容易计算得到，Mandelbrot Set 的 orbit 是 
 
 
 $${ 0, c, c^2 + c, ... }$$
 
-根据定义，那么我们就可以对平面上所有像素计算这个迭代，就可以得到每个像素是否属于Mandelbrot Set.
-
-注：这里定义中所谓的 orbit 表示迭代过程中点的轨迹，每次迭代计算得到的结果，即为 orbit 中的一点。
 ## The Rendering
 Mandelbrot Set 的绘制可以非常简单，既然可以判断平面上每个像素是否属于Mandelbrot Set，那么我们把属于的设为黑色，不属于的设为白色，就是最简单的 Boolean/Binay Escape Time Method。
+
+
+```
+bool bet = true;
+for(int i=0;i<ITERATION;i++){ 
+	 if(dot(z,z)>escape_radius * escape_radius)
+	 {
+	 		bet = false;
+	 		break; 
+	 }
+	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; 
+} 
+
+color = boolean_to_color(bet);
+```
 
 <center><img src="/assets/images/mandelbrot/boolean.png"></center>
 <br/>
@@ -47,6 +61,18 @@ Mandelbrot Set 的绘制可以非常简单，既然可以判断平面上每个�
 
 <center><img src="/assets/images/mandelbrot/non_smooth.png"></center>
 <br/>
+
+
+```
+float counter = 0.0;
+for(int i=0;i<ITERATION;i++){ 
+	 if(dot(z,z)>escape_radius * escape_radius)	 		break; 
+	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; 
+	 counter+=1.;
+} 
+
+color = iteration_to_color(counter);
+```
 
 可以看到 Mandelbrot Set 的 Boundary 变得更加清晰平滑，但是以外的部分却出现了类似于等势线一样的 Banding Effect。（其实这里的等势线就是 Douady-Hubbard 势函数，可以用作另一种平滑绘制的方法）。
 
@@ -113,7 +139,7 @@ $$d = \lim_{n \to \infty} {|z_n| log|z_n| \over |z_n'|}$$
 绘制得到的结果与 RIC 类似，这里不再重复。
 
 
-  [1]: http://www.iquilezles.org/www/articles/mset_smooth/mset_smooth.htm
-  [2]: http://linas.org/art-gallery/escape/escape.html
-  [3]: http://www.math.cornell.edu/~hubbard/OrsayEnglish.pdf
-  [4]: http://www.iquilezles.org/www/articles/distance/distance.htm
+[1]: http://www.iquilezles.org/www/articles/mset_smooth/mset_smooth.htm
+[2]: http://linas.org/art-gallery/escape/escape.html
+[3]: http://www.math.cornell.edu/~hubbard/OrsayEnglish.pdf
+[4]: http://www.iquilezles.org/www/articles/distance/distance.htm

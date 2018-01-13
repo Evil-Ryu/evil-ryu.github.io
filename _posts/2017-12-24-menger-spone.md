@@ -13,7 +13,7 @@ tags:
 <center><img src="/assets/images/menger/menger_spone0.png"></center>
 <br/>
 
-Menger Spone就是 Menger Carpet 的 3D 版本，之前一篇关于Menger Spong的2D形式： [Menger Carpet](https://evil-ryu.github.io/fractal/menger-spone-introduction/)的推导给出了一个通过space-folding来实现一类IFS分形的通用方法， 它的公式是：
+Menger Spone就是 Menger Carpet 的 3D 版本，之前一篇关于Menger Spone的2D形式： [Menger Carpet](https://evil-ryu.github.io/fractal/menger-spone-introduction/)的推导给出了一个通过space-folding来实现一类IFS分形的通用方法， 它的公式是：
 
 
 ```
