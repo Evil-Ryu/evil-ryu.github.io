@@ -15,7 +15,7 @@ tags:
 
 
 ## Mandelbrot 的 3D 形式
-对于找寻 Mandelbrot 的 3D 形式其实是经历了很多年的，2009年，Fractal Forum 上才有人渲染出了当时最接近真实 Mandelbrot 3D 的 MandelBulb。接着就是一次 3D Fractal 渲染的爆发，紧接着的接下来几年内，各种分形的 3D 形式， 包括他们的变种和混合，一个接一个的出现，直到16年底的圣诞节，都还有重大的新发现：[3D Kleinian group limit sets][1]。
+对于找寻 Mandelbrot 的 3D 形式其实是经历了很多年的，2009年，Fractal Forum 上才有人渲染出了当时最接近真实 Mandelbrot 3D 的 Mandelbulb。接着就是一次 3D Fractal 渲染的爆发，紧接着的接下来几年内，各种分形的 3D 形式， 包括他们的变种和混合，一个接一个的出现，直到16年底的圣诞节，都还有重大的新发现：[3D Kleinian group limit sets][1]。
 这些分形的 3D 绘制，很大程度上都要归功于 Distance Estimation，最早利用 Distance Estimation 绘制 3D Fractal 的是 Hart，他可以说是做 Distance Based Rendering 的祖师爷了，在他 1989 年的 paper：[RayTracing Deterministic 3D Fractals][2] 中就描述了如何使用 Distance Estimation 来绘制 Julia 集的 3D 形式。
 
 从1989年到2009年，分形绘制经历了20年才又热门起来，这其中不仅是硬件的发展使得 3D 分形渲染可以实时进行，而且也要归功于那些不断创造的大神们。
@@ -36,7 +36,7 @@ MandelBulb 可以说是 3D 分形里面最为出名的了，即使你从未接�
 
 <br/>
 
-其实在这部电影中我们可以看到很多分形的运用，特别是大量的空间折叠， 也许只有魔法这样神秘的东西才能与分形完美的融合。
+其实在这部电影中我们可以看到很多分形的运用，特别是大量的空间折叠.
 
 ## Mandelbulb
 ### 公式的扩展
