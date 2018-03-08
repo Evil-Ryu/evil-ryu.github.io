@@ -84,8 +84,8 @@ author:
   avatar           : "/assets/images/penguin.jpg"
   bio              : "A Software Engineer."
   location         : "Shanghai"
-  email            :
-  uri              :
+  email            : "liming72217@gmail.com"
+  uri              : "https://www.shadertoy.com/user/EvilRyu"
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
   codepen          :
