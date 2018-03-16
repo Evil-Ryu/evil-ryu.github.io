@@ -209,14 +209,21 @@ li ol {
 /* Figures and images */
 
 figure {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 2em 0;
+  //display: -webkit-box;
+  //display: flex;
+
+  // my own style begins -----
+  display: table;
+  text-align: center;
+  margin: 0 auto;
+  // my own style ends ------
+
+  //-webkit-box-pack: justify;
+  //justify-content: space-between;
+  //-webkit-box-align: start;
+  //align-items: flex-start;
+  //flex-wrap: wrap;
+  //margin: 2em 0;
 
   img,
   iframe,
@@ -225,7 +232,7 @@ figure {
   }
 
   img {
-    width: 100%;
+    //width: 100%;
     border-radius: $border-radius;
     -webkit-transition: $global-transition;
     transition: $global-transition;
@@ -268,7 +275,7 @@ figcaption {
   margin-bottom: 0.5em;
   color: $muted-text-color;
   font-family: $caption-font-family;
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 
   a {
     -webkit-transition: $global-transition;

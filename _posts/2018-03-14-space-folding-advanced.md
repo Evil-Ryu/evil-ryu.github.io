@@ -33,11 +33,10 @@ Anyways，无论是三维空间中的三角形：
 
 <br>
 
-
+<figure>
 <img src="/assets/images/space_folding_advanced/02.png" alt="what"/>
-{:.image-caption}
-*分形的一部分，在计算前被折叠到了近似三角形的空间中。*
-
+<figcaption>分形的一部分，在计算前被折叠到了近似三角形的空间中。</figcaption>
+</figure>
 <br/>
 
 ## 基于反射的折叠
@@ -59,19 +58,24 @@ R = I - 2.0 * min(0.0, dot(N, I)) * N;
 ### 将空间折叠到三角形中
 先画个图以便分析：
 
+
+<figure>
 <img src="/assets/images/space_folding_advanced/07.png" alt="what"/>
-{:.image-caption}
-*图中单位圆以白色表示，天蓝色为 y 轴，正向朝上， 粉红色为 x 轴， 正向朝右， 黄色为原点， 四个象限分别用红，绿，蓝，青色表示，颜色的渐变表示了坐标数值的增加，这样的表示可以让我们更容易看明白变换后的空间。*
+<figcaption>图中单位圆以白色表示，天蓝色为 y 轴，正向朝上， 粉红色为 x 轴， 正向朝右， 黄色为原点， 四个象限分别用红，绿，蓝，青色表示，颜色的渐变表示了坐标数值的增加，这样的表示可以让我们更容易看明白变换后的空间。</figcaption>
+</figure>
+
 <br/>
 
+<figure>
 <img src="/assets/images/space_folding_advanced/08.png" alt="what"/>
-{:.image-caption}
-*青色的向量表示法向 N， 蓝色的向量（图中被紫色向量覆盖）表示入射向量 I， 紫色的向量表示反射向量 R， 可以看到当 N 和 I 的夹角小于 90 度的时候，并不进行反射计算，I 和 R 是相等的。*
+<figcaption>青色的向量表示法向 N， 蓝色的向量（图中被紫色向量覆盖）表示入射向量 I， 紫色的向量表示反射向量 R， 可以看到当 N 和 I 的夹角小于 90 度的时候，并不进行反射计算，I 和 R 是相等的。</figcaption>
+</figure>
+<br/>
 
-
+<figure>
 <img src="/assets/images/space_folding_advanced/09.png" alt="what"/>
-{:.image-caption}
-*到当 N 和 I 的夹角大于 90 度的时候，开始计算反射，反射向量 R 开始顺时针往回旋转（当 I 继续逆时针旋转时）。 所以这样就简单地将坐标空间沿与 N 垂直的平面折叠了。*
+<figcaption>到当 N 和 I 的夹角大于 90 度的时候，开始计算反射，反射向量 R 开始顺时针往回旋转（当 I 继续逆时针旋转时）。 所以这样就简单地将坐标空间沿与 N 垂直的平面折叠了。</figcaption>
+</figure>
 <br/>
 
 研究了单个向量的变化规律以后，让我们来看看当整个坐标空间都执行这个变换之后的样子：
@@ -93,9 +97,10 @@ N‘ = normalize( N - vec2(1.0, 0.0) )
 
 这里读者可能有一个疑问，要是我并不想折叠出一个标准的三角形，而任意选择 N' 的方向会怎样呢，在某些情况下可能不会有大问题，但是大多数情况下，比如现在的第四象限，深绿色向量两边是镜像的，经过上一次反射折叠而形成的，如果 N' 的方向稍有偏移，第二次折叠会在第四象限中折叠出两条 y 轴（因为第四象限已经处于折叠状态中，如果在一张已经对折的纸中间剪一个孔，必然会导致打开的纸张出现两个孔）, 如下图，N' 的方向沿逆时针稍微旋转了一点，出现了两条 y 轴：
 
+<figure>
 <img src="/assets/images/space_folding_advanced/16.png" alt="what"/>
-{:.image-caption}
-*N' 的方向略微偏移， 竖直的 y 轴不再被恰好反射到第四象限中线处，于是出现了两条新的 y 轴。*
+<figcaption>N' 的方向略微偏移， 竖直的 y 轴不再被恰好反射到第四象限中线处，于是出现了两条新的 y 轴。</figcaption>
+</figure>
 <br/>
 
 这样的后果一方面是生成的形状难以控制，更重要的是，即使结果仍然围成闭合形状，闭合区域内容易出现多个不同象限，导致难以作为距离函数参与计算。后面我会举一个这样的例子说明问题。
@@ -122,7 +127,7 @@ $$\hat m = { (y, -x) + (0, 1) \over 2} = ({y\over2}, {(1-x)\over 2})$$
 
 于是新的法线方向等于将 $$\hat m$$ 逆时针旋转 90 度， 即：
 
-$$\hat N' = \hat{m}e^{ {\pi\over2} i } = ({y\over2}+i{(1-x)\over 2}) * (\cos{\pi\over2} + i\sin{\pi\over2}) = 2(x-1, yi)$$
+$$\hat N' = \hat{m}e^{ {\pi\over2} i } = ({y\over2}+i{(1-x)\over 2}) * (\cos{\pi\over2} + i\sin{\pi\over2}) = {1\over2}(x-1, yi)$$
 
 最后再将结果 normalize 即可。这就是为什么新的法线方向为：
 
