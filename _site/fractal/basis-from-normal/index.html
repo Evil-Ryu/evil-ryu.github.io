@@ -1,0 +1,698 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>基于法向量构建本地正交标架的快速算法 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="基于法向量构建本地正交标架的快速算法">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/basis-from-normal/">
+  <meta property="og:url" content="http://localhost:4000/fractal/basis-from-normal/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-03-08T19:34:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="基于法向量构建本地正交标架的快速算法">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="March 08, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">基于法向量构建本地正交标架的快速算法
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<h2 id="local-basis">Local Basis</h2>
+
+<p>说到本地正交标架，通常在图形学里就是指 normal，tangent，bitangent 所构成的本地坐标系，在这样的本地坐标系下，很多操作和计算都会更加简单直观。</p>
+
+<p>但是大多数情况下，我们能获得的信息也就只有 normal 而已，所以我们需要一个方法单从 normal 来构造出一个正交标架，最直观的办法就是先任意选取一个不与 normal 重叠向量，然后通过两次叉乘和归一化来获得这个正交标架，这个计算量看起来并不算大，比如在最常见的需要构建一个本地标架的情形：摄像机坐标系（view space）中，每一帧只需要根据相机的当前姿态计算一次即可，但是对于另外一些情形，如 PathTracing，则需要大量计算本地标架，这时候一个更加轻量级的算法就显得有必要了。</p>
+
+<p>下文介绍的是最快的一种算法，来自于<a href="http://orbit.dtu.dk/files/126824972/onb_frisvad_jgt2012_v2.pdf">Frisvad</a>，这个算法基于四元数（quaternion），通过找到一个 quaternion 将 向量 <script type="math/tex">(0,0,1)</script> （也就是本地标架中的 normal）变换到世界坐标中的 normal，来得到变换矩阵。</p>
+
+<h2 id="不需要归一化的标架构建算法">不需要归一化的标架构建算法</h2>
+
+<p>既然要找到一个四元数来将z轴变换到 normal，首先得知道怎么构造这个四元数，也就是如何找到一个四元数， 将单位向量 s 旋转到单位向量 t？</p>
+
+<h3 id="旋转一个向量到另一个向量">旋转一个向量到另一个向量</h3>
+
+<p>首先这样的旋转方法有很多种，但是最短的旋转路径也就是沿同时垂直于向量 s 和 t 的向量旋转，那么这个向量可以通过叉乘得到：</p>
+
+<script type="math/tex; mode=display">\hat u = s \times t</script>
+
+<p>同样我们可以通过点积得到 s 和 t 夹角的 cos 值，有了向量 u 和角度，根据欧拉公式：</p>
+
+<script type="math/tex; mode=display">e^{ \theta \hat u} = \cos {\theta} + (u_xi+u_yj+u_zk)\sin{\theta}</script>
+
+<p>我们可以构造出 quaternion：</p>
+
+<script type="math/tex; mode=display">q = (s \cdot t, s \times t) = (\cos\theta, u_x, u_y, u_z)</script>
+
+<p><strong>但是注意</strong>， 这个四元数会让向量旋转 <script type="math/tex">2\theta</script> 度，而不是我们想要的 <script type="math/tex">\theta</script> 度。
+那么怎么找到只旋转 <script type="math/tex">\theta</script> 度的四元数呢？ 我们可以通过求旋转 <script type="math/tex">2\theta</script> 度的四元数 q 和 旋转 0 度的四元数的中间四元数来得到。
+旋转 0 度的四元数为：
+<script type="math/tex">q_0 = (1, 0, 0, 0)</script></p>
+
+<p>这跟找两个向量的中间向量是一样的，只需要相加然后归一化即可，前提是，两个向量的长度相等，不然这样的相加会让结果向量偏向长的一方。</p>
+
+<blockquote>
+  <p>如果向量 s 和 t 并不是单位向量的话，我们构造出的四元数 q 的长度就不是 1，而是等于 s 与 t 的长度的积，在相加之前就需要归一化， 或者将<script type="math/tex">q_0</script>缩放到与 <script type="math/tex">q</script> 一样长。</p>
+</blockquote>
+
+<p>所以，将单位向量 s 旋转到单位向量 t 的四元数为：</p>
+
+<p>\begin{align}
+q &amp;= norm(q + q_0) \\
+&amp; = norm(s \cdot t + 1, s \times t)\\
+ &amp; = ({\sqrt{2(1+s\cdot t)}\over 2}, {(s\times t)\over \sqrt{2(1+s\cdot t)}})
+\end{align}</p>
+
+<h3 id="任意向量从本地标架到世界标架">任意向量从本地标架到世界标架</h3>
+
+<p>有了将任意向量旋转到另一个向量的四元数 q 之后， 就可以得到将 z 轴变换到 normal 的变换，设 normal 为：<script type="math/tex">(n_x, n_y, n_z)</script>， 将两个向量带入 q 可得：</p>
+
+<script type="math/tex; mode=display">q = ({(-n_y, n_x, 0)\over \sqrt{2(1+n_z)}}, {1\over2}\sqrt{2(1+n_z)})</script>
+
+<p>有了 z-&gt;normal的变换 q，就可以通过它将本地正交标架中的任意向量变换到世界坐标系下。</p>
+
+<p>将本地标架中任意向量 <script type="math/tex">w = (x, y, z)</script> 变换到世界坐标系的变换为：</p>
+
+<script type="math/tex; mode=display">w' = qwq^{-1} = \Biggl(x
+\begin{pmatrix}
+1-n_x^2(1+n_z) \\
+-n_xn_y(1+n_z) \\
+-n_x
+\end{pmatrix} + y
+\begin{pmatrix}
+-n_xn_y(1+n_z) \\
+1-n_y^2(1+n_z) \\
+-n_y
+\end{pmatrix} + z
+\begin{pmatrix}
+n_x \\
+n_y \\
+n_z
+\end{pmatrix} \Biggr)</script>
+
+<p>于是，向量：</p>
+
+<script type="math/tex; mode=display">\hat b_1 = (1-n_x^2(1+n_z), -n_xn_y(1+n_z), -n_x)</script>
+
+<script type="math/tex; mode=display">\hat b_2 = (-n_xn_y(1+n_z), 1-n_y^2(1+n_z), -n_y)</script>
+
+<script type="math/tex; mode=display">\hat n = (n_x, n_y, n_z)</script>
+
+<p>即为本地标架的 tagent， bitagent， normal。 它们作为行向量构成左乘矩阵即为将本地标架中坐标变换到世界坐标的变换矩阵。矩阵取逆即为从世界坐标到本地标架的变换。</p>
+
+<p>公式中有一处奇点需要避开，也就是 <script type="math/tex">n_z=-1</script> 的时候，这时候因为法向量基本和z轴重叠，只需要显示取 tagent 和 bitagent 的值即可。</p>
+
+<p>代码如下：</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">basis</span><span class="p">(</span><span class="n">vec3</span> <span class="n">n</span><span class="p">,</span> <span class="n">out</span> <span class="n">vec3</span> <span class="n">b1</span><span class="p">,</span> <span class="n">out</span> <span class="n">vec3</span> <span class="n">b2</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">z</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.999999</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">b2</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    	<span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">n</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+    	<span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    	<span class="n">b1</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+    	<span class="n">b2</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">a</span> <span class="p">,</span> <span class="o">-</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="四元数-quaternions">四元数 Quaternions</h2>
+
+<p>以防读者不熟悉四元数，这里做一个简单的梳理，但是不会包括太多细节。</p>
+
+<p>四元数来源于尝试利用复数来表达三维空间中的旋转，在二维复平面上，复数的相乘可以表达旋转，例如一个复数乘上虚部 i，就相当于将对应二维向量逆时针旋转 90 度。于是旋转变成了一个简单的乘法运算，把一个向量乘以一个复数就得到我们想要的旋转，如何构造这个复数呢？</p>
+
+<p>就要用到欧拉公式：</p>
+
+<script type="math/tex; mode=display">e^{i\psi} = \cos{\psi} + i \sin{\psi}</script>
+
+<p>可以看出，公式右侧即为复平面上的单位向量，角度 <script type="math/tex">\psi</script> 就表达了这个向量逆时针旋转的角度，任何一个二维向量乘以这个复数，都会让该向量逆时针旋转 <script type="math/tex">\psi</script> 度， 因为对两个单位复数, 他们的乘积：
+<script type="math/tex">(a + bi)(c+di)=e^{i\psi}e^{i\theta} = e^{i(\psi+\theta)}</script></p>
+
+<p>刚好是两个向量旋转角度之和。</p>
+
+<p>于是，对于任何我们想旋转的角度，直接带入欧拉公式，即可得到一个用于旋转的复数，任何向量乘以这个复数就能得到相应的旋转。</p>
+
+<p>这么方便的性质，数学家自然也想在三维空间中找到，于是爱尔兰数学家 Hamilton 尝试了把复数拓展到三维，也就是多加一个虚部，但是最后发现根本行不通，但是他发现这样构造复数的方法在四维上却是可以的（仍然丢失了交换律），于是就有了我们现在常用的四元数。</p>
+
+<p>四元数被定义为含有一个实部和三个虚部，更多的时候看做一个标量和一个向量的组合：</p>
+
+<script type="math/tex; mode=display">q = (q_w, q_v) = (w, xi+yj+zk)</script>
+
+<p>其中：
+\begin{cases}
+ij=k=-ji \\
+jk=i=-kj \\
+ki=j=-ik \\
+ii=jj=kk=ijk=-1 \\
+\end{cases}</p>
+
+<p>同样，利用欧拉公式，对于单位向量：
+<script type="math/tex">\hat u = (u_x, u_y, u_z)</script></p>
+
+<p>欧拉公式:</p>
+
+<script type="math/tex; mode=display">e^{ { \theta \over 2 } \hat u } = \cos {\theta \over 2} + (u_xi+u_yj+u_zk)\sin{\theta \over 2}</script>
+
+<p>表达了沿向量 <script type="math/tex">\hat u</script> 旋转 <script type="math/tex">\theta</script> 度（往 <script type="math/tex">\hat u</script> 的方向看，顺时针），注意这里不是 <script type="math/tex">\theta \over 2</script> 度。</p>
+
+<p>于是对任意一个三维向量
+<script type="math/tex">p</script>，都可以通过乘以一个四元数来得到沿任意向量旋转的效果，但是单单乘以一个四元数，会发现原向量经过旋转后长度也改变了，所以需要用到特殊的 Hamilton 积来补偿这个长度改变，也就是：</p>
+
+<script type="math/tex; mode=display">p' = qpq^{-1}</script>
+
+<p>以上就是利用四元数做三维空间中旋转的原理。</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-03-08T19:34:00+08:00">March 08, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%E5%9F%BA%E4%BA%8E%E6%B3%95%E5%90%91%E9%87%8F%E6%9E%84%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%AD%A3%E4%BA%A4%E6%A0%87%E6%9E%B6%E7%9A%84%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fbasis-from-normal%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fbasis-from-normal%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fbasis-from-normal%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fbasis-from-normal%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/linearly-transformed-cosines/" class="pagination--pager" title="Linearly Transformed Cosines 详解与实现
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/fractal/space-folding-advanced/" class="pagination--pager" title="More Space Folding，空间折叠进阶
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

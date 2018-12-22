@@ -1,0 +1,1633 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-22T23:28:37+08:00</updated><id>http://localhost:4000/</id><title type="html">Evil-Ryu’s Site</title><subtitle>...</subtitle><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><entry><title type="html">Tokyo Demo Fest 2018 见闻</title><link href="http://localhost:4000/demoscene/tdf2018/" rel="alternate" type="text/html" title="Tokyo Demo Fest 2018 见闻" /><published>2018-12-09T18:12:00+08:00</published><updated>2018-12-09T18:12:00+08:00</updated><id>http://localhost:4000/demoscene/tdf2018</id><content type="html" xml:base="http://localhost:4000/demoscene/tdf2018/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/0.png&quot; alt=&quot;TDF2018&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;tokyo-demo-fest-简介&quot;&gt;Tokyo Demo Fest 简介&lt;/h2&gt;
+&lt;p&gt;Tokyo Demo Fest（http://tokyodemofest.jp/2018） 是一个 Demo Party， 也是亚洲唯一的 Demo Party， 从 2011 年开始， 到今年已经举办了 8 届了。
+（如果你不知道什么是 Demo Party 的话： https://en.wikipedia.org/wiki/Demoscene#Parties）
+之间的 TDF 都是在春天举办，今年延迟到了 12 月的 1-2 号， 跟siggraph asia 也就隔着一天， 这样一来去参加 siggraph asia 的同学们也可以顺便先参加 TDF， 这样的安排其实还挺方便，希望 19 年也能一样。&lt;/p&gt;
+
+&lt;p&gt;Party 的日程如下，直接从官网拷贝过来：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2018 / 12 / 01 (Sat)
+13:00	Doors Open
+13:30	Opening Ceremony
+14:00	Seminar: TDF Howto by TDF Organizer
+15:00	Graphics/Music/Wild Deadline
+15:00	Seminar: READY FOR THE BATTLE? 
+-Introduction to Live Coding- by amagi
+16:00	Event: Shader Live Coding Battle
+17:00	Graphics Compo
+17:30	Music Compo
+18:30	Wild Compo
+19:00	Live Act: Otaku Boi LIVE Show
+19:30	DJ Event: DJ by Chibi-tech / VJ by notargs
+21:00	Doors Close
+
+2018 / 12 / 02 (Sun)
+10:00	Doors Open
+11:00	Demoshow: Best of demoscene2018
+13:00	GLSL/Demo Deadline
+13:00	Panel discussion: Demoscene in Japan
+14:30	Seminar: PICO-8 short seminar by zep @ lexaloffle
+15:30	DJ Event: DJ by FL1NE / VJ by Kaiware
+16:30	GLSL Compo
+17:30	Demo Compo
+19:00	Vote Deadline
+19:30	Prizegiving / Closing Ceremony
+20:30	Doors close
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;一共两天时间，来参加 party 的人都可以在现场提交自己的作品参加比赛，这个 party 也允许 remote entry， 也就是说你可以在网上提交作品，但是不需要肉身到现场，只是这样一来，是没法领取奖品的。
+TDF 提供了这几个类别的比赛：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Combined Graphics compo&lt;/li&gt;
+  &lt;li&gt;Combined Music compo&lt;/li&gt;
+  &lt;li&gt;Wild compo&lt;/li&gt;
+  &lt;li&gt;GLSL Graphics compo&lt;/li&gt;
+  &lt;li&gt;Combined demo compo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这样的 compo 设置和其他欧洲的 demo party 其实挺不一样， 关键就在于虽然日本的 demo party 也办了 8 年了， 但是 demoscene 相对于欧洲，还是更为小众，所以感觉如果类别分得更细的话，不一定还有足够的作品提交，比如 PC Demo，PC 4k intro， PC 64k intro 全部都归类到了 Combined Demo Compo 中，同时增加了 GLSL Graphics Compo 这样比较新的类别，以便吸引更多年轻一代对 Creative Coding 有兴趣的人参与到 demo party 中来。&lt;/p&gt;
+
+&lt;h2 id=&quot;day-1&quot;&gt;Day 1&lt;/h2&gt;
+&lt;p&gt;第一天是下午 1 点开门，会场在秋叶原附近的 3331 arts， 外面看起来是这样的：
+&lt;img src=&quot;/assets/images/tdf2018/1.jpeg&quot; alt=&quot;3331 arts&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进去二楼就是 TDF 的会场，到的时候已经有好几个人在门口等着入场了，入场前要用门票兑换牌子，同时给了一些材料，一看全是赞助商的广告甚至 JD， 其中就包含我国的大华为：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/2.jpeg&quot; alt=&quot;huawei jd&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我买的票还包含一件T恤，不过后来后来发奖品又给了一件…早知道就不用买了。
+检票的时候认识了来自意大利的 codewiz, 是位刚从美国 relocate 到东京的 Googler；一个瑞典人，DropkickMonk3y，是位给各种 AAA title 做音乐的老哥，包括我最爱的街霸5，于是我立刻膜拜了一番；还有一位挪威 boy，cytlan，蛮有趣的小哥，一有机会就跟 codewiz 一起大喊 “Amigaaaaaaa！”。&lt;/p&gt;
+
+&lt;p&gt;我们在门口瞎聊了一会儿之后，就到了入场时间：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/3.jpeg&quot; alt=&quot;doors open&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前面3个就是入场前刚认识的小伙伴，我们是最早进来的几个。 可以看到会场看起来以前是个篮球场（有可能现在也是），一个大屏幕循环播放着 party 的日程和各个赞助商的广告，以及即将到来的其他 demo party 的邀请。
+food table 上已经摆放了一些饮料，大家会自发带各种吃的来在 food table 上分享，主办方也会在饭点给大家订点 pizza。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/4.jpeg&quot; alt=&quot;retro hw&quot; /&gt;
+这是入口右侧摆放的一系列 retro hardware， 不过是只可远观不可亵玩.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/5.jpeg&quot; alt=&quot;cafe 2019&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;找了个位置坐下，大屏幕上是俄罗斯的 demo party： CAFE 2019 的邀请。
+然后就是开幕式了，组织者之一的 “Kioku” 上台欢迎了一下大家，又在接下来的 seminar 中简单介绍了接下来两天的流程和如何参与比赛以及如何使用内网平台投票等等事项，这个主要是针对第一次来 party 的朋友们，人数还挺多：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/6.jpeg&quot; alt=&quot;how to tdf&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;期间不参加 seminar 的人们就围在 food table 边上聊天吃东西，大家带来了不少零食，我最爱的还是某俄罗斯大叔带来的伏特加。
+Food table 好像是去年还是前年才开始出现的，因为给了大家一个跟陌生人互相认识的契机，所以可以相信以后也一直会有，唯一一点可以抱怨的就是没有足够的酒。&lt;/p&gt;
+
+&lt;p&gt;下午 3 点的时候另一个 seminar 开始了， 同时也是 graphics/music/wild compo 提交的最后时间，作品的提交是通过 party 的 intranet 来上传的。 这个 seminar 是由 amagi 给大家讲 shader live coding， 主要内容也就是 shader coding 的基础。
+shader live coding battle 是最近几年流行起来的一项非常有意思的比赛，通常是两个 coder 上台在一定时间内完成一个 shader， 台下观众能在大屏幕上实时地看见双方 coding 的过程， 也同时能看见 shader 实时呈现的效果，并且现场还有解说，时间到了之后分别展示双方 shader 的最终效果并且投票决出胜负。可以说这完全就是 coder 们的电子竞技，而且我觉得也挺像 rapper 之间的 freestyle battle，可能这两年我中国有嘻哈看多了… 目前最高水平的 shader live battle 是在叫做 Revision 的 demo party 上（想看的小伙伴可以翻墙在 youtube 搜索 “shader live coding”），其他一些 demo party 的 live coding 冠军可以在 Revision 的初赛上作为种子选手，不过感觉这次 TDF 的 live coding battle 只是做为一个表演赛，参加的一共 4 位选手，都是 TDF 上的老鸟，4 位选手是同时进行，一般来说 battle 都是 1v1，不过这个作为表演赛也不讲究这么多了，并且总共时长给了 40 分钟，对比起 Revision 的 20 分钟算是非常充足：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/7.jpeg&quot; alt=&quot;battle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;battle 最终的结果：
+&lt;img src=&quot;/assets/images/tdf2018/8.jpeg&quot; alt=&quot;battle2&quot; /&gt;
+Battle 还是挺精彩的，出乎我的意料，发现日本 scener 们特别喜欢用分形，尤其是 KIFS.
+右下角的小哥相对于其他三位不停在给出效果的选手，显得非常默默无闻，一直没见他的屏幕上有什么进展，直到比赛接近尾声的时候，解说将他的画面放大到全屏，正要吐槽小哥为啥还什么都还没画出来，话音未落，非常漂亮的 KIFS 分形就出来了，全场欢呼，他也在最后赢得了比赛。&lt;/p&gt;
+
+&lt;p&gt;接下来就是 Graphics， Music， Wild Compo 的展示，现场会关掉灯光，依次在大屏幕上播放提交的参赛作品，Graphics Compo 主要是绘画的作品，Music 包含了 Tracked Music， Streaming Music 和 Executable Music，Wild Compo 则包含了所有不能归于 party 所提供的其他类别中的作品，需要提交一个 video 来展示。&lt;/p&gt;
+
+&lt;p&gt;Graphics Compo 第一名：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/24.png&quot; alt=&quot;graphics compo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Compo 结束之后，我也赶紧提交了我的 GLSL compo 作品，虽然 deadline 是在第二天中午，不过纠结了许久之后我也感觉没啥好改的了，干脆提交了， 这是提交页面：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/9.jpeg&quot; alt=&quot;submission&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;三个 Compo 之后就是一个 Live Show， 这个 Show 是由真人在舞台上表演结合屏幕上的动画推进剧情，还是挺有意思，感觉讲的是一个宅男跟虚拟世界怪物搏斗的故事：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/10.jpeg&quot; alt=&quot;otaku0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/11.jpeg&quot; alt=&quot;otaku1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/12.jpeg&quot; alt=&quot;otaku2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Otaku Boy 表演结束之后就是晚间的蹦迪环节了，DJ Chibi-tech 是位专给游戏做音乐的亚裔美国妹纸，VJ notargs 好像是个游戏开发者，这是蹦迪的盛况：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/13.jpeg&quot; alt=&quot;chibi-tech&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;不过这个蹦迪环节感觉不太适合腼腆的亚洲宅男们，大多人还是在座位上淡定的围观，纵然音乐够带感，动画也够酷炫，也只有十几二十个人在舞台前面瞎蹦，另一个原因也可能是由于这个 party 上真的没有太多酒，我本来是期待无限的 beer，结果得到的是一大堆某赞助商赞助的能量饮料…… 倒是挪威 boy 好像特别喜欢这个环节，全场应该就他跳得最 high.&lt;/p&gt;
+
+&lt;p&gt;蹦迪之后第一天的 party 就全部结束了。&lt;/p&gt;
+
+&lt;h1 id=&quot;day-2&quot;&gt;Day 2&lt;/h1&gt;
+&lt;p&gt;第二天上午 10 点就开门了，主要是要利用上午的时间回顾 2018 年最佳 demoscene， 这些 demoscene 是 2018 年各个 party 上各个 compo 中最优秀的 demo，不过可能有些人早就全看过了，或者睡懒觉起不来，所以这个环节开始后都还有好多人没来。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/14.jpeg&quot; alt=&quot;demoshow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这些 demo 中我也大多都看过，不过也有错过了的，比如 Assembly 2018 的 PC Demo 第二名：For your love，现场看得我直起鸡皮疙瘩，这是 pouet 上的 link： http://www.pouet.net/prod.php?which=77371，看这些 demo 的过程中我常常都会忘了这些都是正在实时运行的程序而不是录制好的 youtube 视频，顺便一说主办方用来运行所有 demo 的 Compo Machine 用的正是今年最屌的 RTX 2080，由 Nvidia 赞助，确实是相当给力，我都有些后悔我的 shader 有点过于节省 budget 了。&lt;/p&gt;
+
+&lt;p&gt;Demo show 之后就是一个 Panel Session，是由几位日本资深的 demoscener 在台上介绍日本的 demoscene 发展状况并且回答观众问题，不过全程都是日语我根本不知道在说些啥，于是就去 Food Table 那边聊天吃披萨去了。&lt;/p&gt;
+
+&lt;p&gt;Panel Session 之后是 PICO-8 的 Seminar， 来做这个介绍正是 PICO-8 的作者 zep：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/15.jpeg&quot; alt=&quot;zep&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你还不知道 PICO-8 的话，请看这里： https://zhuanlan.zhihu.com/p/30405996&lt;/p&gt;
+
+&lt;p&gt;他给大家介绍了 PICO-8 的基本特性和使用方法之后，就展示了几个 1-tweet demo， 也就是 code 长度需要控制在280个字符之内。
+我还挺喜欢 PICO-8，它提供了一个非常方便的环境去实现一些 Retro Effect，我们这一代人说实话对 Retro Hardware 上的编程接触得很少，可能还没来得及体验到乐趣 PC 就已经升级到跑孤岛危机了，实际上很多 Retro Effect 的实现都是非常有意思的，跟在一个强劲的 PC 上去实现一些效果的方法和思路非常不同，zep 提到一点我非常喜欢，就是 PICO-8 在未来也不会打算升级它的性能，永远都是 128*128 像素的屏幕，16 色的调色板，这对于保持 PICO-8 的原汁原味来说非常重要，并且对于 demoscene 来说， limitation 永远是核心之一。&lt;/p&gt;
+
+&lt;p&gt;Seminar 之后就是另一个蹦迪环节，不过感觉这个时间点就更加蹦不起来了：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/16.jpeg&quot; alt=&quot;fl1ne&quot; /&gt;
+FL1NE 是主持人，也是个 scener， 而且是我这次见到最热情的日本小哥了，其他日本人都比较害羞。&lt;/p&gt;
+
+&lt;p&gt;接着就是我最期待的环节了，毕竟参加了这个 Compo：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/17.jpeg&quot; alt=&quot;GLSL&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这个 Compo 明显也是 party 真正高潮的开始，大家全部聚到大屏幕面前，坐在地上观看，GLSL Compo 的一个特点是作品只能有一个 Fragment Shader，并且没有任何外部资源输入，也就是没有纹理，模型等等。但也意味着：没有音乐，所以要是直接就这么运行就略显单薄，所以在 GLSL Compo 的全程是有随机播放音乐的，速度大概是 120 bpm， 所以提前知道这一点就方便安排自己的 demo 能够搭上音乐节奏，这也是我缺少经验的一部分，我的 demo 相对变化太少，不够 demo-ish。&lt;/p&gt;
+
+&lt;p&gt;我的 demo 在运行中：
+&lt;img src=&quot;/assets/images/tdf2018/19.jpeg&quot; alt=&quot;doraemon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我的作品是排在倒数第二个展示，最后一个 demo 是来自 Kaneta 的 Traveler 2：http://www.pouet.net/prod.php?which=79391， 看这个 demo 的时候我就知道我的肯定得输给他了，非常多的变化，跟音乐也配合得非常好，这也是使用分形的优势，可惜我也明明用了分形，却只是放那一动不动地模拟楼房，顿时感觉有点暴殄天物。&lt;/p&gt;
+
+&lt;p&gt;我的 demo（Time Machine）也已经上传到 pouet：http://www.pouet.net/prod.php?which=79402&lt;/p&gt;
+
+&lt;p&gt;最后一个 Compo 是 Demo Compo， 包含了所有 PC Demo， PC 64K， PC 4K，理论上来说是所有 Compo 中效果最华丽的一组， 事实也不辜负大家的期望：&lt;/p&gt;
+
+&lt;p&gt;webGL 64k：http://www.pouet.net/prod.php?which=79365
+&lt;img src=&quot;/assets/images/tdf2018/22.jpeg&quot; alt=&quot;webgl&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;PC Demo：http://www.pouet.net/prod.php?which=79380
+&lt;img src=&quot;/assets/images/tdf2018/23.png&quot; alt=&quot;pc demo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后就是最后的投票时间，截止之后就是颁奖典礼和闭幕式了，拿到一个小铜牌，又获得一件 T恤。
+闭幕式之后就是赞助商的代表上台介绍他们的公司和工作内容，算是一个小宣讲会，所以参加 party 的另一个作用就是可以展示自己的 skill，获得一个好 offer：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/20.jpeg&quot; alt=&quot;closing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今年在温哥华的 SIGGRAPH 上有一个介绍 demoscene 的 session， Tokyo Demo Fest 的主办人 Kioku 也去了，并且介绍了 TDF， 当时这个 session 吸引了非常多的人， 但是由于选的会议室偏小，以至于过道都站满了人，最后不但都还有不少人没能进来，还劝离了一批人出去，所以可以看出 Graphics Community 对 demoscene 的兴趣还是非常大的，于是在今年的 party 之后，几个主办人就接着去了 SIGGRAPH ASIA，再次做了一些 demoscene 的介绍，这对于吸引更多的人关注这个文化非常有帮助，国内 Graphics 大牛还是非常多的，希望也出现更多对 scene 有兴趣的小伙伴吧，因为这一次我还挺寂寞的：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/25.jpeg&quot; alt=&quot;lonely&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;明年再见 Tokyo Demo Fest！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/tdf2018/21.jpeg&quot; alt=&quot;byebye&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Demoscene" /><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">SIGGRAPH 2018 总结</title><link href="http://localhost:4000/conference/siggraph2018/" rel="alternate" type="text/html" title="SIGGRAPH 2018 总结" /><published>2018-10-05T16:12:00+08:00</published><updated>2018-10-05T16:12:00+08:00</updated><id>http://localhost:4000/conference/siggraph2018</id><content type="html" xml:base="http://localhost:4000/conference/siggraph2018/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;siggraph-2018&quot;&gt;SIGGRAPH 2018&lt;/h2&gt;
+&lt;p&gt;今年的 SIGGRAPH 在加拿大温哥华举办，历史上来说，SIGGRAPH 在洛杉矶举办的次数是最多的，得益于它是好莱坞的所在地，基本上也只有在洛杉矶举办才是赚钱的，恰好温哥华的电影工业也是高度发达，被称为”北方好莱坞”，因此也非常适合 SIGGRAPH 的举办，今年也是温哥华第二次迎来 SIGGRAPH。&lt;/p&gt;
+
+&lt;h3 id=&quot;第一天&quot;&gt;第一天&lt;/h3&gt;
+&lt;p&gt;我们早早来到了 Vancouver Convention Centre，会议的举办地，毗邻港口，风景宜人，标志性的像素海豚是众多游客拍照留念的地方。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/1.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Convention Centre&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/2.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;港口的游轮，每天都不一样&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/3.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;像素海豚&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;会议前一天下午就可以注册了，我们抵达的时候已经是排起了长队。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/4.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;会场入口&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/5.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;注册队伍&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;
+一切准备完毕后，就是等待开启长达5天的 CG 盛宴之旅。&lt;/p&gt;
+
+&lt;h3 id=&quot;agenda&quot;&gt;Agenda&lt;/h3&gt;
+&lt;p&gt;会议提供了专门的 APP，可以看到所有的 session，包括简介，时间，地点等等信息，参会者就可以很方便的安排自己的日程，挑选自己感兴趣的 Topic，这一点非常重要，因为 SIGGRAPH 包含了大量的 session，在同一个时间段就可能有5，6个是重叠的，一个人是不可能听完所有的讲座的，所以我的总结中也只能尽可能覆盖我自己所参加的部分。
+总的来说，会议包含大致这几个部分：&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Technical Papers&lt;/em&gt;：这是会议中最学术的环节，全世界最顶尖的图形学研究者会在讲座中讲解他们所发表的 paper。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Posters&lt;/em&gt;：同样是学术的环节，有趣的但不足以成为 technical paper 的研究可以作为 poster 在会场展示。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exhibition&lt;/em&gt;：新技术的展示，在一个大的展厅内分布着众多摊位，向参会者展示他们的创意和技术。这次仍然有大量的 VR, AR 技术和内容的展示。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Electronic Theatre&lt;/em&gt;： 需要单独购票的环节，也就是 Computer Animation Festival，会在一个超大的放映厅播放今年参赛的计算机动画。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Realtime Live&lt;/em&gt;：类似于 Computer Animation Festival，不同的是这里都是 Realtime  demo的展示 。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Social Events&lt;/em&gt;：Chapter Party，Khronos events，Asian meetup 等等。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Training&lt;/em&gt;： Vulkan，WebGL 等等入门课程。&lt;/p&gt;
+
+&lt;p&gt;下面就分类逐一聊聊我的所见所闻。&lt;/p&gt;
+
+&lt;h3 id=&quot;talks--technical-paper&quot;&gt;Talks &amp;amp; Technical Paper&lt;/h3&gt;
+
+&lt;h4 id=&quot;confocal-non-line-of-sight-imaging&quot;&gt;Confocal non-line of sight imaging&lt;/h4&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/6.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;检测隐藏的 Bunny&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;
+Non-line-of-sight imaging，也就是”非视线成像”，在2012年被提出，最初是由科学家 Antonio Torralba 在旅馆里偶然发现墙上的影子其实并非真正由于遮挡而产生的影子，而是窗外庭院通过窗户这个”小孔相机”在墙壁上的成像，这让科学家们意识到我们的真实世界中包含大量肉眼不可见的成像信息。Antonio 因此开始了对这种”意外相机”的研究，被称为”非视线成像”。&lt;/p&gt;
+
+&lt;p&gt;在之后的研究中，包含不少通过分析阴影来推断附近场景的工作，也出现了通过专业激光相机来检测被遮挡的物体，这个 Talk 就来自于这一类，通过专业相机朝墙壁上发射激光脉冲，光子会被反射到隐藏的物体上，并且发生散射，然后程序通过检测光子反射回相机所经历的时间，来推断隐藏的物体的几何结构。&lt;/p&gt;
+
+&lt;p&gt;来自 MIT 的研究人员将这个系统做到了 Realtime，能实时地检测和三维重建被遮挡的物体，效果非常惊艳，这在无人汽车，军事和救援中相信都能发挥巨大的作用，他们也带来了 demo 给大家展示和体验。&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/7.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;实时检测 Demo&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/8.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;实时检测 Demo&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;图 5  实时检测和重建&lt;/p&gt;
+&lt;h4 id=&quot;muon-pyramid-scan&quot;&gt;Muon Pyramid Scan&lt;/h4&gt;
+&lt;p&gt;Muon 叫做渺子或者μ介子，是宇宙射线进入大气层后的产物，这项研究是通过检测渺子在金子塔内部结构中的运动变化来重建金字塔内部结构，类似于 x 射线的作用。
+渺子的运动变化需要利用软件进行复杂的物理模拟，这个 talk 就是给出了一个基于3D 引擎的实时模拟器。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/9.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;这项技术被用在了胡夫金字塔内部结构的检测上&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;integrating-clipped-spherical-harmonics-expansion&quot;&gt;Integrating Clipped Spherical Harmonics Expansion&lt;/h4&gt;
+&lt;p&gt;解析地计算球谐函数积分来实现实时的面光源光照，这跟之前 Eric Heitz 的“Real-Time Polygonal-Light Shading with Linearly Transformed Cosines” 实现的实时面光源很像，但是 Eric 的方法不能解决面光源产生的阴影，而这篇文章解决了这个问题，并且在 mobile 上能实现 Realtime，文中给出的结果是在三星 s8上， Stanford Dragon场景，4阶球谐函数，能够获得30 fps。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/10.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;实时面光源&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;megatree-a-hardware-hlbvh-constructor-for-animated-ray-tracing&quot;&gt;MegaTree: A Hardware HLBVH Constructor for Animated Ray Tracing&lt;/h4&gt;
+&lt;p&gt;这篇文章提出了一个硬件架构来对 Ray tracing 中常用的空间划分结构进行加速。这个架构主要是针对只有有限带宽资源的 mobile 设备。
+对于动态场景，更新空间划分加速结构是非常 memory-intensive 的，这篇文章提出的硬件架构是第一个针对 Hierarchical Linear Bounding Volume Hierarchy（HLBVH）的硬件加速，相对于算法的软件实现，带宽节省了3倍以上。在 HLBVH 的创建速度上也比当前流行的 binned SAH builder 快了5倍。&lt;/p&gt;
+
+&lt;h4 id=&quot;tetrahedral-meshing-in-the-wild&quot;&gt;Tetrahedral Meshing in the Wild&lt;/h4&gt;
+&lt;p&gt;这篇文章给出了革命性的方法来高质量地从普通的 triangle mesh 构建出 tetrahedral mesh。过程包括 Delaunay triangulation， Binary subdivision等等，生成的 tetrahedral mesh 具有内部结构，唯一的不足是对于非常尖锐的部分无法很好的保留细节，但是即使这样我发现效果在很尖锐的部分也已经很好了。
+论文的实现是开源的。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/11.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Tetrahedral Mesh&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;curved-optimal-delaunay-triangulation&quot;&gt;Curved Optimal Delaunay Triangulation&lt;/h4&gt;
+&lt;p&gt;这是将传统 triangle mesh 网格通过Delaunay triangulation fit 到外部自定义的形状上，并且由curved triangle mesh 来表示。Curved triangle mesh 相对于传统 triangle mesh 来说表达能力更强，所需要的面也更少，但是生成这样的 mesh 是非常耗时的。
+这篇文章提出的基于 GPU 加速的方法可以只用50秒将200个顶点的 mesh fit 为对应的 curved triangle mesh。&lt;/p&gt;
+
+&lt;h4 id=&quot;shape-from-metric&quot;&gt;Shape from Metric&lt;/h4&gt;
+&lt;p&gt;非常 fancy 的 demo 展示，将一个 Stanford Bunny 从内到外翻了个面，demo 一秀出来全场都忍不住鼓掌，文章花了不少篇幅讲解这种几何变形会遇到的 pinch point，以及如何避免，但是内容涉及太高深的数学，我也只能看个热闹了。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/12.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;从内到外翻转的兔子&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;rendering-specular-microgeometry-with-wave-optics&quot;&gt;Rendering Specular Microgeometry with Wave Optics&lt;/h4&gt;
+&lt;p&gt;通常光照计算中都将光线表达为射线，这叫做 geometric optics，而 wave optics 则是将光线表达为波，这样一来光线的反射就变成了波的形变。
+这种表示在渲染带划痕的金属制品时更加方便，文章提供的方法可以高质量地渲染单个或多个波长下的微表面反射。&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/13.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Wave Optics&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-high-performance-software-graphics-pipeline-architecture-for-the-gpu&quot;&gt;A High-Performance Software Graphics Pipeline Architecture for the GPU&lt;/h4&gt;
+&lt;p&gt;一个 D3D9风格的 pipeline的软件实现，包括光栅化，但是使用了硬件的 texture units。
+这样的软件管线可以灵活地针对特殊 case 进行优化，文章中提出了一个高度场生成的例子，在 hardware pipeline 下需要3个 pass，但是在他们的软件实现中只需要1个 pass。
+总体来说他们的软件渲染管线的性能跟硬件加速的渲染管线差距在1个数量级内，对于最好的情况，差距在2倍以内。
+但是他们的性能测试是通过抓取游戏的几何数据，然后用他们自己的 shader 来进行的渲染，所以不见得能体现最真实的性能情况。
+最后，他们的实现也是开源的。&lt;/p&gt;
+
+&lt;h4 id=&quot;slang-language-mechanisms-for-building-extensible-real-time-shading-systems&quot;&gt;Slang: Language Mechanisms for Building Extensible Real-Time Shading Systems&lt;/h4&gt;
+&lt;p&gt;针对当前 shader 编写和管理的复杂性，提出的一个 基于 HLSL 的扩展，将 shader 模块化，并且不会引入虚函数，保持了静态特性，因为虚函数在 gpu 上会非常低效。
+模块化指的是对于 lighting，material deformation 等等计算，都可以直接使用现成实现，由 compiler 直接插入到 shader 中，可以看做静态的多态，这里面包括了不少现代编译器的技术。
+现有的一些解决方案比如，engine specific 的语法和编译器，但是难以扩展到其他引擎，preprocessor 的方法，就是一大堆 ifdef，完全不模块化。
+Slang 已经在 NVIDIA 内部一些实验项目中使用了。&lt;/p&gt;
+
+&lt;h4 id=&quot;googles-light-fields-vr&quot;&gt;Google’s Light Fields VR&lt;/h4&gt;
+&lt;p&gt;利用光场相机抓取场景中的光照信息，在 VR 中真实还原场景的技术。
+通常的方法使用360度相机拍摄场景，但是这样的方法无法提供动态的光照，也就是说在 VR 体验中，光线无法随你的视角变化而变化（比如specular），并且在 VR 中图像有很大的桶形畸变，最后用户无法在场景中移动，只能进行旋转视角。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/14.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Google的光场相机设置&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;
+Google 利用一个 GoPro 阵列，旋转一圈拍摄场景，然后在球面上均匀采样出一部分 image，相邻的 image 利用视差计算出深度信息，深度信息用于构建网格来做动态光照。
+他们提供了 demo 供大家体验，并且他们的光场数据在 steam 上还可以下载体验。&lt;/p&gt;
+
+&lt;h4 id=&quot;fractal-multiverses-in-vr&quot;&gt;Fractal multiverses in VR&lt;/h4&gt;
+&lt;p&gt;我非常感兴趣的一个讲座，因为很喜欢分形渲染，他们应该是做出了目前体验最好的在 VR 中进行分形探索的 demo。
+算法仍然是基于经典的 Raymarching，但是分形渲染的计算量是相当大的，Naïve 的方法下，raymarching 的每一步都需要计算到整个分形的距离，而这个计算不但复杂，还通常是一个循环，为了能在 VR 中实时的渲染，他们加入了非常多加速技巧，包括很多来自 demoscene的 trick，比如， Hierarchical accelerated sphere tracing 用于加速marching，cone-marching用于实现 dof 和抗锯齿，stereo reprojection用于让双眼图像只需要渲染一次，fixed foveated rendering 用于减少需要计算的像素，fake ambient occlusion 利用分形计算的中间结果来伪造环境光遮蔽，subsurface scattering 用于次表面散射，rim lighting without a normal 用于省去多余的 法线计算等等。&lt;/p&gt;
+
+&lt;h4 id=&quot;embree-raytracing-kernel-from-intel&quot;&gt;Embree Raytracing Kernel from Intel&lt;/h4&gt;
+&lt;p&gt;去听了一小会儿，门外排着超长的队伍等着听隔壁皮克斯的讲座。后来有点后悔，应该去皮克斯领茶壶的。
+这个是Intel 自己的 raytracing 软件实现，包含 raytracing 中的各种空间划分加速算法，支持各种 primitive的求交，而且这些算法都是经过 SIMD 的充分优化。这个库的使用也很方便，很适合用于学习和用作 ground truth 计算等等，在今年 RTX 的光芒下，这个就显得不那么酷了。&lt;/p&gt;
+
+&lt;h4 id=&quot;rtx-on-vulkan&quot;&gt;RTX on Vulkan&lt;/h4&gt;
+&lt;p&gt;NVIDIA 的 RTX 可以说是今年图形学界最火的一个话题了。可惜我并没有去黄老板的现场，但是还好没有错过 RTX 在 Vulkan 上的支持。
+Vulkan raytracing 的 Extension 已经在不断完善的阶段了，从最新的 Vulkan 1.1.xx的 spec 中都已经可以看到 raytracing 的 shader stages，现在这个 extension 叫做 VK_NV_raytracing，它提出的 pipeline 是这样的：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/15.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Raytracing Pipeline&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Shader stage也和光栅化完全不同了，在 raytracing 中，有以下几种 shader:
+Ray Generation Shader， Intersection Shader， Any-hit Shader， Cloest-hit Shader， Miss Shader， 他们的关系是：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/16.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Raytracing Shader Stages&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;
+除了新加入的 shader，还有 raytracing 所必须的加速结构，vulkan 中会加入新的 structure 和 command 来创建加速结构：
+•	vkAccelerationStructureNV
+•	vkCmdBuildAccelerationStructureNV&lt;/p&gt;
+&lt;h4 id=&quot;posters&quot;&gt;Posters&lt;/h4&gt;
+&lt;p&gt;Poster 在会场的一个区域集中展示，几天以来都是一直贴在那里的，其中最喜欢的一个也是分形的渲染，通过体渲染来探索分形的内部结构，以前是没有看到过的。
+还发现了很多脑洞大开的研究，特别是来自日本的研究，常常给人一种跑偏了的感觉，比如通过分析面部在咀嚼中的形变来确定食物的硬度这种。&lt;/p&gt;
+
+&lt;h4 id=&quot;exhibition&quot;&gt;Exhibition&lt;/h4&gt;
+&lt;p&gt;展出和体验其实包含几个不同的种类，我就都放这里一起写了。&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/17.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;其中一个场馆&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/18.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;来自91年的 VR 头盔&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/19.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;增强现实 demo，有各种动物冒出来，不过不会与体验者互动&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/20.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;来自日本大学生的增强现实游戏，要击败只有通过手机屏幕才能看见的鬼魂&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/21.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;也是来自日本大学生的研究，在水中投影出的3D 影像，体验者如果捧出一捧水，会感觉将水中的影像也一同捧了出来，让我感觉猴子捞月就要率先在日本成功了&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/22.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;来自日本学生的创新，具有宽视域的3D 显示设备&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/23.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;来自日本学生的创新，基于视网膜投影的3D 显示设备&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/24.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;也是来自日本，表情会随被拍摄者变化的机器人&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/25.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;同样来自日本大学生，图像投射在石榴一样的高速旋转的铁球上，呈现出的三维影像&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;还有一些我没有保存照片的体验，比如迪士尼利用 VR 做的一个短片”cycles”，让人身在场景中体验了动画短片中一个家庭的兴衰变化，还有来自 Square Enix 的”Tales of the Wedding Rings“ VR 漫画，让我第一次感受到了真正置身于漫画场景当中。&lt;/p&gt;
+&lt;h4 id=&quot;computer-animation-festival&quot;&gt;Computer Animation Festival&lt;/h4&gt;
+&lt;p&gt;非常震撼的体验，现场是这样的：&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/26.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Electronic Theatre&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;开场还有大鼓表演，动画放映过程中是不许拍照的，但是其中有不少动画短片都是网上找得到的，比如有来自 Unity 的宣传 Unity 5 强大渲染能力的 demo: “ Book of the dead”, 来自 NVIDIA 的 RTX 渲染的星球大战 demo，来自皮克斯的华人导演的短片”bao”，如果你去电影院看过”超人总动员2”想必你就已经看过这个短片了，还有来自中国太崆动画的短片”冲破天际” 也让我惊讶了一把，华人在 CG 行业也逐渐开始崭露头角了。
+短短几个小时，带给我太多震撼和感动，不由得心里暗暗感叹，这票买的值了。&lt;/p&gt;
+
+&lt;h4 id=&quot;realtime-live&quot;&gt;Realtime Live!&lt;/h4&gt;
+&lt;p&gt;与 Computer Animation Festival 在同一个地方，不同的是，所有的 demo 都是实时的，于是有不少 VR，AR 的 demo，并且有很多交互和互动。&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/27.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;Realtime Live&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;印象深刻的 demo 有: 实时通过手机的面部捕捉，并且与3D avatar 绑定，实时的反应被捕捉者的面部表情，demo 采用的 avatar 是个胖小孩，跟演示者搞怪的表情同步，显得非常有趣，这个 demo 也夺得了 realtime live 的冠军。还有带着 VR 眼镜拿着手柄进行肠道手术游戏的 demo，左手钳子夹掉肠道中的肿瘤，右手激光枪灼烧修复伤口，它们实现了非常真实的极具肉感的肠道，真实的血液流动，demo 感觉很恶心但又让人欲罢不能。&lt;/p&gt;
+
+&lt;p&gt;最后一个让我特别震撼的就是虚拟拍摄技术，在这之前我甚至都不知道这个技术的存在，演示这个技术的又是 RTX 的星球大战 demo，这一次两位演示者带上 VR 眼镜进入到了这个实时渲染的 demo 中，他们分别扮演在 demo 中的两位风暴士兵，并且他们决定实时地改变 demo 的剧情，也就是利用虚拟拍摄技术，让带着 VR 眼镜的演员实时地演出 demo 中的虚拟角色，其中一位演示者在场景中设置好了虚拟摄像机，然后开拍，两位由演示者扮演的风暴士兵的新的台词和动作就被重新记录下来，并且马上就能无缝衔接到 demo 中进行重新播放。&lt;/p&gt;
+
+&lt;p&gt;之后 Unity 也在他们的引擎中演示了类似的虚拟拍摄技术，可以想象游戏引擎在将来在 CG 行业中将会扮演更加重要的角色，对于电影的制作，动画的制作都可能出现颠覆性的影响。&lt;/p&gt;
+
+&lt;h4 id=&quot;misc&quot;&gt;Misc&lt;/h4&gt;
+&lt;p&gt;毕竟 CG 跟电影行业息息相关，也有不少电影特效制作的分享，比如权利的游戏，复仇者联盟: 无限战争，对于这些电影中一些精彩镜头的特效是如何一步一步被制作出来的，给出了 非常详细的解析，特别是对于刚看完复联不久的我，算是大开眼界，虽然这些 session 都是不允许拍照的，但是至少能拍拍排队等待进场的人:&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/siggraph18/28.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; &lt;center&gt;最后一天，复仇者联盟：无限战争的制作&lt;/center&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是最后一天的最后一个 session，复仇者联盟：无限战争的制作分享，排着超长的队伍，可见大家的热情之高。&lt;/p&gt;
+
+&lt;p&gt;在动画方面，VR 的进入带来了一定程度观影方式的改变，比如之前提到的迪士尼的” cycles”，还有一个讲述印第安传说中的英雄的故事” crow the legend”，观影者需要通过 VR 与故事中的主角交互，比如用手挥舞帮助主人公驱散前进路上的障碍物，虽然现在的交互并不会改变故事走向，但还是非常期待这种新颖的动画形式能够更加成熟和普及。
+SIGGRAPH 的 Social Event，Chapter party 我们是错过了，因为公司的内部聚会，非常可惜，听说当晚 Ken Perlin 也在，也就是柏林噪声之父，要能合个影就好了。不过后来我去参加了一个 Asian meetup，认识了不少电影特效行业的朋友，还见到了一直致力于记录国内古董电子文化和艺术历史的蓬岸小哥，他的知乎专栏叫做”古董电脑室”，和他聊了一晚上国内 demoscene 文化的发展，收获很大，这也是 SIGGRAPH 的魅力之一吧，除了围观大牛，还能认识 CG 领域里不同行业的人，结交志同道合的朋友。&lt;/p&gt;
+&lt;h4 id=&quot;结语&quot;&gt;结语&lt;/h4&gt;
+&lt;p&gt;我所能记录下的只是 SIGGRAPH 的一小部分而已，还有不少我根本来不及参加的 session，以及不少来不及去体验的新技术新应用，但是我仍然充分体验到为什么有人说去 SIGGRAPH 就是去朝圣，如果你热爱CG，一定要去 SIGGRAPH 瞧瞧。&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">Log Bisection Tracing</title><link href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="alternate" type="text/html" title="Log Bisection Tracing" /><published>2018-04-09T22:34:00+08:00</published><updated>2018-04-09T22:34:00+08:00</updated><id>http://localhost:4000/raymarching/log-bisection-tracing</id><content type="html" xml:base="http://localhost:4000/raymarching/log-bisection-tracing/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;sphere-tracing-的问题&quot;&gt;Sphere Tracing 的问题&lt;/h2&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/01.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; 在 SDF 存在 overestimation 的情况下，sphere tracing 得到的距离场出现了扭曲。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于并非所有 SDF 都是完美的， 在存在距离估计过大，或者 SDF 有奇点等情况，sphere tracing 会存在穿过表面，甚至穿过了比较薄的物体的情况，这时候一个解决办法就是 Bisection， 保存上一次的距离值，跟最后得到的距离值做 bisection 来得到更精确的距离，但是光这样做仍然无法完全解决上述问题，因为做 bisection 的区间不一定合适，要是这个区间全都穿过了表面，再怎么 bisect 都没用，所以要正确的 bisect，必须保证要求的与表面的交点一定要在这个区间之中。&lt;/p&gt;
+
+&lt;h3 id=&quot;正确的-bisection&quot;&gt;正确的 Bisection&lt;/h3&gt;
+&lt;p&gt;在 raymarching 过程中，加入另一个条件来终止 Marching，也就是当距离值的符号改变时，那么保存的上一个距离值与当前距离值一定是异号，也就是说要求的表面交点一定是在两者之间，在这个区间做 bisection 的话，一定可以保证得到正确的距离值，当然这是在 SDF 连续的条件下。&lt;/p&gt;
+
+&lt;p&gt;有了这个 bisection 就够了吗？ 来看另一个例子：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/02.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; Twist 后的 Lattice， 可以看到远端的距离场惨不忍睹， 因为 Twisting 操作不是保距的变换，Naive 的解决方法是在 marching 的时候缩短步长。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们加上这个 Bisection 试试：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/03.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; Bisection 后，近处的距离场略有改善，远端仍然一塌糊涂。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;好吧，没办法， 这是因为远端还是存在整个 bisection 区间直接跨过表面的情况，如果我们用上 Naive 的解决方法，直接缩短步长，比如采用原步长的 0.4 倍，那么要 hit 到同样距离的表面，marching 步数也要相应增加至少一倍：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/05.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; Bisection + 0.4 倍步长，基本干净漂亮的距离场，但是性能下降太多，特别是在距离函数非常复杂的情况下 （对于 shadertoy 玩家来说，就是所有情况）。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;那么问题就来了， 我们想要高质量就要小步长，用小步长就丢性能，那么有没有一个两全其美，或者说较为折中的方法呢？&lt;/p&gt;
+
+&lt;h3 id=&quot;log-bisection-tracing&quot;&gt;Log Bisection Tracing&lt;/h3&gt;
+
+&lt;p&gt;这个算法来自于&lt;a href=&quot;https://www.shadertoy.com/user/nimitz&quot;&gt;nimitz&lt;/a&gt;，算法的核心在于，要能够尽量避免越过较薄的物体，特别是一次性越过两个以上，这样的情况光是 Bisection 是解决不了的，所以需要一个 huristic 来控制步长。&lt;/p&gt;
+
+&lt;p&gt;Log Bisection Tracing 算法顾名思义，就是每次 marching 的步长为当前距离值 d+1 的对数， 也就是 log(d+1)， 在 d 值较小的时候，log(d+1) 与 d 非常接近，但比 d 值小，d 值越大，log(d+1) 越是一个保守的步长。 可以作图对比一下 log(d+1) 与 0.4*d， 在 d 值较小时，log(d+1) 的收敛速度还是要快不少的，但是当 d 太大的时候， log(d+1) 就会太过保守了，所以可以和普通的 sphere tracing 混合使用，当 d 大于一个阈值的时候，就采用普通的 sphere tracing 来提高收敛速度。&lt;/p&gt;
+
+&lt;p&gt;这是采用了 Log Bisection Tracing 之后的结果:&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/04.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;Log Bisection Tracing，步长为 log(d+1.1)&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到质量非常不错，那么速度相比又如何呢，下面将 marching 的步数可视化出来，颜色越浅的区域代表步数越多：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/06.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; Sphere Tracing， 默认步长 &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/07.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; Bisection + 0.4 倍步长 &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/log_bisection_tracing/08.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt; Log Bisection Tracing &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到 Sphere Tracing 的整个画面都更暗，说明步数整体更少，但是物体边缘部分较亮，说明光线在经过边缘的时候由于距离太小，白白花了了非常多的步数，边缘对于 sphere tracing 就像一个黑洞一样， 紧紧吸住光线不让你离开。&lt;/p&gt;
+
+&lt;p&gt;第二幅图是 0.4 倍步长，整个画面是三者中最亮的，物体边缘也有跟第一幅图中一样的情况，这是性能最差的一个。&lt;/p&gt;
+
+&lt;p&gt;第三幅图整体较第一幅稍亮一些，但关键是物体边缘亮度并无太大改变，得益于 log(d+1.1) 在 d 值较小时给出更宽松的步长，让光线得以快速地经过边缘。性能反而比 Sphere Tracing 更好。&lt;/p&gt;
+
+&lt;p&gt;Log Bisection Tracing 算法中也有一些经验值需要根据不同场景来设置， 比如上面的 1.1 和下面 sample code 中的宏，来控制不同 d 值下的步长， 但总体来说，仍然比普通的 Sphere Tracing 更 Robust，既可以保证不亚于传统 Sphere Tracing 的速度，又可以保证对复杂距离场得到更高质量的结果，所以这个算法应该仍是目前最好的基于 Sphere Tracing 的优化。&lt;/p&gt;
+
+&lt;h3 id=&quot;sample-code&quot;&gt;Sample code&lt;/h3&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#define BASE_STRIDE 1.
+#define FAR_STRIDE .56
+#define MIN_STEP .1
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logvl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MIN_STEP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bisect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;near&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;far&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sgn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;near&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;near&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;far&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sgn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;far&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;near&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;near&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;far&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;intersect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sgn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;told&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_bisect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.002&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;100.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;            
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sgn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;do_bisect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;told&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FAR_STRIDE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logvl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BASE_STRIDE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       	&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;do_bisect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bisect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;told&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;100.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">Voronoi与伪Voronoi Pattern的快速生成算法</title><link href="http://localhost:4000/noise/voronoi/" rel="alternate" type="text/html" title="Voronoi与伪Voronoi Pattern的快速生成算法" /><published>2018-03-20T21:43:00+08:00</published><updated>2018-03-20T21:43:00+08:00</updated><id>http://localhost:4000/noise/voronoi</id><content type="html" xml:base="http://localhost:4000/noise/voronoi/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;voronoi&quot;&gt;Voronoi&lt;/h2&gt;
+
+&lt;p&gt;给定平面中的 N 个采样点 (seeds)， 对于每个 seed：&lt;script type=&quot;math/tex&quot;&gt;p_i&lt;/script&gt;， 平面中存在一个区域，区域中所有点到 &lt;script type=&quot;math/tex&quot;&gt;p_i&lt;/script&gt; 的距离，比到除 &lt;script type=&quot;math/tex&quot;&gt;p_i&lt;/script&gt; 外其他所有 seeds 的距离都近，那么这个区域被称为一个 voronoi cell。 这 N 个采样点，就按照最邻近原则划分了平面，如果读者接触过 Delaunay Triangulation 的话，Delauney 刚好是 Voronoi 的偶图。&lt;/p&gt;
+
+&lt;p&gt;Voronoi pattern 在 Procedural content 中常常作为 Noise 使用，这种连接的不规则区域可以让人联想到很多自然界中的表面，如长颈鹿的皮肤，蜻蜓翅膀的纹理，乌龟的壳，龟裂的土地等等。&lt;/p&gt;
+
+&lt;h2 id=&quot;standard-implementation&quot;&gt;Standard Implementation&lt;/h2&gt;
+
+&lt;p&gt;标准的 implementation 来自 &lt;a href=&quot;https://www.shadertoy.com/view/MslGD8&quot;&gt;iq&lt;/a&gt;，将平面划分为 Grid，对每一个像素，计算它所属的 Cell， 再计算它到以这个 Cell 为中心的 3x3 的 Cells 中的所有采样点的距离，最后取最小值即可，iq 的实现完全在 Domain Space 中，所以计算非常简单易懂，也易于应用到任何表面上。&lt;/p&gt;
+
+&lt;p&gt;Reference code:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;voronoi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// the domain is partitioned in a grid.
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// find out which cell p is in.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;ivec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;8.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// The set of 3x3 cells is examined
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// All the calculations are happening in the cell space
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// The origin is at the current cell
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// b is the coordinates of the cell to be examined.
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;ivec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ivec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            
+            &lt;span class=&quot;c1&quot;&gt;// hash(p+b) is to get the position of the seed at cell b, 
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;// it's in the range of [0,1], so it's the position in a cell.
+&lt;/span&gt;            
+            &lt;span class=&quot;c1&quot;&gt;// b+hash(p+b) is vector from origin to the seed of cell b.
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;// so r is the vector from current position to the seed of cell b.
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+            &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            
+            &lt;span class=&quot;c1&quot;&gt;// update the minimum distance
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// d is now the minimum distance to all 3x3 cells.
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/voronoi/01.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;Based on iq‘s Implementation。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;这个算法可以很容易扩展到 3D，只需要加一层循环计算 3x3x3 的 Cells 即可，但是也因此，3D voronoi 非常慢，要想实时地在 3D 物体上做 Voronoi Displacement Mapping 的话，场景的复杂度就很受限制了。&lt;/p&gt;
+
+&lt;h2 id=&quot;fast-fake-voronoi&quot;&gt;Fast Fake Voronoi&lt;/h2&gt;
+&lt;p&gt;这个算法是来自于 &lt;a href=&quot;https://www.shadertoy.com/view/XtyGzc&quot;&gt;Shane&lt;/a&gt;，之所以叫做 Fake Voronoi，是因为算法产生的并不满足 Voronoi Diagram 的定义，而仅仅是看起来像 Voronoi 的 Celluar Pattern。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/voronoi/02.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;Fake Voronoi。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;算法的 Idea 基于在平面上重复绘制 Gradient Circle，再将每次绘制结果用 min 函数 blend 起来，看起来就像 Voronoi 图一样， 那么什么是 Gradient Circle 呢？ 就像下面这样：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/voronoi/03.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后我们把 Size 缩小，频率增大，加点偏移，再画另一组 Gradient Circle，像这样：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/voronoi/04.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;再把上面两次的结果，用 min(src, dst) 的混合方式叠加，就得到了：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/voronoi/05.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;看起来已经有点 Voronoi 的样子了，于是我们再以不同的 Size 或者偏移画另外几组 Gradient Circles，然后叠加在一起，就得到了基本看不出什么问题的 Voronoi：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/voronoi/02.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Reference Code：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Wrappable circle distance. The squared distance, to be more precise.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Draw some cirlcles on a repeatable tile. The offsets were partly based on science, but
+// for the most part, you could choose any combinations you want.
+//
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cellTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Set the maximum, bearing in mind that it is multiplied by 4.
+&lt;/span&gt;    
+    &lt;span class=&quot;c1&quot;&gt;// Draw four overlapping shapes (circles, in this case) using the darken blend 
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// at various positions on the tile.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.89&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.62&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Draw four smaller circles at various positions on the tile.
+&lt;/span&gt;    
+    &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.4142&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;c1&quot;&gt;//p = p.yx; // Extra option, or addition.
+&lt;/span&gt;    
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.46&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.04&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.88&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt; 
+    
+    &lt;span class=&quot;c1&quot;&gt;// More shapes produce a more convincing pattern, but you could cut
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// these two out and still produce a decent image.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.06&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.54&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drawShape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;.12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;  
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这个算法的最大优势就是速度非常快，而且完全可以根据自己对精度的需求调整画 Gradient Circle 的次数，并且，即使扩展到 3D，也只需要简单地把 Gradient Circle 换成 Sphere 即可，在一些场景中，画三四次不同偏移的 Gradient Sphere 就已经够用了。&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">More Space Folding，空间折叠进阶</title><link href="http://localhost:4000/fractal/space-folding-advanced/" rel="alternate" type="text/html" title="More Space Folding，空间折叠进阶" /><published>2018-03-14T21:13:00+08:00</published><updated>2018-03-14T21:13:00+08:00</updated><id>http://localhost:4000/fractal/space-folding-advanced</id><content type="html" xml:base="http://localhost:4000/fractal/space-folding-advanced/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/01.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;空间折叠回顾&quot;&gt;空间折叠回顾&lt;/h2&gt;
+
+&lt;p&gt;在之前的&lt;a href=&quot;https://evil-ryu.github.io/fractal/menger-spone-introduction/&quot;&gt;post&lt;/a&gt;中，已经介绍过基本的 Space Folding，通过迭代这些简单的折叠，我们可以生成极为复杂的分形。涉及到的空间折叠包括沿坐标轴，沿任意线性函数，乃至于圆的反演变换， 而本文将介绍一种基于反射的折叠方法，这种方法能将坐标空间折叠到特定的对称图形中，不仅能依靠这种方法直接绘制一系列几何体，而且可以被应用到各种造型中，创造更灵活的形状，值得一提的是，这个折叠方法再一次来源于伟大的 knighty！诶我为什么要说又。&lt;/p&gt;
+
+&lt;p&gt;Anyways，无论是三维空间中的三角形：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/04.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;八边形：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/05.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;还是五角星：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/06.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;都能通过简单几次空间折叠直接绘制出来，而不需要借助通常的方法，譬如求到解析函数的距离，或者基于预定义法向量的方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/space_folding_advanced/02.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;分形的一部分，在计算前被折叠到了近似三角形的空间中。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;基于反射的折叠&quot;&gt;基于反射的折叠&lt;/h2&gt;
+
+&lt;p&gt;对于任何图形学爱好者来说，对光线反射的计算不能更熟悉了。&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/03.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;对入射向量 I，反射向量 R = I - 2.0 * dot(N, I) * N，其中 N 为表面法向量。
+那么考虑整个坐标系中，位于原点的单位圆内，在所有的单位向量中，选取一个作为法向量 N， 其余所有向量都根据这个法向量做反射，得到的结果会是怎样？可以想象一下，用以 N 为法向的平面将单位圆分成上下两部分，上半部分的所有向量因为沿法向做了反射计算，效果就等于都沿法向做了折叠，下半部分的所有向量经过反射计算，效果等同于沿这个平面折叠到了上半部分，而这个平面恰好为 I 和 R 的中间向量，而并没有沿法线折叠的效果，可以看到这两半部分的行为并不统一，我们更感兴趣的是，假如我只想沿这个平面将下半部分折叠到上半部分，而不希望上半部分沿法线折叠呢？操作非常简单，只需要排除掉上半部分的计算即可：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;R = I - 2.0 * min(0.0, dot(N, I)) * N;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;接下来我们就要利用这个变换，得到类似于本文开头图中的结果，但是我们从一个三角形开始以便理解，多边形是同样的原理。&lt;/p&gt;
+
+&lt;h3 id=&quot;将空间折叠到三角形中&quot;&gt;将空间折叠到三角形中&lt;/h3&gt;
+&lt;p&gt;先画个图以便分析：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/space_folding_advanced/07.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;图中单位圆以白色表示，天蓝色为 y 轴，正向朝上， 粉红色为 x 轴， 正向朝右， 黄色为原点， 四个象限分别用红，绿，蓝，青色表示，颜色的渐变表示了坐标数值的增加，这样的表示可以让我们更容易看明白变换后的空间。&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/space_folding_advanced/08.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;青色的向量表示法向 N， 蓝色的向量（图中被紫色向量覆盖）表示入射向量 I， 紫色的向量表示反射向量 R， 可以看到当 N 和 I 的夹角小于 90 度的时候，并不进行反射计算，I 和 R 是相等的。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/space_folding_advanced/09.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;到当 N 和 I 的夹角大于 90 度的时候，开始计算反射，反射向量 R 开始顺时针往回旋转（当 I 继续逆时针旋转时）。 所以这样就简单地将坐标空间沿与 N 垂直的平面折叠了。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;研究了单个向量的变化规律以后，让我们来看看当整个坐标空间都执行这个变换之后的样子：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/10.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;
+注意上图中绿色和青色区域的不连续处，正好是与 N 夹角为 90 度的方向，反射向量 R 在这个地方开始往回转。右下角同理。可以看到，x 轴和 y 轴变成了两条折线，而我们的第三象限彻底没了。&lt;/p&gt;
+
+&lt;p&gt;这个变换到这里已经有些接近三角形了，因为 x 轴始终是和 y 轴垂直的，所以如果我们能够再把一条 y 轴折叠到现在第四象限的中线（不连续）处，也就是下图中第四象限中深绿色向量的部位， 这样一来 x 轴就自然能围成三角形了。&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/15.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;如何折叠出第三条 y 轴到第四象限呢，我们可以重复利用刚才的反射方法，所以我们需要一个新的法向量，使得垂直于它的平面，要恰好平分竖直的 y 轴和上图中深绿色向量，这样一来，反射计算就能刚好把竖直的 y 轴，反射到深绿色向量处，假设这个新的法向量为 N’， 它的计算方法为：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;N‘ = normalize( N - vec2(1.0, 0.0) )
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里读者可能有一个疑问，要是我并不想折叠出一个标准的三角形，而任意选择 N’ 的方向会怎样呢，在某些情况下可能不会有大问题，但是大多数情况下，比如现在的第四象限，深绿色向量两边是镜像的，经过上一次反射折叠而形成的，如果 N’ 的方向稍有偏移，第二次折叠会在第四象限中折叠出两条 y 轴（因为第四象限已经处于折叠状态中，如果在一张已经对折的纸中间剪一个孔，必然会导致打开的纸张出现两个孔）, 如下图，N’ 的方向沿逆时针稍微旋转了一点，出现了两条 y 轴：&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/space_folding_advanced/16.png&quot; alt=&quot;what&quot; /&gt;
+&lt;figcaption&gt;N' 的方向略微偏移， 竖直的 y 轴不再被恰好反射到第四象限中线处，于是出现了两条新的 y 轴。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样的后果一方面是生成的形状难以控制，更重要的是，即使结果仍然围成闭合形状，闭合区域内容易出现多个不同象限，导致难以作为距离函数参与计算。后面我会举一个这样的例子说明问题。&lt;/p&gt;
+
+&lt;h3 id=&quot;新法线方向-n-的推导&quot;&gt;新法线方向 N’ 的推导&lt;/h3&gt;
+
+&lt;p&gt;设竖直 y 轴上的单位向量为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat y = (0, 1)&lt;/script&gt;
+
+&lt;p&gt;第四象限中线向量为 &lt;script type=&quot;math/tex&quot;&gt;\hat a&lt;/script&gt;, 第一次折叠使用的法线方向为:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat N = (x, y)&lt;/script&gt;
+
+&lt;p&gt;根据反射计算公式可知，&lt;script type=&quot;math/tex&quot;&gt;\hat N&lt;/script&gt; 垂直于 &lt;script type=&quot;math/tex&quot;&gt;\hat a&lt;/script&gt;。那么 &lt;script type=&quot;math/tex&quot;&gt;\hat a&lt;/script&gt; 的坐标即为：&lt;script type=&quot;math/tex&quot;&gt;\hat a = (y, -x)&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;因为根据欧拉公式，&lt;script type=&quot;math/tex&quot;&gt;\hat a&lt;/script&gt; 等于 &lt;script type=&quot;math/tex&quot;&gt;\hat N&lt;/script&gt; 顺时针旋转 90 度， 等价于：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat a = \hat{N}e^{-{\pi\over2}i} = (x+iy) * (\cos{\pi\over2} + i\sin{\pi\over2}) = (y, -x)&lt;/script&gt;
+
+&lt;p&gt;由于新的法线方向 &lt;script type=&quot;math/tex&quot;&gt;\hat N'&lt;/script&gt; 要垂直于 &lt;script type=&quot;math/tex&quot;&gt;\hat y&lt;/script&gt; 与 &lt;script type=&quot;math/tex&quot;&gt;\hat a&lt;/script&gt; 的中间向量，设为 &lt;script type=&quot;math/tex&quot;&gt;\hat m&lt;/script&gt;， 那么：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat m = { (y, -x) + (0, 1) \over 2} = ({y\over2}, {(1-x)\over 2})&lt;/script&gt;
+
+&lt;p&gt;于是新的法线方向等于将 &lt;script type=&quot;math/tex&quot;&gt;\hat m&lt;/script&gt; 逆时针旋转 90 度， 即：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat N' = \hat{m}e^{ {\pi\over2} i } = ({y\over2}+i{(1-x)\over 2}) * (\cos{\pi\over2} + i\sin{\pi\over2}) = {1\over2}(x-1, yi)&lt;/script&gt;
+
+&lt;p&gt;最后再将结果 normalize 即可。这就是为什么新的法线方向为：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;N‘ = normalize( N - vec2(1.0, 0.0) )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;的原因。&lt;/p&gt;
+
+&lt;h3 id=&quot;继续剩下的折叠&quot;&gt;继续剩下的折叠&lt;/h3&gt;
+
+&lt;p&gt;有了新的法线 N’， 那么第二次折叠产生的新反射向量即为：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;R' = I - 2.0 * min(0.0, dot(N’, I)) * N‘;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;再一次计算反射之后，并且沿 y 轴折叠（把左侧的第二象限也去除），结果是这样：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/11.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;完美，整个坐标空间完全对称，而且都被变换成为了原先的第一象限，三条 y 轴已经就位， 但是等等，x 轴去哪里了? 不如让我把 x 轴加粗十倍瞧瞧？&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/12.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;啊哈，x 轴当然是跟 y 轴垂直啦， 毫无疑问 x 轴已经围成了我们想要的三角形，只不过已经聚到一点了，这时候如果可视化出到 x 轴的距离，可以看到距离场已经是三角形了，现在我们还需要一个操作，不过这里从这一步来看这个操作不太直观（读者有兴趣的话可以调换前面的变换顺序来观察坐标轴的变化），那就是:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; abs(p.y) - 1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;熟悉 Distance Field 的小伙伴们知道，这个操作的效果就是将整个空间沿 y 轴正方向平移 1.0 然后沿 x 轴折叠，那么我们现在有三个 y 轴，正向都朝外，结果不就是：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/13.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;这时候请允许我说：嗒哒！&lt;/p&gt;
+
+&lt;p&gt;有趣的是，之前被做掉的第四象限，又复活了，于是坐标平面被变换成三份，其中三个 x 轴围城三角形，三角形外全是第一象限，三角形内部全是第四象限，&lt;strong&gt;在这个坐标系下，要判断一个点是否在三角形内，只需要判断点的 y 坐标是否小于 0&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;一致的变换更好用&quot;&gt;一致的变换更好用&lt;/h3&gt;
+
+&lt;p&gt;其实如果只想要得到三个 x 轴围成三角形，甚至不需要第二次折叠，我们只需要取第一折叠的法向量 N 为： &lt;script type=&quot;math/tex&quot;&gt;({-1\over2},{\sqrt3\over 2})&lt;/script&gt;，就能得到下面的结果：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/17.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;这时候，三角形内外都有两个象限，这使得距离场有严重的 discontinuity，也会增加计算的复杂性。&lt;/p&gt;
+
+&lt;h2 id=&quot;实现与应用&quot;&gt;实现与应用&lt;/h2&gt;
+
+&lt;p&gt;通用的 Folding 代码， 不同的折叠次数和初始法向量的方向决定了折叠后的形状。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vec2 fold(in vec2 p, in float a)
+{
+    p.x = abs(p.x);
+    vec2 N = vec2(cos(a), sin(a));
+	for(int i = 0; i &amp;lt; ITER; ++i)
+   	{
+   		// Folding by reflection calculation
+   		// it has the effect of folding by the plane which perpendicular to N
+    	p -= 2.0 * min(0.0, dot(p, N)) * N;
+    	
+    	// The next normal for reflection foldig
+    	// This calculation makes it perpendicular to the 
+    	// half vector between the vector perpendicular 
+    	// to the previous N, and the vertical y axis
+    	N = normalize(vec2(N.x - 1.0, N.y));
+    }
+ 	return p;    
+}
+
+// ITER=2, a = PI/3. 即为上文变换到三角形空间。
+// 增加 ITER 和角度，就可以变换到多边形中。
+// Quad: ITER = 2,  A = PI/2.0
+// Pentagon: ITER = 3, a = PI / 5.0
+// Hexagon: ITER = 3, a = PI / 3.0
+// Octagon: ITER= 3, a = PI / 2.0
+   
+// 当然也可以自定义每次变换的法向量 N，来获得不同形状，并且由于本文介绍的变换是二维平面的变换，所以三维空间中不同平面的变换还可以结合起来生成特殊的形状，比如本文中的五角星，这些组合非常灵活，所以有兴趣就自己试验去吧。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;前文中利用这个空间折叠直接画出三角形的 code：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;float triangle(in vec3 p)
+{  
+    p.xy = fold2(p.xy, PI / 3.);  // ITER=2 version
+    p.y -= 1.0;
+    return (p.y &amp;gt; 0.0) ? length(p.yz) : abs(p.z) - 0.001;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;五角星的：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;float star(in vec3 p)
+{
+    p.xy = fold3(p.xy,  PI /5.0); // 这是五边形
+    p.y -= 1.0; // 平移 x 轴
+    p.y -= p.x*0.5;  // x 轴 逆时针旋转一点角度
+    p.z = abs(p.z) + p.y*0.8; // z 方向上的突起
+    
+    // 0.5 is compensation for the scaling.
+    return 0.5 * ((p.y &amp;gt; 0.0) ? length(p.yz) : (abs(p.z) - 0.001)); 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;五角星的距离场：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/space_folding_advanced/14.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到，在折叠中对坐标轴进行一些偏移，错切，能得到很多有趣的形状。&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">基于法向量构建本地正交标架的快速算法</title><link href="http://localhost:4000/fractal/basis-from-normal/" rel="alternate" type="text/html" title="基于法向量构建本地正交标架的快速算法" /><published>2018-03-08T19:34:00+08:00</published><updated>2018-03-08T19:34:00+08:00</updated><id>http://localhost:4000/fractal/basis-from-normal</id><content type="html" xml:base="http://localhost:4000/fractal/basis-from-normal/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;local-basis&quot;&gt;Local Basis&lt;/h2&gt;
+
+&lt;p&gt;说到本地正交标架，通常在图形学里就是指 normal，tangent，bitangent 所构成的本地坐标系，在这样的本地坐标系下，很多操作和计算都会更加简单直观。&lt;/p&gt;
+
+&lt;p&gt;但是大多数情况下，我们能获得的信息也就只有 normal 而已，所以我们需要一个方法单从 normal 来构造出一个正交标架，最直观的办法就是先任意选取一个不与 normal 重叠向量，然后通过两次叉乘和归一化来获得这个正交标架，这个计算量看起来并不算大，比如在最常见的需要构建一个本地标架的情形：摄像机坐标系（view space）中，每一帧只需要根据相机的当前姿态计算一次即可，但是对于另外一些情形，如 PathTracing，则需要大量计算本地标架，这时候一个更加轻量级的算法就显得有必要了。&lt;/p&gt;
+
+&lt;p&gt;下文介绍的是最快的一种算法，来自于&lt;a href=&quot;http://orbit.dtu.dk/files/126824972/onb_frisvad_jgt2012_v2.pdf&quot;&gt;Frisvad&lt;/a&gt;，这个算法基于四元数（quaternion），通过找到一个 quaternion 将 向量 &lt;script type=&quot;math/tex&quot;&gt;(0,0,1)&lt;/script&gt; （也就是本地标架中的 normal）变换到世界坐标中的 normal，来得到变换矩阵。&lt;/p&gt;
+
+&lt;h2 id=&quot;不需要归一化的标架构建算法&quot;&gt;不需要归一化的标架构建算法&lt;/h2&gt;
+
+&lt;p&gt;既然要找到一个四元数来将z轴变换到 normal，首先得知道怎么构造这个四元数，也就是如何找到一个四元数， 将单位向量 s 旋转到单位向量 t？&lt;/p&gt;
+
+&lt;h3 id=&quot;旋转一个向量到另一个向量&quot;&gt;旋转一个向量到另一个向量&lt;/h3&gt;
+
+&lt;p&gt;首先这样的旋转方法有很多种，但是最短的旋转路径也就是沿同时垂直于向量 s 和 t 的向量旋转，那么这个向量可以通过叉乘得到：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat u = s \times t&lt;/script&gt;
+
+&lt;p&gt;同样我们可以通过点积得到 s 和 t 夹角的 cos 值，有了向量 u 和角度，根据欧拉公式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{ \theta \hat u} = \cos {\theta} + (u_xi+u_yj+u_zk)\sin{\theta}&lt;/script&gt;
+
+&lt;p&gt;我们可以构造出 quaternion：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;q = (s \cdot t, s \times t) = (\cos\theta, u_x, u_y, u_z)&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;但是注意&lt;/strong&gt;， 这个四元数会让向量旋转 &lt;script type=&quot;math/tex&quot;&gt;2\theta&lt;/script&gt; 度，而不是我们想要的 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt; 度。
+那么怎么找到只旋转 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt; 度的四元数呢？ 我们可以通过求旋转 &lt;script type=&quot;math/tex&quot;&gt;2\theta&lt;/script&gt; 度的四元数 q 和 旋转 0 度的四元数的中间四元数来得到。
+旋转 0 度的四元数为：
+&lt;script type=&quot;math/tex&quot;&gt;q_0 = (1, 0, 0, 0)&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;这跟找两个向量的中间向量是一样的，只需要相加然后归一化即可，前提是，两个向量的长度相等，不然这样的相加会让结果向量偏向长的一方。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果向量 s 和 t 并不是单位向量的话，我们构造出的四元数 q 的长度就不是 1，而是等于 s 与 t 的长度的积，在相加之前就需要归一化， 或者将&lt;script type=&quot;math/tex&quot;&gt;q_0&lt;/script&gt;缩放到与 &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 一样长。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所以，将单位向量 s 旋转到单位向量 t 的四元数为：&lt;/p&gt;
+
+&lt;p&gt;\begin{align}
+q &amp;amp;= norm(q + q_0) \\
+&amp;amp; = norm(s \cdot t + 1, s \times t)\\
+ &amp;amp; = ({\sqrt{2(1+s\cdot t)}\over 2}, {(s\times t)\over \sqrt{2(1+s\cdot t)}})
+\end{align}&lt;/p&gt;
+
+&lt;h3 id=&quot;任意向量从本地标架到世界标架&quot;&gt;任意向量从本地标架到世界标架&lt;/h3&gt;
+
+&lt;p&gt;有了将任意向量旋转到另一个向量的四元数 q 之后， 就可以得到将 z 轴变换到 normal 的变换，设 normal 为：&lt;script type=&quot;math/tex&quot;&gt;(n_x, n_y, n_z)&lt;/script&gt;， 将两个向量带入 q 可得：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;q = ({(-n_y, n_x, 0)\over \sqrt{2(1+n_z)}}, {1\over2}\sqrt{2(1+n_z)})&lt;/script&gt;
+
+&lt;p&gt;有了 z-&amp;gt;normal的变换 q，就可以通过它将本地正交标架中的任意向量变换到世界坐标系下。&lt;/p&gt;
+
+&lt;p&gt;将本地标架中任意向量 &lt;script type=&quot;math/tex&quot;&gt;w = (x, y, z)&lt;/script&gt; 变换到世界坐标系的变换为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w' = qwq^{-1} = \Biggl(x
+\begin{pmatrix}
+1-n_x^2(1+n_z) \\
+-n_xn_y(1+n_z) \\
+-n_x
+\end{pmatrix} + y
+\begin{pmatrix}
+-n_xn_y(1+n_z) \\
+1-n_y^2(1+n_z) \\
+-n_y
+\end{pmatrix} + z
+\begin{pmatrix}
+n_x \\
+n_y \\
+n_z
+\end{pmatrix} \Biggr)&lt;/script&gt;
+
+&lt;p&gt;于是，向量：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat b_1 = (1-n_x^2(1+n_z), -n_xn_y(1+n_z), -n_x)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat b_2 = (-n_xn_y(1+n_z), 1-n_y^2(1+n_z), -n_y)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat n = (n_x, n_y, n_z)&lt;/script&gt;
+
+&lt;p&gt;即为本地标架的 tagent， bitagent， normal。 它们作为行向量构成左乘矩阵即为将本地标架中坐标变换到世界坐标的变换矩阵。矩阵取逆即为从世界坐标到本地标架的变换。&lt;/p&gt;
+
+&lt;p&gt;公式中有一处奇点需要避开，也就是 &lt;script type=&quot;math/tex&quot;&gt;n_z=-1&lt;/script&gt; 的时候，这时候因为法向量基本和z轴重叠，只需要显示取 tagent 和 bitagent 的值即可。&lt;/p&gt;
+
+&lt;p&gt;代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;basis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.999999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    	&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;四元数-quaternions&quot;&gt;四元数 Quaternions&lt;/h2&gt;
+
+&lt;p&gt;以防读者不熟悉四元数，这里做一个简单的梳理，但是不会包括太多细节。&lt;/p&gt;
+
+&lt;p&gt;四元数来源于尝试利用复数来表达三维空间中的旋转，在二维复平面上，复数的相乘可以表达旋转，例如一个复数乘上虚部 i，就相当于将对应二维向量逆时针旋转 90 度。于是旋转变成了一个简单的乘法运算，把一个向量乘以一个复数就得到我们想要的旋转，如何构造这个复数呢？&lt;/p&gt;
+
+&lt;p&gt;就要用到欧拉公式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{i\psi} = \cos{\psi} + i \sin{\psi}&lt;/script&gt;
+
+&lt;p&gt;可以看出，公式右侧即为复平面上的单位向量，角度 &lt;script type=&quot;math/tex&quot;&gt;\psi&lt;/script&gt; 就表达了这个向量逆时针旋转的角度，任何一个二维向量乘以这个复数，都会让该向量逆时针旋转 &lt;script type=&quot;math/tex&quot;&gt;\psi&lt;/script&gt; 度， 因为对两个单位复数, 他们的乘积：
+&lt;script type=&quot;math/tex&quot;&gt;(a + bi)(c+di)=e^{i\psi}e^{i\theta} = e^{i(\psi+\theta)}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;刚好是两个向量旋转角度之和。&lt;/p&gt;
+
+&lt;p&gt;于是，对于任何我们想旋转的角度，直接带入欧拉公式，即可得到一个用于旋转的复数，任何向量乘以这个复数就能得到相应的旋转。&lt;/p&gt;
+
+&lt;p&gt;这么方便的性质，数学家自然也想在三维空间中找到，于是爱尔兰数学家 Hamilton 尝试了把复数拓展到三维，也就是多加一个虚部，但是最后发现根本行不通，但是他发现这样构造复数的方法在四维上却是可以的（仍然丢失了交换律），于是就有了我们现在常用的四元数。&lt;/p&gt;
+
+&lt;p&gt;四元数被定义为含有一个实部和三个虚部，更多的时候看做一个标量和一个向量的组合：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;q = (q_w, q_v) = (w, xi+yj+zk)&lt;/script&gt;
+
+&lt;p&gt;其中：
+\begin{cases}
+ij=k=-ji \\
+jk=i=-kj \\
+ki=j=-ik \\
+ii=jj=kk=ijk=-1 \\
+\end{cases}&lt;/p&gt;
+
+&lt;p&gt;同样，利用欧拉公式，对于单位向量：
+&lt;script type=&quot;math/tex&quot;&gt;\hat u = (u_x, u_y, u_z)&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;欧拉公式:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{ { \theta \over 2 } \hat u } = \cos {\theta \over 2} + (u_xi+u_yj+u_zk)\sin{\theta \over 2}&lt;/script&gt;
+
+&lt;p&gt;表达了沿向量 &lt;script type=&quot;math/tex&quot;&gt;\hat u&lt;/script&gt; 旋转 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt; 度（往 &lt;script type=&quot;math/tex&quot;&gt;\hat u&lt;/script&gt; 的方向看，顺时针），注意这里不是 &lt;script type=&quot;math/tex&quot;&gt;\theta \over 2&lt;/script&gt; 度。&lt;/p&gt;
+
+&lt;p&gt;于是对任意一个三维向量
+&lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt;，都可以通过乘以一个四元数来得到沿任意向量旋转的效果，但是单单乘以一个四元数，会发现原向量经过旋转后长度也改变了，所以需要用到特殊的 Hamilton 积来补偿这个长度改变，也就是：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p' = qpq^{-1}&lt;/script&gt;
+
+&lt;p&gt;以上就是利用四元数做三维空间中旋转的原理。&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">Linearly Transformed Cosines 详解与实现</title><link href="http://localhost:4000/fractal/linearly-transformed-cosines/" rel="alternate" type="text/html" title="Linearly Transformed Cosines 详解与实现" /><published>2018-01-31T20:54:00+08:00</published><updated>2018-01-31T20:54:00+08:00</updated><id>http://localhost:4000/fractal/linearly-transformed-cosines</id><content type="html" xml:base="http://localhost:4000/fractal/linearly-transformed-cosines/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/ltc/ltc0.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
+&lt;p&gt;近年来最优秀的一个实时面光源光照算法，出自2016年 Eric Heitz 的 &lt;a href=&quot;https://drive.google.com/open?id=0BzvWIdpUpRx_d09ndGVjNVJzZjA&quot;&gt;paper&lt;/a&gt;，这个算法巧妙地解决了难以在 polygon 上计算复杂 BRDF 的积分的问题，让面光源也可以放心地用在 shader demo 中，虽然目前我还没想到非常适合展示面光源的 demo，不过还是先写下这篇笔记，帮助大家快速理解论文中的思想和一些推导的过程。&lt;/p&gt;
+
+&lt;h2 id=&quot;算法&quot;&gt;算法&lt;/h2&gt;
+&lt;p&gt;在实时计算中，面光源的计算一般没法通过采样来做，所以最好就是能找到渲染方程的解析解，无奈的是，对于复杂的 BRDF， 要么解析解也是计算量非常大，要么就根本找不到。所以当前解析解只限于简单的，类似于 cosine 分布的 BRDF， 也就是说，对于方程：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I = \int_{polygon}L(w_i)f(w_0,w_i)cos\theta_idw_i&lt;/script&gt;
+
+&lt;p&gt;中的 BRDF 函数 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 来说， 如果它就是简单的 cosine 分布，那么这个积分是有解析解的。&lt;/p&gt;
+
+&lt;p&gt;于是，对于更加复杂（也能更加真实地模拟材质）的 BRDF 来说，这篇论文的核心思想就是：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;用一个 3x3 的矩阵 M 把 cosine 分布变换成其他流行的 BRDF， 比如目前效果最好的 GGX， 注意这里的变换是一个近似。&lt;/li&gt;
+  &lt;li&gt;然后再将问题 ” 变换后的 BRDF 在 polygon &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; 上的积分“ 转化为 ” cosine 分布在 polygon &lt;script type=&quot;math/tex&quot;&gt;M^{-1}P&lt;/script&gt; 上的积分 “。也就是说我们只需要逆变换 polygon 的顶点， 然后计算一个已知有解析解的积分即可。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;由于步骤 1 是在预先通过拟合得到矩阵，存在纹理中，所以这个算法所带来的额外开销非常小。&lt;/p&gt;
+
+&lt;h3 id=&quot;推导与论证&quot;&gt;推导与论证&lt;/h3&gt;
+&lt;p&gt;知道了核心思想，接下来看看到底这个方法的理论依据是什么。
+论文的基石在于下面这个等式， 也就是描述了上文中的步骤 2：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_P D(w) dw = \int_{P_o} D_o(w_o)dw_o \tag 1&lt;/script&gt;
+
+&lt;p&gt;其中 &lt;script type=&quot;math/tex&quot;&gt;P_o&lt;/script&gt;为多边形面光源顶点，&lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;为经矩阵&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt;变换后的多边形面光源顶点，&lt;script type=&quot;math/tex&quot;&gt;D_o&lt;/script&gt;为原分布函数，通常人为选择为 cosine 分布，&lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;为经&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt;变换后的分布函数，&lt;script type=&quot;math/tex&quot;&gt;w_o&lt;/script&gt;为&lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;中的单位方向向量， &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt;为变换后的单位方向向量，可知：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P_o = M^{-1}P&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w={ M w_o \over ||Mw_o|| }&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w_o={ M^{-1} w \over ||M^{-1}w|| }&lt;/script&gt;
+
+&lt;p&gt;那么（1）式为什么成立呢，首先，论文中给出了：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;D(w) = D_o(w_o){ \partial w_o \over \partial w } = D_o({ M^{-1}w \over  ||M^{-1}w|| }){ |M^{-1}| \over ||M^{-1}w||^3 } \tag 2&lt;/script&gt;
+
+&lt;p&gt;这个式子表示了变换后的分布函数值等于原分布函数值乘上该线性变换的雅可比行列式值，注意雅可比行列式的值也就是该变换所带来的缩放因子，论文在附录中给出了该式子的推导，由于这个式子是在理论部分最关键的一块，所以在这里我尝试详细解释一遍。&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/ltc/ltc1.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图左图中红色部分为球面多边形微元，在球为单位球的情况下，这个多边形面积即为&lt;script type=&quot;math/tex&quot;&gt;w_0&lt;/script&gt;方向上的立体角大小，我们首先在这个球面多边形微元上构建正交标架 &lt;script type=&quot;math/tex&quot;&gt;(w_0, w_1, w_2)&lt;/script&gt;，三个向量为正交单位向量，那么由向量叉积可知，单位球面多边形的面积即为向量&lt;script type=&quot;math/tex&quot;&gt;w_0=w_1 \times w_2&lt;/script&gt;的长度，那么球面多边形微元的面积即为向量微元 &lt;script type=&quot;math/tex&quot;&gt;dw_o&lt;/script&gt;的长度，如果将&lt;script type=&quot;math/tex&quot;&gt;w_o&lt;/script&gt;看做立体角，那么向量微元的长度就可以表示为立体角微元 &lt;script type=&quot;math/tex&quot;&gt;dw_o&lt;/script&gt;， 论文中用的偏微分符号表示，我感觉这里应该表达的意思一致。&lt;/p&gt;
+
+&lt;p&gt;当我们用矩阵 &lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; 变换了这个标架之后，原先的球面多边形微元被变换为右图中红色的多边形微元，那么这个变换将多边形微元的大小改变了多少呢？
+我们可以从变换前后两个标架下单位多边形的大小改变推知：因为新的标架为 &lt;script type=&quot;math/tex&quot;&gt;(Mw_0, Mw_1, Mw_2)&lt;/script&gt;, 那么在此标架下的单位多边形面积与原标架下单位多边形面积之比为：
+&lt;script type=&quot;math/tex&quot;&gt;A={ ||Mw_1 \times Mw_2|| \over ||w_1 \times w_2|| } = ||Mw_1 \times Mw_2||&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;那么对于原来的球面多边形微元（左图红色区域）来说，要得到变换后的多边形微元大小（右图中红色区域）就也要乘上这个比例，也就等于（这里写法还是与论文中保持一致）：
+&lt;script type=&quot;math/tex&quot;&gt;\partial w_o A&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;右图中绿色的部分表示变换后立体角微元的大小 &lt;script type=&quot;math/tex&quot;&gt;\partial w&lt;/script&gt;，这样就可以建立变换前后立体角微元间的关系，由任意曲面对应立体角大小的公式可得，变换后新的立体角大小为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\partial w = \partial w_o A{ cos\theta \over r^2 }&lt;/script&gt;
+
+&lt;p&gt;也就是变换后的多边形微元（右图红色部分）在球面上的投影面积（右图绿色部分），最后再将上式展开化简（化简方法见论文，不再赘述），即可得到雅可比的值：
+&lt;script type=&quot;math/tex&quot;&gt;{ \partial w_o \over \partial w } = { |M^{-1}| \over ||M^{-1}w||^3 }&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;有了式（2）之后，带入积分即可得到式（1）。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;回到要求解的渲染方程：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I = \int_P L(w_l) f(w_v, w_l) cos\theta_l dw_l&lt;/script&gt;
+
+&lt;p&gt;其中&lt;script type=&quot;math/tex&quot;&gt;w_l&lt;/script&gt;为light direction，&lt;script type=&quot;math/tex&quot;&gt;w_v&lt;/script&gt; 为view direction， 由于我们已经用变换后的分布函数&lt;script type=&quot;math/tex&quot;&gt;D(w)&lt;/script&gt;代替 BRDF，所以渲染方程变换为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I = \int_P L(w_l)D(w_l)dw_l&lt;/script&gt;
+
+&lt;p&gt;再假设面光源的辐射度是均匀的，那么&lt;script type=&quot;math/tex&quot;&gt;L(w_l)&lt;/script&gt;为常数，可以挪到积分之外：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I = L\int_P D(w_l)dw_l = L\int_{P_o}D_o(w_o)dw_o = E(P_o)&lt;/script&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;E(P_o)&lt;/script&gt;表示cosine分布在多边形上的积分，也就是polygon上的照度，所以用 E 表示。前面提到过这个积分是有解析解的，也就是对多边形的每一条边计算：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+E(P_o) = E(P_1, ..., P_n) = \\ {1\over2\pi}\sum_{i=0}^nacos(&lt;P_i, P_j&gt;)&lt;{ P_i \times P_j \over ||P_i \times P_j||} , {\begin{bmatrix}
+    0\\
+    0\\
+    1\\
+    \end{bmatrix}}&gt;  \tag 3 %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;其中 &lt;script type=&quot;math/tex&quot;&gt;j = (i + 1) \mod n&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;算法实现步骤&quot;&gt;算法实现步骤&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在实现中，变换矩阵 M 是提前拟合好，并且存储在纹理中，由于分布函数的对称性，对于 3x3 的变换矩阵，我们实际上只需要存储 4 个参数（详细见paper），再加上渲染方程积分的归一化参数，一共5个参数，以视线方向与法线的夹角&lt;script type=&quot;math/tex&quot;&gt;\theta_v&lt;/script&gt;和表面粗糙程度参数&lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt;作为 index 来采样一个二维的参数纹理，纹理的采样还可以顺便提供给我们线性插值。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;假设 N, V, P 为要计算光照的点的法向，视向和位置。&lt;/li&gt;
+  &lt;li&gt;Points 为多边形光源的顶点数组，假设这里为4边形。&lt;/li&gt;
+  &lt;li&gt;首先在P点建立本地正交标架 N, T1, T2, 然后把变换矩阵 &lt;script type=&quot;math/tex&quot;&gt;M^{-1}&lt;/script&gt; 变换到这个标架中。&lt;/li&gt;
+  &lt;li&gt;点P与多边形光源的4个顶点的向量，即为顶点在本地标架中的位置，设为L[4]，将这些顶点用 &lt;script type=&quot;math/tex&quot;&gt;M^{-1}&lt;/script&gt; 变换。&lt;/li&gt;
+  &lt;li&gt;因为&lt;script type=&quot;math/tex&quot;&gt;E(P_o)&lt;/script&gt;是假设多边形位于上半球面的，所以需要将多边形 L 对 y=0 平面进行裁剪，对于4边形，裁剪最多可能增加一条边，所以裁剪后的多边形为 L[5]。&lt;/li&gt;
+  &lt;li&gt;多裁剪后的所有剩余边，计算（3）式，也就是对 cosine 分布在变换后的多边形上积分。&lt;/li&gt;
+  &lt;li&gt;返回结果。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;官方的 shader 实现已经非常简单易懂，但是没有在 shader 中给出矩阵的设置，我在我的 shader ： https://www.shadertoy.com/view/4tBBDK 中集成了这一部分 code，方便大家在自己的 demo 中使用，并且我将算法 port 到了 raymarching 的框架下，而不是原实现中基于 raytracing 的方法。&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Lighting" /><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">Raymarching下的快速抗锯齿算法</title><link href="http://localhost:4000/fractal/raymarchingAA/" rel="alternate" type="text/html" title="Raymarching下的快速抗锯齿算法" /><published>2018-01-20T14:43:00+08:00</published><updated>2018-01-20T14:43:00+08:00</updated><id>http://localhost:4000/fractal/raymarchingAA</id><content type="html" xml:base="http://localhost:4000/fractal/raymarchingAA/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/aa/aa0.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;anti-aliasing&quot;&gt;Anti-Aliasing&lt;/h2&gt;
+&lt;p&gt;Raymarching 跟 Raytracing 一样，比起光栅化的管线，抗锯齿并不是那么容易，在光栅化渲染管线下， 简单利用 MSAA 就能做到基本的抗锯齿，并且性能一般不会受到太大影响，因为对 MSAA 来说， fragment shader 仍然只会对每个像素执行一次，再根据 primitive 对像素中采样点的覆盖情况来决定最后像素颜色，在某些架构下，MSAA 的开销甚至可以忽略不计。&lt;/p&gt;
+
+&lt;p&gt;而对 Raymaching 来说情况则不同，MSAA 在 Raymarching 下则需要对每个像素发射多条光线，导致求交/光照，甚至多级光线的的计算重复很多次， 计算量可以说是成倍增长，这样的方法，在实时计算中暂时只能在一些简单场景下使用。&lt;/p&gt;
+
+&lt;p&gt;本文介绍的方法来自于 eiffie，核心思想是在 Raymarching 的过程中，记录下经过的边，最后计算像素颜色的时候，Blend 所有经过的边和最终相交的点的颜色。这个算法在效果上不及超采样完美，但是速度非常快，更加适合实时的 Demo 中使用。&lt;/p&gt;
+
+&lt;h2 id=&quot;算法步骤&quot;&gt;算法步骤&lt;/h2&gt;
+
+&lt;p&gt;通常 Raymarching 中的求交是采用 Sphere Tracing 的方式，每次光线前进的距离等于当前光线所在点到场景中物体的最近距离，直到所在点到场景中物体表面的距离小于一定值，我们就认为光线击中物体表面：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+float intersect( in vec3 ro, in vec3 rd )
+{
+	//当距离小于一个像素的大小，可认为相交
+    float pixel_size = 0.5/(iResolution.y);
+
+    float t = 1.0;
+    for( int i=0; i&amp;lt;128; i++ )
+    {
+        float d = f(ro + rd * t);
+        if( d &amp;lt; pixel_size * t ) break;
+        t += c;
+        if( t &amp;gt; 20.0 ) return -1.0;
+    }
+    return t;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但是光线不仅可以击中，也可以经过物体表面，最后停留在半空中，或者击中更远的物体，这时候，所经过的表面，就是最后投影到屏幕上的图像的“边”， 如果我们能够在 Marching 的时候检测到这样的边，就可以将边的颜色与背景/远处表面的颜色进行混合，以达到抗锯齿的效果，并且这样做的一个优势是，我们并不需要处理任何不在边上的点，比起超采样来说，可以极大的节省计算量。&lt;/p&gt;
+
+&lt;p&gt;如何检测到我们正在经过一条边呢？ 想象一下当我们路过一条边的时候，距离 d 值的变化情况，当我们不断接近物体表面的时候，d 值一定是递减的，如果我们 hit 到物体表面，d 值最终会减为 0 或者负值，但是如果我们路过了一条边，光线会继续前进，这时候会出现 d 值减小到一定程度之后，又开始增大，直到光线开始逼近下一个物体表面，d 又再次递减。由此可以推知，我们只需要记录上一次的 d 值： old_d， 当我们发现本次的 d &amp;gt; old_d 时， 表明这时候我们刚刚好经过了一条边。&lt;/p&gt;
+
+&lt;p&gt;有了判断边缘的方法，接下来就是选择是否记录边的条件，很简单，只有与 Ray Position 的距离小于一个像素大小的边，我们才需要记录。&lt;/p&gt;
+
+&lt;p&gt;于是我们有了新的求交计算：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+	// 最多记录 3 条边
+	float edges[3];
+	edges[0]=edges[1]=edges[2]=-1.;
+	int j = 0;
+	float 
+	float t=0.01， d=0.0, od=10.0;
+	
+	// 是否记录当前边
+	bool b_record=false;
+
+	for(int i=0;i&amp;lt;78;i++)
+	{
+		d=DE(ro+rd*t);
+		t+=d;
+		if(d&amp;gt;od)
+		{
+		 	// px*t 为距离t下的像素大小
+			if(b_record &amp;amp;&amp;amp; od&amp;lt;px*t &amp;amp;&amp;amp; j&amp;lt;3)
+			{
+				edges[j]=t-od;
+				j++;
+				b_record=false;
+			}
+		}else b_record=true;
+		od=d;
+		
+		// 需要一个足够小的值作为d的bailout条件
+		// 否则会出现Banding Effect
+		if(t&amp;gt;10.0 || d&amp;lt;0.00001)break;
+	}    
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在上面的计算中，我们获得了与物体表面交点的距离 t， 以及 Marching 过程中所经过的至多 3 条边的距离 edges[j]，现在我们只需要将它们的结果 Blend 起来即可：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for(i=2;i&amp;gt;=0;i--)
+{
+	// 存在边被记录
+	if(edges[i]&amp;gt;0.0) 
+	{
+		float t = edges[i];
+		col = mix(lighting(ro+rd*t, rd, pixel_size * edges[i]), col,
+				clamp(f(ro+rd*t)/(pixel_size * t), 0.0, 1.0)));
+				// Blending factor， 也就是点到表面的距离与像素大小的比值
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上面的 code 是对边的处理，对交点的处理类似，甚至可以用同样的 Blending 代码，因为对交点来说，d 值极小，col 就约等于 Lighting 的值。&lt;/p&gt;
+
+&lt;h3 id=&quot;进一步简化&quot;&gt;进一步简化&lt;/h3&gt;
+&lt;p&gt;上面的算法记录了3条边，最后最多需要4次 Lighting 计算，比起原始的方法还是增加了不少开销，在实际情况中，大多时候是不需要记录多条边即可取得非常好的效果，只需要记录第一条经过的边即可，也就是离视点最近的那条，这样一来，我们最后只需要计算2次 Lighting 即可。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vec4 intersect( in vec3 ro, in vec3 rd )
+{
+    float d_first = 0.0, t_first = 0.0;
+    float old_d = 1000.0;
+    float d_max = 1000.0, t_max = 0.0;
+    float t = 1.0;
+    float d = 100.0;
+    
+    for(int i = 0; i &amp;lt; 128; ++i) 
+    {
+        d = f(ro + rd * t);
+        if(d_first == 0.0)  // 只记录第一条边
+        {
+            if(d &amp;gt; old_d)
+            {
+                if(old_d &amp;lt; pixel_size * (t - old_d))                					{
+                    d_first = old_d;
+                    t_first = t - old_d;
+                }
+            }
+            old_d = d;
+        }
+        if(d &amp;lt; d_max) // max 表示 max occluder
+        { 
+            t_max = t; 
+            d_max = d;
+        }  
+        if(d &amp;lt; 0.00001 || t &amp;gt; 20.0)             
+        	break;
+        t += d;
+    }
+    return vec4(t_max, d_max, t_first, d_first);
+}
+
+// Blending 示例
+{
+    if(d_max &amp;lt; pixel_size * t_max) // if the max occluder occludes the pixel
+    {
+        col = mix(lighting(ro+rd*t_max, rd, pixel_size * t_max), col, 
+                  clamp(d_max/(pixel_size * t_max), 0.0, 1.0));
+    }
+    if(d_first == 0.0 || t_max == t_first)
+    {
+    	 t_first = t_max;
+        d_first = d_max;
+    }
+    col = mix(lighting(ro + rd * t_first, rd, pixel_size*t_first),
+             col, clamp(d_first/(pixel_size*t_first), 0.0, 1.0));
+             
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;简化版效果，对比无AA的算法：&lt;/p&gt;
+
+&lt;p&gt;无 Anti-aliasing：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/aa/noaa.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Anti-aliasing with 1 edge recorded：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/aa/withaa.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Fractal" /><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">MandelBulb 的绘制方法</title><link href="http://localhost:4000/fractal/mandelbulb/" rel="alternate" type="text/html" title="MandelBulb 的绘制方法" /><published>2018-01-13T14:43:00+08:00</published><updated>2018-01-13T14:43:00+08:00</updated><id>http://localhost:4000/fractal/mandelbulb</id><content type="html" xml:base="http://localhost:4000/fractal/mandelbulb/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbulb/bulb0.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mandelbrot-的-3d-形式&quot;&gt;Mandelbrot 的 3D 形式&lt;/h2&gt;
+&lt;p&gt;对于找寻 Mandelbrot 的 3D 形式其实是经历了很多年的，2009年，Fractal Forum 上才有人渲染出了当时最接近真实 Mandelbrot 3D 的 Mandelbulb。接着就是一次 3D Fractal 渲染的爆发，紧接着的接下来几年内，各种分形的 3D 形式， 包括他们的变种和混合，一个接一个的出现，直到16年底的圣诞节，都还有重大的新发现：&lt;a href=&quot;---%20title:%20%22MandelBulb%20%E7%9A%84%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95%22%20categories:%20%20%20-%20Fractal%20date:%20%20%202018-01-13%2014:43:00%20+0800%20tags:%20%20%20-%20Fractal%20%20%20-%20Graphics%20---%20%20%3Cscript%20type=%22text/javascript%22%20async%20src=%22https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML%22%3E%20%3C/script%3E%20%20%3Ccenter%3E%3Cimg%20src=%22/assets/images/mandelbulb/julia0.png%22%3E%3C/center%3E%20%3Cbr/%3E%20%20%20##%20Mandelbrot%20%E7%9A%84%203D%20%E5%BD%A2%E5%BC%8F%20%E5%AF%B9%E4%BA%8E%E6%89%BE%E5%AF%BB%20Mandelbrot%20%E7%9A%84%203D%20%E5%BD%A2%E5%BC%8F%E5%85%B6%E5%AE%9E%E6%98%AF%E7%BB%8F%E5%8E%86%E4%BA%86%E5%BE%88%E5%A4%9A%E5%B9%B4%E7%9A%84%EF%BC%8C2009%E5%B9%B4%EF%BC%8CFractal%20Forum%20%E4%B8%8A%E6%89%8D%E6%9C%89%E4%BA%BA%E6%B8%B2%E6%9F%93%E5%87%BA%E4%BA%86%E5%BD%93%E6%97%B6%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9C%9F%E5%AE%9E%20Mandelbrot%203D%20%E7%9A%84%20MandelBulb%E3%80%82%E6%8E%A5%E7%9D%80%E5%B0%B1%E6%98%AF%E4%B8%80%E6%AC%A1%203D%20Fractal%20%E6%B8%B2%E6%9F%93%E7%9A%84%E7%88%86%E5%8F%91%EF%BC%8C%E7%B4%A7%E6%8E%A5%E7%9D%80%E7%9A%84%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%87%A0%E5%B9%B4%E5%86%85%EF%BC%8C%E5%90%84%E7%A7%8D%E5%88%86%E5%BD%A2%E7%9A%84%203D%20%E5%BD%A2%E5%BC%8F%EF%BC%8C%20%E5%8C%85%E6%8B%AC%E4%BB%96%E4%BB%AC%E7%9A%84%E5%8F%98%E7%A7%8D%E5%92%8C%E6%B7%B7%E5%90%88%EF%BC%8C%E4%B8%80%E4%B8%AA%E6%8E%A5%E4%B8%80%E4%B8%AA%E7%9A%84%E5%87%BA%E7%8E%B0%EF%BC%8C%E7%9B%B4%E5%88%B016%E5%B9%B4%E5%BA%95%E7%9A%84%E5%9C%A3%E8%AF%9E%E8%8A%82%EF%BC%8C%E9%83%BD%E8%BF%98%E6%9C%89%E6%96%B0%E7%9A%84%E5%8F%91%E7%8E%B0%EF%BC%9A&quot;&gt;3D Kleinian group limit sets&lt;/a&gt;。
+这些分形的 3D 绘制，很大程度上都要归功于 Distance Estimation，最早利用 Distance Estimation 绘制 3D Fractal 的是 Hart，他可以说是做 Distance Based Rendering 的祖师爷了，在他 1989 年的 paper：&lt;a href=&quot;https://graphics.cs.illinois.edu/sites/default/files/rtqjs.pdf&quot;&gt;RayTracing Deterministic 3D Fractals&lt;/a&gt; 中就描述了如何使用 Distance Estimation 来绘制 Julia 集的 3D 形式。&lt;/p&gt;
+
+&lt;p&gt;从1989年到2009年，分形绘制经历了20年才又热门起来，这其中不仅是硬件的发展使得 3D 分形渲染可以实时进行，而且也要归功于那些不断创造的大神们。&lt;/p&gt;
+
+&lt;p&gt;MandelBulb 可以说是 3D 分形里面最为出名的了，即使你从未接触过 3D 分形绘制，相信你也有很大可能早已在大荧幕上见识过 MandelBulb 的风采，比如，2016年《奇异博士》中：&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/mandelbulb/drstrange0.jpg&quot; alt=&quot;what&quot; /&gt;
+  &lt;figcaption&gt;电影奇异博士中的 Mandelbulb.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/mandelbulb/drstrange1.jpg&quot; alt=&quot;what&quot; /&gt;
+  &lt;figcaption&gt;从 Mandelbulb 中伸出的无数双手。 &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;其实在这部电影中我们可以看到很多分形的运用，特别是大量的空间折叠.&lt;/p&gt;
+
+&lt;h2 id=&quot;mandelbulb&quot;&gt;Mandelbulb&lt;/h2&gt;
+&lt;h3 id=&quot;公式的扩展&quot;&gt;公式的扩展&lt;/h3&gt;
+&lt;p&gt;首先我们还是回顾一下 Mandelbrot set 的公式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z_{n+1} = z_n^2 + c&lt;/script&gt;
+
+&lt;p&gt;Mandelbrot Set 就是经历上述迭代而不发散的点集， 那么现在的问题在于，如何把它推广到 3D, 要知道 Mandelbrot Set 是定义在复平面上的，而复数只有两个分量，而想要强行再加一个分量形成 3D 的系统实际上是做不到的，我们可以假设
+新的分量为&lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;， 那我们就必须定义&lt;script type=&quot;math/tex&quot;&gt;ij&lt;/script&gt;的值，但是无论怎么定义&lt;script type=&quot;math/tex&quot;&gt;ij&lt;/script&gt;，这个系统都不是自洽的。&lt;/p&gt;
+
+&lt;p&gt;除非你愿意减弱你的系统，比如牺牲掉交换律，结合律等等，比如我们熟悉的 Quaternions 是 4D 的系统，但是它丢掉了交换律，再往上 8D 的 Octonions，连结合律也没了。&lt;/p&gt;
+
+&lt;p&gt;强行加入一个分量来渲染出的图形，离真正的 3D Mandelbrot 差得太远，所以这样行不通。
+但是实际上 Quaternions 是可以生成比较有趣的形状的，看起来是这样的:&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbulb/bulb1.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;还原了 Mandelbrot set 的大致轮廓，但是大量本该有的细节却全都被抹平了。所以我们还是需要探索更加接近 Mandelbrot set 的 3D 形式。&lt;/p&gt;
+
+&lt;p&gt;回到 2D 的复平面上来，我们知道虚部&lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;从几何上可以看做逆时针90度的旋转变换，因为从&lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt;到&lt;script type=&quot;math/tex&quot;&gt;-1&lt;/script&gt;刚好旋转两次90度，也就是&lt;script type=&quot;math/tex&quot;&gt;i*i=-1&lt;/script&gt;，那么在复平面上，如果我们对一个复数向量取平方，得到结果向量的长度也即使原长度的平方，与实轴的夹角是原夹角的2倍。那么我们何不在 3D 空间中也模拟相同的操作呢？&lt;/p&gt;
+
+&lt;p&gt;由此我们将这个迭代，应用在 3D 球坐标系中，每次迭代将向量的长度平方，将向量的夹角加倍，这样我们就可以渲染出一个看起来更接近 3D Mandelbrot 的形状，但是当我们再进一步，将迭代公式改为：
+&lt;script type=&quot;math/tex&quot;&gt;z_{n+1}=z_n^8+c&lt;/script&gt;
+的时候，我们就终于得到了大明星：Mandelbulb。
+为什么这里取8次方呢，其实没有其他原因，完全是从美学角度考虑，就是因为8次方的情况下，bulb 的数量不多不少，没有尖锐的拉伸，也不至于臃肿，完全浑然天成。&lt;/p&gt;
+
+&lt;h3 id=&quot;distance-estimation-for-mandelbulb&quot;&gt;Distance Estimation for Mandelbulb&lt;/h3&gt;
+&lt;p&gt;让我们写出 Mandelbulb 在球坐标下的公式：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;公式1：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z_{n+1} = r_n^8 * (sin(8\theta)cos(8\phi) + i cos(8\theta) + j sin(8\theta)sin(8*\theta) + c&lt;/script&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;p&gt;\begin{cases}
+r = sqrt(x^2 + y^2 + z^2) \\
+\theta = acos({y \over r}) \\
+\phi = atan({z \over x})
+\end{cases}&lt;/p&gt;
+
+&lt;p&gt;这个公式，根据计算球坐标方式的不同，还有一个变种：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;公式2：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z_{n+1} = r_n^8 * (cos(8\theta)cos(8\phi) + i sin(8\theta)cos(8\phi) + j sin(8\phi)) + c&lt;/script&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;p&gt;\begin{cases}
+r = sqrt(x^2 + y^2 + z^2) \\
+\theta = atan({y \over x}) \\ 
+\phi = asin({z \over r})
+\end{cases}&lt;/p&gt;
+
+&lt;p&gt;这两个公式生成的形状略有不同：&lt;/p&gt;
+
+&lt;p&gt;公式1：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbulb/bulb2.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;公式2：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbulb/bulb3.jpg&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;公式2生成的 Mandelbulb 顶端更为收缩，并且避免了公式1中如果从球坐标转换到笛卡尔坐标，会出现&lt;script type=&quot;math/tex&quot;&gt;(x, y, z) = (x, -y, z)&lt;/script&gt; 的情形。&lt;/p&gt;
+
+&lt;p&gt;剩下的就是为 Mandelbulb 找到一个 Distance Estimator，在 Hart 的 paper &lt;a href=&quot;https://graphics.cs.illinois.edu/sites/default/files/rtqjs.pdf&quot;&gt;RayTracing Deterministic 3D Fractals&lt;/a&gt; 中给出了一个经典的 Distance Estimator，也是基于Douady-Hubbard 势函数：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;d = { { G(c) \over 2*|G'(c)| } logG(z)}&lt;/script&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;G(c) = \lim_{n \to \infty} {1 \over 2^n} \log |z_n|&lt;/script&gt;
+
+&lt;p&gt;所以展开可以得到:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;d = \lim_{n \to \infty} {0.5*|z_n| log|z_n| \over |z_n'|} = \lim_{n \to \infty}{0.5*r*logr \over dr}&lt;/script&gt;
+
+&lt;p&gt;Estimator 还有一些不同形式，涉及到更多的数学推导，由于最常用的还是以上公式，这里就不再赘述。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;核心code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for(int i = 0; i &amp;lt; 7; ++i) 
+{
+	r = length(z);
+	if(r &amp;gt; 2.0) continue;
+	theta = atan(z.y / z.x);
+    phi = asin(z.z / r);
+    // running derivative
+	dr = pow(r, power - 1.0) * dr * power + 1.0;  
+	r = pow(r, power);
+	theta = theta * power;
+	phi = phi * power;
+	
+	z = r * vec3(cos(theta)*cos(phi), sin(theta)*cos(phi), sin(phi)) + p;
+}
+float dist = 0.5 * log(r) * r / dr;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Fractal" /><category term="Graphics" /><summary type="html"></summary></entry><entry><title type="html">Mandelbrot Set 的平滑绘制</title><link href="http://localhost:4000/fractal/mandelbrot/" rel="alternate" type="text/html" title="Mandelbrot Set 的平滑绘制" /><published>2018-01-01T17:40:42+08:00</published><updated>2018-01-01T17:40:42+08:00</updated><id>http://localhost:4000/fractal/mandelbrot</id><content type="html" xml:base="http://localhost:4000/fractal/mandelbrot/">&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt; &lt;/script&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbrot/mb0.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mandelbrot-set&quot;&gt;Mandelbrot Set&lt;/h2&gt;
+&lt;p&gt;定义：&lt;/p&gt;
+
+&lt;p&gt;对于复平面上任意一点&lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;，如果在 orbit 从0开始的二次映射&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z_{n+1} = {z_{n}}^2 + c&lt;/script&gt;
+
+&lt;p&gt;下 &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; 值永远小于等于&lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt;，那么这个点属于 Mandelbrot Set。&lt;/p&gt;
+
+&lt;p&gt;根据定义，我们就可以对平面上所有像素计算这个迭代，从而得到每个像素是否属于Mandelbrot Set.&lt;/p&gt;
+
+&lt;p&gt;注：这里定义中所谓的 orbit 表示迭代过程中点的轨迹，每次迭代计算得到的结果，即为 orbit 中的一点。很容易计算得到，Mandelbrot Set 的 orbit 是&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;{ 0, c, c^2 + c, ... }&lt;/script&gt;
+
+&lt;h2 id=&quot;the-rendering&quot;&gt;The Rendering&lt;/h2&gt;
+&lt;p&gt;Mandelbrot Set 的绘制可以非常简单，既然可以判断平面上每个像素是否属于Mandelbrot Set，那么我们把属于的设为黑色，不属于的设为白色，就是最简单的 Boolean/Binay Escape Time Method。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bool bet = true;
+for(int i=0;i&amp;lt;ITERATION;i++){ 
+	 if(dot(z,z)&amp;gt;escape_radius * escape_radius)
+	 {
+	 		bet = false;
+	 		break; 
+	 }
+	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; 
+} 
+
+color = boolean_to_color(bet);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbrot/boolean.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然从美学角度我们肯定不想止步于此，因为在迭代计算过程中，其实还有不少信息我们可以利用，比如，迭代的次数。
+虽然在MandelBrot Set内部的点，无论经过多少次迭代，都不会发散出去，我们可以认为它们的迭代次数都是相同的，但是对于不属于 MandelBrot Set 的点，它们跳出 MandelBrot Set 时所经历的迭代次数则各不相同。我们把这个迭代次数，称之为 Escape Time。&lt;/p&gt;
+
+&lt;h3 id=&quot;escape-time-method&quot;&gt;Escape Time Method&lt;/h3&gt;
+&lt;p&gt;首先我们设&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;为 Escape Radius， 也就是对平面上任意一点，经过 N 次迭代之后，此点离坐标原点的距离超过这个 Escape Radius 时，也就是&lt;script type=&quot;math/tex&quot;&gt;|z_n| &gt; B&lt;/script&gt;, 这个点即被判定为不属于 Mandelbrot Set， 由之前的定义我们知道在数学上这个 Escape Radius = 2， 但是对于绘制而言，我们不想被限制为只在半径为2的区域内填以颜色， 所以我们可以把这个 Radius 设置为更大的值，比如 32， 这样可以为屏幕上更多像素计算出一个有意义的 Escape Time。
+于是，我们不再使用一个二元的 Boolean 来 map 到颜色， 而是使用每个像素的迭代次数， 于是我们可以得到这样的结果：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbrot/non_smooth.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;float counter = 0.0;
+for(int i=0;i&amp;lt;ITERATION;i++){ 
+	 if(dot(z,z)&amp;gt;escape_radius * escape_radius)	 		break; 
+	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; 
+	 counter+=1.;
+} 
+
+color = iteration_to_color(counter);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到 Mandelbrot Set 的 Boundary 变得更加清晰平滑，但是以外的部分却出现了类似于等势线一样的 Banding Effect。（其实这里的等势线就是 Douady-Hubbard 势函数，可以用作另一种平滑绘制的方法）。&lt;/p&gt;
+
+&lt;p&gt;如何消除这样的 Banding Effect 呢，有一个经典的方法，也是数学上正确的方法，叫做 Renormalizing Iteration Count， 这个方法也有很多其他名字，比如 Smooth Iteration Count， Real Escape Time 等等。它的核心思想在于，我们之前所用来 map 到颜色空间的迭代次数，是一个整数， 是一个离散的量，而想要实现连续的颜色，也就是 gradient， 需要一个浮点的迭代次数，那么问题就在于，我们用什么来计算出它的小数部分。&lt;/p&gt;
+
+&lt;h4 id=&quot;renormalizing-iteration-count&quot;&gt;Renormalizing Iteration Count&lt;/h4&gt;
+&lt;p&gt;首先给出公式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;RIC = \lim_{n\to \infty}(n - \log_2\log_2|z_n|)&lt;/script&gt;
+
+&lt;p&gt;从公式来看，浮点迭代次数的小数部分就是对迭代 n 次后的半径取了两次 &lt;script type=&quot;math/tex&quot;&gt;log&lt;/script&gt;，那么这个公式是如何推导而来的呢？
+iq在&lt;a href=&quot;http://www.iquilezles.org/www/articles/mset_smooth/mset_smooth.htm&quot;&gt;他的博客&lt;/a&gt;中给出了一个详细的推导，相比 Linas 的&lt;a href=&quot;http://linas.org/art-gallery/escape/escape.html&quot;&gt;推导&lt;/a&gt;要更加易懂，虽然两者的公式有微小的差异（可能Linas的推导在数学上更加准确），但背后的原理是相同的。&lt;/p&gt;
+
+&lt;p&gt;简单来说，我们假设 Escape Radius 为 &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;, 对于 Orbit 中的点，当它 Escape 的时候，要么刚好超过&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;, 要么超过&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 一大截，我们可以把“超过B的程度” map 到&lt;script type=&quot;math/tex&quot;&gt;[0,1]&lt;/script&gt;来作为浮点迭代次数的小数部分。&lt;/p&gt;
+
+&lt;p&gt;那么我们就需要定义“超过B的程度”的范围，很明显，这个范围的下界即是&lt;script type=&quot;math/tex&quot;&gt;|z_n|&lt;/script&gt;刚好在B上，这时我们把&lt;script type=&quot;math/tex&quot;&gt;|z_n|&lt;/script&gt; map 到&lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt;， 那么对于上界，则是在上一次迭代的时候，&lt;script type=&quot;math/tex&quot;&gt;|z_{n-1}|&lt;/script&gt;就&lt;strong&gt;几乎&lt;/strong&gt;超过了B， 于是&lt;script type=&quot;math/tex&quot;&gt;|z_n|&lt;/script&gt;超过B的长度，就接近这一次迭代所增加的长度，这个长度即为上界。这一次迭代所增加的长度为多少呢，在迭代次数足够多时，我们可以用&lt;script type=&quot;math/tex&quot;&gt;f(z)=z^d&lt;/script&gt;（对于Mandelbrot Set来说 d = 2 ）来代替原公式作为近似，那么这次迭代所增加的长度可以近似为 &lt;script type=&quot;math/tex&quot;&gt;B^d&lt;/script&gt;。
+由此我们就得到了“超过B的程度”的范围，也就是&lt;script type=&quot;math/tex&quot;&gt;[B, B^d]&lt;/script&gt;，我们直接对它取两次对数，第一次以&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;为底，第二次以&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;为底，即可将它 map 到&lt;script type=&quot;math/tex&quot;&gt;[0,1]&lt;/script&gt;， 所以：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;RIC = \lim_{n \to \infty}(n - { {\log { { \log|z_n| } \over { log B } } } \over { log d } } )&lt;/script&gt;
+
+&lt;p&gt;注意，这次如果只去以 &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 为底的第一次对数，变换到 &lt;script type=&quot;math/tex&quot;&gt;[1,d]&lt;/script&gt;，再通过线性变换到 &lt;script type=&quot;math/tex&quot;&gt;[0,1]&lt;/script&gt;，得到的结果是不对的，你可以看到虽然出现了 Gradient，但是仍然有 Banding Effect 在,
+这是因为对&lt;script type=&quot;math/tex&quot;&gt;|z_n|&lt;/script&gt;取一次对数之后，&lt;script type=&quot;math/tex&quot;&gt;log_B |z_n|&lt;/script&gt; 的增长依然是以 &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; 为指数的，为什么呢，还记得前面我们提到的 Orbit， 我们忽略掉常数部分，那么 Orbit 即为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z, z^2, z^4, z^8, z^{16}, ...&lt;/script&gt;
+
+&lt;p&gt;取一次对数之后变成：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;1, 2, 4, 8, 16, ...&lt;/script&gt;
+
+&lt;p&gt;再去一次对数才会成为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;0, 1, 2, 3, 4, ...&lt;/script&gt;
+
+&lt;p&gt;这就是对为什么会有两次&lt;script type=&quot;math/tex&quot;&gt;log&lt;/script&gt;的推导，有了理论基础以后，我们就能轻松得到下面这个完全平滑的结果：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbrot/smooth.png&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;distance-estimation&quot;&gt;Distance Estimation&lt;/h3&gt;
+&lt;p&gt;跟绘制其他任何函数图形一样，我们也可以为 Mandelbrot Set 找到一个距离函数，这就要利用到之前提到的 Douady-Hubbard 势函数， 假如我们把 Mandelbrot Set 看做一个磁铁，那么它创造的磁场就像下图这样：&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/assets/images/mandelbrot/force.gif&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;围绕在 Mandelbrot Set 周围的 Contours 就是等势线，而垂直于这些 Contours 的曲线就表示向量场。&lt;/p&gt;
+
+&lt;p&gt;Douady 和 Hubbard 在他们的&lt;a href=&quot;http://www.math.cornell.edu/~hubbard/OrsayEnglish.pdf&quot;&gt;论文&lt;/a&gt;中，给出了这个势函数：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;G(c) = \lim_{n \to \infty} {1 \over 2^n} \log |z_n|&lt;/script&gt;
+
+&lt;p&gt;我们即可利用这个势函数，来求得平面上任意一点到 Mandelbrot Set 的边界的距离，对到任意等值面的距离的估计方法可以参见&lt;a href=&quot;http://www.iquilezles.org/www/articles/distance/distance.htm&quot;&gt;这里&lt;/a&gt;，于是我们可以得到距离的估计值：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;d = { G(c) \over |G'(c)| }&lt;/script&gt;
+
+&lt;p&gt;其中&lt;script type=&quot;math/tex&quot;&gt;G'(c)&lt;/script&gt; 为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;|G'(c)| = \lim_{n \to \infty} {1 \over 2^n} {|z_n'| \over |z_n|}&lt;/script&gt;
+
+&lt;p&gt;于是&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;展开即为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;d = \lim_{n \to \infty} {|z_n| log|z_n| \over |z_n'|}&lt;/script&gt;
+
+&lt;p&gt;在迭代计算的时候，我们只需要同时计算每次迭代的&lt;script type=&quot;math/tex&quot;&gt;z_n&lt;/script&gt;的导数，最后即可求得距离&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;绘制得到的结果与 RIC 类似，这里不再重复。&lt;/p&gt;</content><author><name>Liming Xu</name><email>liming72217@gmail.com</email><uri>https://www.shadertoy.com/user/EvilRyu</uri></author><category term="Fractal" /><category term="Graphics" /><summary type="html"></summary></entry></feed>

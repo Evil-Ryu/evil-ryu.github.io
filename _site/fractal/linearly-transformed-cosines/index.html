@@ -1,0 +1,661 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Linearly Transformed Cosines 详解与实现 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="Linearly Transformed Cosines 详解与实现">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/linearly-transformed-cosines/">
+  <meta property="og:url" content="http://localhost:4000/fractal/linearly-transformed-cosines/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-01-31T20:54:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Linearly Transformed Cosines 详解与实现">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="January 31, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Linearly Transformed Cosines 详解与实现
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<center><img src="/assets/images/ltc/ltc0.png" /></center>
+<p><br /></p>
+
+<h2 id="简介">简介</h2>
+<p>近年来最优秀的一个实时面光源光照算法，出自2016年 Eric Heitz 的 <a href="https://drive.google.com/open?id=0BzvWIdpUpRx_d09ndGVjNVJzZjA">paper</a>，这个算法巧妙地解决了难以在 polygon 上计算复杂 BRDF 的积分的问题，让面光源也可以放心地用在 shader demo 中，虽然目前我还没想到非常适合展示面光源的 demo，不过还是先写下这篇笔记，帮助大家快速理解论文中的思想和一些推导的过程。</p>
+
+<h2 id="算法">算法</h2>
+<p>在实时计算中，面光源的计算一般没法通过采样来做，所以最好就是能找到渲染方程的解析解，无奈的是，对于复杂的 BRDF， 要么解析解也是计算量非常大，要么就根本找不到。所以当前解析解只限于简单的，类似于 cosine 分布的 BRDF， 也就是说，对于方程：</p>
+
+<script type="math/tex; mode=display">I = \int_{polygon}L(w_i)f(w_0,w_i)cos\theta_idw_i</script>
+
+<p>中的 BRDF 函数 <script type="math/tex">f</script> 来说， 如果它就是简单的 cosine 分布，那么这个积分是有解析解的。</p>
+
+<p>于是，对于更加复杂（也能更加真实地模拟材质）的 BRDF 来说，这篇论文的核心思想就是：</p>
+
+<ol>
+  <li>用一个 3x3 的矩阵 M 把 cosine 分布变换成其他流行的 BRDF， 比如目前效果最好的 GGX， 注意这里的变换是一个近似。</li>
+  <li>然后再将问题 ” 变换后的 BRDF 在 polygon <script type="math/tex">P</script> 上的积分“ 转化为 ” cosine 分布在 polygon <script type="math/tex">M^{-1}P</script> 上的积分 “。也就是说我们只需要逆变换 polygon 的顶点， 然后计算一个已知有解析解的积分即可。</li>
+</ol>
+
+<p>由于步骤 1 是在预先通过拟合得到矩阵，存在纹理中，所以这个算法所带来的额外开销非常小。</p>
+
+<h3 id="推导与论证">推导与论证</h3>
+<p>知道了核心思想，接下来看看到底这个方法的理论依据是什么。
+论文的基石在于下面这个等式， 也就是描述了上文中的步骤 2：</p>
+
+<script type="math/tex; mode=display">\int_P D(w) dw = \int_{P_o} D_o(w_o)dw_o \tag 1</script>
+
+<p>其中 <script type="math/tex">P_o</script>为多边形面光源顶点，<script type="math/tex">P</script>为经矩阵<script type="math/tex">M</script>变换后的多边形面光源顶点，<script type="math/tex">D_o</script>为原分布函数，通常人为选择为 cosine 分布，<script type="math/tex">D</script>为经<script type="math/tex">M</script>变换后的分布函数，<script type="math/tex">w_o</script>为<script type="math/tex">D</script>中的单位方向向量， <script type="math/tex">w</script>为变换后的单位方向向量，可知：</p>
+
+<script type="math/tex; mode=display">P_o = M^{-1}P</script>
+
+<script type="math/tex; mode=display">w={ M w_o \over ||Mw_o|| }</script>
+
+<script type="math/tex; mode=display">w_o={ M^{-1} w \over ||M^{-1}w|| }</script>
+
+<p>那么（1）式为什么成立呢，首先，论文中给出了：</p>
+
+<script type="math/tex; mode=display">D(w) = D_o(w_o){ \partial w_o \over \partial w } = D_o({ M^{-1}w \over  ||M^{-1}w|| }){ |M^{-1}| \over ||M^{-1}w||^3 } \tag 2</script>
+
+<p>这个式子表示了变换后的分布函数值等于原分布函数值乘上该线性变换的雅可比行列式值，注意雅可比行列式的值也就是该变换所带来的缩放因子，论文在附录中给出了该式子的推导，由于这个式子是在理论部分最关键的一块，所以在这里我尝试详细解释一遍。</p>
+
+<center><img src="/assets/images/ltc/ltc1.png" /></center>
+<p><br /></p>
+
+<p>上图左图中红色部分为球面多边形微元，在球为单位球的情况下，这个多边形面积即为<script type="math/tex">w_0</script>方向上的立体角大小，我们首先在这个球面多边形微元上构建正交标架 <script type="math/tex">(w_0, w_1, w_2)</script>，三个向量为正交单位向量，那么由向量叉积可知，单位球面多边形的面积即为向量<script type="math/tex">w_0=w_1 \times w_2</script>的长度，那么球面多边形微元的面积即为向量微元 <script type="math/tex">dw_o</script>的长度，如果将<script type="math/tex">w_o</script>看做立体角，那么向量微元的长度就可以表示为立体角微元 <script type="math/tex">dw_o</script>， 论文中用的偏微分符号表示，我感觉这里应该表达的意思一致。</p>
+
+<p>当我们用矩阵 <script type="math/tex">M</script> 变换了这个标架之后，原先的球面多边形微元被变换为右图中红色的多边形微元，那么这个变换将多边形微元的大小改变了多少呢？
+我们可以从变换前后两个标架下单位多边形的大小改变推知：因为新的标架为 <script type="math/tex">(Mw_0, Mw_1, Mw_2)</script>, 那么在此标架下的单位多边形面积与原标架下单位多边形面积之比为：
+<script type="math/tex">A={ ||Mw_1 \times Mw_2|| \over ||w_1 \times w_2|| } = ||Mw_1 \times Mw_2||</script></p>
+
+<p>那么对于原来的球面多边形微元（左图红色区域）来说，要得到变换后的多边形微元大小（右图中红色区域）就也要乘上这个比例，也就等于（这里写法还是与论文中保持一致）：
+<script type="math/tex">\partial w_o A</script></p>
+
+<p>右图中绿色的部分表示变换后立体角微元的大小 <script type="math/tex">\partial w</script>，这样就可以建立变换前后立体角微元间的关系，由任意曲面对应立体角大小的公式可得，变换后新的立体角大小为：</p>
+
+<script type="math/tex; mode=display">\partial w = \partial w_o A{ cos\theta \over r^2 }</script>
+
+<p>也就是变换后的多边形微元（右图红色部分）在球面上的投影面积（右图绿色部分），最后再将上式展开化简（化简方法见论文，不再赘述），即可得到雅可比的值：
+<script type="math/tex">{ \partial w_o \over \partial w } = { |M^{-1}| \over ||M^{-1}w||^3 }</script></p>
+
+<p>有了式（2）之后，带入积分即可得到式（1）。</p>
+
+<p><br />
+<br /></p>
+
+<p>回到要求解的渲染方程：</p>
+
+<script type="math/tex; mode=display">I = \int_P L(w_l) f(w_v, w_l) cos\theta_l dw_l</script>
+
+<p>其中<script type="math/tex">w_l</script>为light direction，<script type="math/tex">w_v</script> 为view direction， 由于我们已经用变换后的分布函数<script type="math/tex">D(w)</script>代替 BRDF，所以渲染方程变换为：</p>
+
+<script type="math/tex; mode=display">I = \int_P L(w_l)D(w_l)dw_l</script>
+
+<p>再假设面光源的辐射度是均匀的，那么<script type="math/tex">L(w_l)</script>为常数，可以挪到积分之外：</p>
+
+<script type="math/tex; mode=display">I = L\int_P D(w_l)dw_l = L\int_{P_o}D_o(w_o)dw_o = E(P_o)</script>
+
+<p><script type="math/tex">E(P_o)</script>表示cosine分布在多边形上的积分，也就是polygon上的照度，所以用 E 表示。前面提到过这个积分是有解析解的，也就是对多边形的每一条边计算：</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+E(P_o) = E(P_1, ..., P_n) = \\ {1\over2\pi}\sum_{i=0}^nacos(<P_i, P_j>)<{ P_i \times P_j \over ||P_i \times P_j||} , {\begin{bmatrix}
+    0\\
+    0\\
+    1\\
+    \end{bmatrix}}>  \tag 3 %]]></script>
+
+<p>其中 <script type="math/tex">j = (i + 1) \mod n</script></p>
+
+<h2 id="算法实现步骤">算法实现步骤</h2>
+
+<ol>
+  <li>
+    <p>在实现中，变换矩阵 M 是提前拟合好，并且存储在纹理中，由于分布函数的对称性，对于 3x3 的变换矩阵，我们实际上只需要存储 4 个参数（详细见paper），再加上渲染方程积分的归一化参数，一共5个参数，以视线方向与法线的夹角<script type="math/tex">\theta_v</script>和表面粗糙程度参数<script type="math/tex">\alpha</script>作为 index 来采样一个二维的参数纹理，纹理的采样还可以顺便提供给我们线性插值。</p>
+  </li>
+  <li>假设 N, V, P 为要计算光照的点的法向，视向和位置。</li>
+  <li>Points 为多边形光源的顶点数组，假设这里为4边形。</li>
+  <li>首先在P点建立本地正交标架 N, T1, T2, 然后把变换矩阵 <script type="math/tex">M^{-1}</script> 变换到这个标架中。</li>
+  <li>点P与多边形光源的4个顶点的向量，即为顶点在本地标架中的位置，设为L[4]，将这些顶点用 <script type="math/tex">M^{-1}</script> 变换。</li>
+  <li>因为<script type="math/tex">E(P_o)</script>是假设多边形位于上半球面的，所以需要将多边形 L 对 y=0 平面进行裁剪，对于4边形，裁剪最多可能增加一条边，所以裁剪后的多边形为 L[5]。</li>
+  <li>多裁剪后的所有剩余边，计算（3）式，也就是对 cosine 分布在变换后的多边形上积分。</li>
+  <li>返回结果。</li>
+</ol>
+
+<p>官方的 shader 实现已经非常简单易懂，但是没有在 shader 中给出矩阵的设置，我在我的 shader ： https://www.shadertoy.com/view/4tBBDK 中集成了这一部分 code，方便大家在自己的 demo 中使用，并且我将算法 port 到了 raymarching 的框架下，而不是原实现中基于 raytracing 的方法。</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#lighting" class="page__taxonomy-item" rel="tag">Lighting</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-01-31T20:54:00+08:00">January 31, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Linearly+Transformed+Cosines+%E8%AF%A6%E8%A7%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Flinearly-transformed-cosines%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Flinearly-transformed-cosines%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Flinearly-transformed-cosines%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Flinearly-transformed-cosines%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/raymarchingAA/" class="pagination--pager" title="Raymarching下的快速抗锯齿算法
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/fractal/basis-from-normal/" class="pagination--pager" title="基于法向量构建本地正交标架的快速算法
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,684 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>MandelBulb 的绘制方法 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="MandelBulb 的绘制方法">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/mandelbulb/">
+  <meta property="og:url" content="http://localhost:4000/fractal/mandelbulb/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-01-13T14:43:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="MandelBulb 的绘制方法">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="January 13, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">MandelBulb 的绘制方法
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<center><img src="/assets/images/mandelbulb/bulb0.jpg" /></center>
+<p><br /></p>
+
+<h2 id="mandelbrot-的-3d-形式">Mandelbrot 的 3D 形式</h2>
+<p>对于找寻 Mandelbrot 的 3D 形式其实是经历了很多年的，2009年，Fractal Forum 上才有人渲染出了当时最接近真实 Mandelbrot 3D 的 Mandelbulb。接着就是一次 3D Fractal 渲染的爆发，紧接着的接下来几年内，各种分形的 3D 形式， 包括他们的变种和混合，一个接一个的出现，直到16年底的圣诞节，都还有重大的新发现：<a href="---%20title:%20%22MandelBulb%20%E7%9A%84%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95%22%20categories:%20%20%20-%20Fractal%20date:%20%20%202018-01-13%2014:43:00%20+0800%20tags:%20%20%20-%20Fractal%20%20%20-%20Graphics%20---%20%20%3Cscript%20type=%22text/javascript%22%20async%20src=%22https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML%22%3E%20%3C/script%3E%20%20%3Ccenter%3E%3Cimg%20src=%22/assets/images/mandelbulb/julia0.png%22%3E%3C/center%3E%20%3Cbr/%3E%20%20%20##%20Mandelbrot%20%E7%9A%84%203D%20%E5%BD%A2%E5%BC%8F%20%E5%AF%B9%E4%BA%8E%E6%89%BE%E5%AF%BB%20Mandelbrot%20%E7%9A%84%203D%20%E5%BD%A2%E5%BC%8F%E5%85%B6%E5%AE%9E%E6%98%AF%E7%BB%8F%E5%8E%86%E4%BA%86%E5%BE%88%E5%A4%9A%E5%B9%B4%E7%9A%84%EF%BC%8C2009%E5%B9%B4%EF%BC%8CFractal%20Forum%20%E4%B8%8A%E6%89%8D%E6%9C%89%E4%BA%BA%E6%B8%B2%E6%9F%93%E5%87%BA%E4%BA%86%E5%BD%93%E6%97%B6%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9C%9F%E5%AE%9E%20Mandelbrot%203D%20%E7%9A%84%20MandelBulb%E3%80%82%E6%8E%A5%E7%9D%80%E5%B0%B1%E6%98%AF%E4%B8%80%E6%AC%A1%203D%20Fractal%20%E6%B8%B2%E6%9F%93%E7%9A%84%E7%88%86%E5%8F%91%EF%BC%8C%E7%B4%A7%E6%8E%A5%E7%9D%80%E7%9A%84%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%87%A0%E5%B9%B4%E5%86%85%EF%BC%8C%E5%90%84%E7%A7%8D%E5%88%86%E5%BD%A2%E7%9A%84%203D%20%E5%BD%A2%E5%BC%8F%EF%BC%8C%20%E5%8C%85%E6%8B%AC%E4%BB%96%E4%BB%AC%E7%9A%84%E5%8F%98%E7%A7%8D%E5%92%8C%E6%B7%B7%E5%90%88%EF%BC%8C%E4%B8%80%E4%B8%AA%E6%8E%A5%E4%B8%80%E4%B8%AA%E7%9A%84%E5%87%BA%E7%8E%B0%EF%BC%8C%E7%9B%B4%E5%88%B016%E5%B9%B4%E5%BA%95%E7%9A%84%E5%9C%A3%E8%AF%9E%E8%8A%82%EF%BC%8C%E9%83%BD%E8%BF%98%E6%9C%89%E6%96%B0%E7%9A%84%E5%8F%91%E7%8E%B0%EF%BC%9A">3D Kleinian group limit sets</a>。
+这些分形的 3D 绘制，很大程度上都要归功于 Distance Estimation，最早利用 Distance Estimation 绘制 3D Fractal 的是 Hart，他可以说是做 Distance Based Rendering 的祖师爷了，在他 1989 年的 paper：<a href="https://graphics.cs.illinois.edu/sites/default/files/rtqjs.pdf">RayTracing Deterministic 3D Fractals</a> 中就描述了如何使用 Distance Estimation 来绘制 Julia 集的 3D 形式。</p>
+
+<p>从1989年到2009年，分形绘制经历了20年才又热门起来，这其中不仅是硬件的发展使得 3D 分形渲染可以实时进行，而且也要归功于那些不断创造的大神们。</p>
+
+<p>MandelBulb 可以说是 3D 分形里面最为出名的了，即使你从未接触过 3D 分形绘制，相信你也有很大可能早已在大荧幕上见识过 MandelBulb 的风采，比如，2016年《奇异博士》中：</p>
+
+<figure>
+  <img src="/assets/images/mandelbulb/drstrange0.jpg" alt="what" />
+  <figcaption>电影奇异博士中的 Mandelbulb.</figcaption>
+</figure>
+
+<p><br /></p>
+
+<figure>
+  <img src="/assets/images/mandelbulb/drstrange1.jpg" alt="what" />
+  <figcaption>从 Mandelbulb 中伸出的无数双手。 </figcaption>
+</figure>
+
+<p><br /></p>
+
+<p>其实在这部电影中我们可以看到很多分形的运用，特别是大量的空间折叠.</p>
+
+<h2 id="mandelbulb">Mandelbulb</h2>
+<h3 id="公式的扩展">公式的扩展</h3>
+<p>首先我们还是回顾一下 Mandelbrot set 的公式：</p>
+
+<script type="math/tex; mode=display">z_{n+1} = z_n^2 + c</script>
+
+<p>Mandelbrot Set 就是经历上述迭代而不发散的点集， 那么现在的问题在于，如何把它推广到 3D, 要知道 Mandelbrot Set 是定义在复平面上的，而复数只有两个分量，而想要强行再加一个分量形成 3D 的系统实际上是做不到的，我们可以假设
+新的分量为<script type="math/tex">j</script>， 那我们就必须定义<script type="math/tex">ij</script>的值，但是无论怎么定义<script type="math/tex">ij</script>，这个系统都不是自洽的。</p>
+
+<p>除非你愿意减弱你的系统，比如牺牲掉交换律，结合律等等，比如我们熟悉的 Quaternions 是 4D 的系统，但是它丢掉了交换律，再往上 8D 的 Octonions，连结合律也没了。</p>
+
+<p>强行加入一个分量来渲染出的图形，离真正的 3D Mandelbrot 差得太远，所以这样行不通。
+但是实际上 Quaternions 是可以生成比较有趣的形状的，看起来是这样的:</p>
+
+<center><img src="/assets/images/mandelbulb/bulb1.jpg" /></center>
+<p><br /></p>
+
+<p>还原了 Mandelbrot set 的大致轮廓，但是大量本该有的细节却全都被抹平了。所以我们还是需要探索更加接近 Mandelbrot set 的 3D 形式。</p>
+
+<p>回到 2D 的复平面上来，我们知道虚部<script type="math/tex">i</script>从几何上可以看做逆时针90度的旋转变换，因为从<script type="math/tex">1</script>到<script type="math/tex">-1</script>刚好旋转两次90度，也就是<script type="math/tex">i*i=-1</script>，那么在复平面上，如果我们对一个复数向量取平方，得到结果向量的长度也即使原长度的平方，与实轴的夹角是原夹角的2倍。那么我们何不在 3D 空间中也模拟相同的操作呢？</p>
+
+<p>由此我们将这个迭代，应用在 3D 球坐标系中，每次迭代将向量的长度平方，将向量的夹角加倍，这样我们就可以渲染出一个看起来更接近 3D Mandelbrot 的形状，但是当我们再进一步，将迭代公式改为：
+<script type="math/tex">z_{n+1}=z_n^8+c</script>
+的时候，我们就终于得到了大明星：Mandelbulb。
+为什么这里取8次方呢，其实没有其他原因，完全是从美学角度考虑，就是因为8次方的情况下，bulb 的数量不多不少，没有尖锐的拉伸，也不至于臃肿，完全浑然天成。</p>
+
+<h3 id="distance-estimation-for-mandelbulb">Distance Estimation for Mandelbulb</h3>
+<p>让我们写出 Mandelbulb 在球坐标下的公式：</p>
+
+<p><strong>公式1：</strong></p>
+
+<script type="math/tex; mode=display">z_{n+1} = r_n^8 * (sin(8\theta)cos(8\phi) + i cos(8\theta) + j sin(8\theta)sin(8*\theta) + c</script>
+
+<p>其中：</p>
+
+<p>\begin{cases}
+r = sqrt(x^2 + y^2 + z^2) \\
+\theta = acos({y \over r}) \\
+\phi = atan({z \over x})
+\end{cases}</p>
+
+<p>这个公式，根据计算球坐标方式的不同，还有一个变种：</p>
+
+<p><strong>公式2：</strong></p>
+
+<script type="math/tex; mode=display">z_{n+1} = r_n^8 * (cos(8\theta)cos(8\phi) + i sin(8\theta)cos(8\phi) + j sin(8\phi)) + c</script>
+
+<p>其中：</p>
+
+<p>\begin{cases}
+r = sqrt(x^2 + y^2 + z^2) \\
+\theta = atan({y \over x}) \\ 
+\phi = asin({z \over r})
+\end{cases}</p>
+
+<p>这两个公式生成的形状略有不同：</p>
+
+<p>公式1：</p>
+
+<center><img src="/assets/images/mandelbulb/bulb2.jpg" /></center>
+<p><br /></p>
+
+<p>公式2：</p>
+
+<center><img src="/assets/images/mandelbulb/bulb3.jpg" /></center>
+<p><br /></p>
+
+<p>公式2生成的 Mandelbulb 顶端更为收缩，并且避免了公式1中如果从球坐标转换到笛卡尔坐标，会出现<script type="math/tex">(x, y, z) = (x, -y, z)</script> 的情形。</p>
+
+<p>剩下的就是为 Mandelbulb 找到一个 Distance Estimator，在 Hart 的 paper <a href="https://graphics.cs.illinois.edu/sites/default/files/rtqjs.pdf">RayTracing Deterministic 3D Fractals</a> 中给出了一个经典的 Distance Estimator，也是基于Douady-Hubbard 势函数：</p>
+
+<script type="math/tex; mode=display">d = { { G(c) \over 2*|G'(c)| } logG(z)}</script>
+
+<p>其中：</p>
+
+<script type="math/tex; mode=display">G(c) = \lim_{n \to \infty} {1 \over 2^n} \log |z_n|</script>
+
+<p>所以展开可以得到:</p>
+
+<script type="math/tex; mode=display">d = \lim_{n \to \infty} {0.5*|z_n| log|z_n| \over |z_n'|} = \lim_{n \to \infty}{0.5*r*logr \over dr}</script>
+
+<p>Estimator 还有一些不同形式，涉及到更多的数学推导，由于最常用的还是以上公式，这里就不再赘述。</p>
+
+<p><strong>核心code</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(int i = 0; i &lt; 7; ++i) 
+{
+	r = length(z);
+	if(r &gt; 2.0) continue;
+	theta = atan(z.y / z.x);
+    phi = asin(z.z / r);
+    // running derivative
+	dr = pow(r, power - 1.0) * dr * power + 1.0;  
+	r = pow(r, power);
+	theta = theta * power;
+	phi = phi * power;
+	
+	z = r * vec3(cos(theta)*cos(phi), sin(theta)*cos(phi), sin(phi)) + p;
+}
+float dist = 0.5 * log(r) * r / dr;
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-01-13T14:43:00+08:00">January 13, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=MandelBulb+%E7%9A%84%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbulb%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbulb%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbulb%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbulb%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/mandelbrot/" class="pagination--pager" title="Mandelbrot Set 的平滑绘制
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/fractal/raymarchingAA/" class="pagination--pager" title="Raymarching下的快速抗锯齿算法
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

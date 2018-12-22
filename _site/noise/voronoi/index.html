@@ -1,0 +1,684 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Voronoi与伪Voronoi Pattern的快速生成算法 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="Voronoi与伪Voronoi Pattern的快速生成算法">
+
+
+  <link rel="canonical" href="http://localhost:4000/noise/voronoi/">
+  <meta property="og:url" content="http://localhost:4000/noise/voronoi/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-03-20T21:43:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Voronoi与伪Voronoi Pattern的快速生成算法">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="March 20, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Voronoi与伪Voronoi Pattern的快速生成算法
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<h2 id="voronoi">Voronoi</h2>
+
+<p>给定平面中的 N 个采样点 (seeds)， 对于每个 seed：<script type="math/tex">p_i</script>， 平面中存在一个区域，区域中所有点到 <script type="math/tex">p_i</script> 的距离，比到除 <script type="math/tex">p_i</script> 外其他所有 seeds 的距离都近，那么这个区域被称为一个 voronoi cell。 这 N 个采样点，就按照最邻近原则划分了平面，如果读者接触过 Delaunay Triangulation 的话，Delauney 刚好是 Voronoi 的偶图。</p>
+
+<p>Voronoi pattern 在 Procedural content 中常常作为 Noise 使用，这种连接的不规则区域可以让人联想到很多自然界中的表面，如长颈鹿的皮肤，蜻蜓翅膀的纹理，乌龟的壳，龟裂的土地等等。</p>
+
+<h2 id="standard-implementation">Standard Implementation</h2>
+
+<p>标准的 implementation 来自 <a href="https://www.shadertoy.com/view/MslGD8">iq</a>，将平面划分为 Grid，对每一个像素，计算它所属的 Cell， 再计算它到以这个 Cell 为中心的 3x3 的 Cells 中的所有采样点的距离，最后取最小值即可，iq 的实现完全在 Domain Space 中，所以计算非常简单易懂，也易于应用到任何表面上。</p>
+
+<p>Reference code:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="nf">voronoi</span><span class="p">(</span><span class="n">vec2</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// the domain is partitioned in a grid.
+</span>    <span class="c1">// find out which cell p is in.
+</span>    <span class="n">ivec2</span> <span class="n">n</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    <span class="n">vec2</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fract</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    
+    <span class="kt">float</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">;</span>
+    
+    <span class="c1">// The set of 3x3 cells is examined
+</span>    <span class="c1">// All the calculations are happening in the cell space
+</span>    <span class="c1">// The origin is at the current cell
+</span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// b is the coordinates of the cell to be examined.
+</span>            <span class="n">ivec2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">ivec2</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+            
+            <span class="c1">// hash(p+b) is to get the position of the seed at cell b, 
+</span>            <span class="c1">// it's in the range of [0,1], so it's the position in a cell.
+</span>            
+            <span class="c1">// b+hash(p+b) is vector from origin to the seed of cell b.
+</span>            <span class="c1">// so r is the vector from current position to the seed of cell b.
+</span>            <span class="n">vec2</span> <span class="n">r</span> <span class="o">=</span> <span class="n">vec2</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">hash</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">;</span>
+    
+            <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+            
+            <span class="c1">// update the minimum distance
+</span>            <span class="n">d</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+        <span class="p">}</span>
+    
+    <span class="c1">// d is now the minimum distance to all 3x3 cells.
+</span>    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/voronoi/01.png" alt="what" />
+<figcaption>Based on iq‘s Implementation。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>这个算法可以很容易扩展到 3D，只需要加一层循环计算 3x3x3 的 Cells 即可，但是也因此，3D voronoi 非常慢，要想实时地在 3D 物体上做 Voronoi Displacement Mapping 的话，场景的复杂度就很受限制了。</p>
+
+<h2 id="fast-fake-voronoi">Fast Fake Voronoi</h2>
+<p>这个算法是来自于 <a href="https://www.shadertoy.com/view/XtyGzc">Shane</a>，之所以叫做 Fake Voronoi，是因为算法产生的并不满足 Voronoi Diagram 的定义，而仅仅是看起来像 Voronoi 的 Celluar Pattern。</p>
+
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/voronoi/02.png" alt="what" />
+<figcaption>Fake Voronoi。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>算法的 Idea 基于在平面上重复绘制 Gradient Circle，再将每次绘制结果用 min 函数 blend 起来，看起来就像 Voronoi 图一样， 那么什么是 Gradient Circle 呢？ 就像下面这样：</p>
+
+<center><img src="/assets/images/voronoi/03.png" /></center>
+<p><br /></p>
+
+<p>然后我们把 Size 缩小，频率增大，加点偏移，再画另一组 Gradient Circle，像这样：</p>
+
+<center><img src="/assets/images/voronoi/04.png" /></center>
+<p><br /></p>
+
+<p>再把上面两次的结果，用 min(src, dst) 的混合方式叠加，就得到了：</p>
+
+<center><img src="/assets/images/voronoi/05.png" /></center>
+<p><br /></p>
+
+<p>看起来已经有点 Voronoi 的样子了，于是我们再以不同的 Size 或者偏移画另外几组 Gradient Circles，然后叠加在一起，就得到了基本看不出什么问题的 Voronoi：</p>
+
+<center><img src="/assets/images/voronoi/02.png" /></center>
+<p><br /></p>
+
+<p>Reference Code：</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="nf">drawShape</span><span class="p">(</span><span class="n">in</span> <span class="n">vec2</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Wrappable circle distance. The squared distance, to be more precise.
+</span>    <span class="n">p</span> <span class="o">=</span> <span class="n">fract</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">-</span><span class="mf">.5</span><span class="p">;</span>    
+    <span class="k">return</span> <span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Draw some cirlcles on a repeatable tile. The offsets were partly based on science, but
+// for the most part, you could choose any combinations you want.
+//
+</span><span class="kt">float</span> <span class="nf">cellTex</span><span class="p">(</span><span class="n">in</span> <span class="n">vec2</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>   
+    <span class="kt">float</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">;</span> <span class="c1">// Set the maximum, bearing in mind that it is multiplied by 4.
+</span>    
+    <span class="c1">// Draw four overlapping shapes (circles, in this case) using the darken blend 
+</span>    <span class="c1">// at various positions on the tile.
+</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.89</span><span class="p">,</span> <span class="mf">.62</span><span class="p">)));</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.38</span><span class="p">,</span> <span class="mf">.20</span><span class="p">)));</span>
+    
+    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.60</span><span class="p">,</span> <span class="mf">.24</span><span class="p">)));</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.18</span><span class="p">,</span> <span class="mf">.82</span><span class="p">)));</span>
+
+    <span class="c1">// Draw four smaller circles at various positions on the tile.
+</span>    
+    <span class="n">p</span> <span class="o">*=</span> <span class="mf">1.4142</span><span class="p">;</span> 
+    <span class="c1">//p = p.yx; // Extra option, or addition.
+</span>    
+    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.46</span><span class="p">,</span> <span class="mf">.30</span><span class="p">)));</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.04</span><span class="p">,</span> <span class="mf">.88</span><span class="p">)));</span> 
+    
+    <span class="c1">// More shapes produce a more convincing pattern, but you could cut
+</span>    <span class="c1">// these two out and still produce a decent image.
+</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.06</span><span class="p">,</span> <span class="mf">.54</span><span class="p">)));</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">drawShape</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">vec2</span><span class="p">(</span><span class="mf">.64</span><span class="p">,</span> <span class="mf">.12</span><span class="p">)));</span>  
+    
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="mf">4.</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这个算法的最大优势就是速度非常快，而且完全可以根据自己对精度的需求调整画 Gradient Circle 的次数，并且，即使扩展到 3D，也只需要简单地把 Gradient Circle 换成 Sphere 即可，在一些场景中，画三四次不同偏移的 Gradient Sphere 就已经够用了。</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#noise" class="page__taxonomy-item" rel="tag">Noise</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-03-20T21:43:00+08:00">March 20, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Voronoi%E4%B8%8E%E4%BC%AAVoronoi+Pattern%E7%9A%84%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95%20http%3A%2F%2Flocalhost%3A4000%2Fnoise%2Fvoronoi%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fnoise%2Fvoronoi%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fnoise%2Fvoronoi%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fnoise%2Fvoronoi%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/space-folding-advanced/" class="pagination--pager" title="More Space Folding，空间折叠进阶
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/raymarching/log-bisection-tracing/" class="pagination--pager" title="Log Bisection Tracing
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/fractal/space-folding-advanced/" rel="permalink">More Space Folding，空间折叠进阶
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

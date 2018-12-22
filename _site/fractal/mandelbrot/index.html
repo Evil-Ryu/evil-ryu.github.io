@@ -1,0 +1,676 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Mandelbrot Set 的平滑绘制 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="Mandelbrot Set 的平滑绘制">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/mandelbrot/">
+  <meta property="og:url" content="http://localhost:4000/fractal/mandelbrot/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-01-01T17:40:42+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Mandelbrot Set 的平滑绘制">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="January 01, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Mandelbrot Set 的平滑绘制
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<center><img src="/assets/images/mandelbrot/mb0.png" /></center>
+<p><br /></p>
+
+<h2 id="mandelbrot-set">Mandelbrot Set</h2>
+<p>定义：</p>
+
+<p>对于复平面上任意一点<script type="math/tex">c</script>，如果在 orbit 从0开始的二次映射</p>
+
+<script type="math/tex; mode=display">z_{n+1} = {z_{n}}^2 + c</script>
+
+<p>下 <script type="math/tex">z</script> 值永远小于等于<script type="math/tex">2</script>，那么这个点属于 Mandelbrot Set。</p>
+
+<p>根据定义，我们就可以对平面上所有像素计算这个迭代，从而得到每个像素是否属于Mandelbrot Set.</p>
+
+<p>注：这里定义中所谓的 orbit 表示迭代过程中点的轨迹，每次迭代计算得到的结果，即为 orbit 中的一点。很容易计算得到，Mandelbrot Set 的 orbit 是</p>
+
+<script type="math/tex; mode=display">{ 0, c, c^2 + c, ... }</script>
+
+<h2 id="the-rendering">The Rendering</h2>
+<p>Mandelbrot Set 的绘制可以非常简单，既然可以判断平面上每个像素是否属于Mandelbrot Set，那么我们把属于的设为黑色，不属于的设为白色，就是最简单的 Boolean/Binay Escape Time Method。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool bet = true;
+for(int i=0;i&lt;ITERATION;i++){ 
+	 if(dot(z,z)&gt;escape_radius * escape_radius)
+	 {
+	 		bet = false;
+	 		break; 
+	 }
+	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; 
+} 
+
+color = boolean_to_color(bet);
+</code></pre></div></div>
+
+<center><img src="/assets/images/mandelbrot/boolean.png" /></center>
+<p><br /></p>
+
+<p>当然从美学角度我们肯定不想止步于此，因为在迭代计算过程中，其实还有不少信息我们可以利用，比如，迭代的次数。
+虽然在MandelBrot Set内部的点，无论经过多少次迭代，都不会发散出去，我们可以认为它们的迭代次数都是相同的，但是对于不属于 MandelBrot Set 的点，它们跳出 MandelBrot Set 时所经历的迭代次数则各不相同。我们把这个迭代次数，称之为 Escape Time。</p>
+
+<h3 id="escape-time-method">Escape Time Method</h3>
+<p>首先我们设<script type="math/tex">B</script>为 Escape Radius， 也就是对平面上任意一点，经过 N 次迭代之后，此点离坐标原点的距离超过这个 Escape Radius 时，也就是<script type="math/tex">|z_n| > B</script>, 这个点即被判定为不属于 Mandelbrot Set， 由之前的定义我们知道在数学上这个 Escape Radius = 2， 但是对于绘制而言，我们不想被限制为只在半径为2的区域内填以颜色， 所以我们可以把这个 Radius 设置为更大的值，比如 32， 这样可以为屏幕上更多像素计算出一个有意义的 Escape Time。
+于是，我们不再使用一个二元的 Boolean 来 map 到颜色， 而是使用每个像素的迭代次数， 于是我们可以得到这样的结果：</p>
+
+<center><img src="/assets/images/mandelbrot/non_smooth.png" /></center>
+<p><br /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float counter = 0.0;
+for(int i=0;i&lt;ITERATION;i++){ 
+	 if(dot(z,z)&gt;escape_radius * escape_radius)	 		break; 
+	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; 
+	 counter+=1.;
+} 
+
+color = iteration_to_color(counter);
+</code></pre></div></div>
+
+<p>可以看到 Mandelbrot Set 的 Boundary 变得更加清晰平滑，但是以外的部分却出现了类似于等势线一样的 Banding Effect。（其实这里的等势线就是 Douady-Hubbard 势函数，可以用作另一种平滑绘制的方法）。</p>
+
+<p>如何消除这样的 Banding Effect 呢，有一个经典的方法，也是数学上正确的方法，叫做 Renormalizing Iteration Count， 这个方法也有很多其他名字，比如 Smooth Iteration Count， Real Escape Time 等等。它的核心思想在于，我们之前所用来 map 到颜色空间的迭代次数，是一个整数， 是一个离散的量，而想要实现连续的颜色，也就是 gradient， 需要一个浮点的迭代次数，那么问题就在于，我们用什么来计算出它的小数部分。</p>
+
+<h4 id="renormalizing-iteration-count">Renormalizing Iteration Count</h4>
+<p>首先给出公式：</p>
+
+<script type="math/tex; mode=display">RIC = \lim_{n\to \infty}(n - \log_2\log_2|z_n|)</script>
+
+<p>从公式来看，浮点迭代次数的小数部分就是对迭代 n 次后的半径取了两次 <script type="math/tex">log</script>，那么这个公式是如何推导而来的呢？
+iq在<a href="http://www.iquilezles.org/www/articles/mset_smooth/mset_smooth.htm">他的博客</a>中给出了一个详细的推导，相比 Linas 的<a href="http://linas.org/art-gallery/escape/escape.html">推导</a>要更加易懂，虽然两者的公式有微小的差异（可能Linas的推导在数学上更加准确），但背后的原理是相同的。</p>
+
+<p>简单来说，我们假设 Escape Radius 为 <script type="math/tex">B</script>, 对于 Orbit 中的点，当它 Escape 的时候，要么刚好超过<script type="math/tex">B</script>, 要么超过<script type="math/tex">B</script> 一大截，我们可以把“超过B的程度” map 到<script type="math/tex">[0,1]</script>来作为浮点迭代次数的小数部分。</p>
+
+<p>那么我们就需要定义“超过B的程度”的范围，很明显，这个范围的下界即是<script type="math/tex">|z_n|</script>刚好在B上，这时我们把<script type="math/tex">|z_n|</script> map 到<script type="math/tex">0</script>， 那么对于上界，则是在上一次迭代的时候，<script type="math/tex">|z_{n-1}|</script>就<strong>几乎</strong>超过了B， 于是<script type="math/tex">|z_n|</script>超过B的长度，就接近这一次迭代所增加的长度，这个长度即为上界。这一次迭代所增加的长度为多少呢，在迭代次数足够多时，我们可以用<script type="math/tex">f(z)=z^d</script>（对于Mandelbrot Set来说 d = 2 ）来代替原公式作为近似，那么这次迭代所增加的长度可以近似为 <script type="math/tex">B^d</script>。
+由此我们就得到了“超过B的程度”的范围，也就是<script type="math/tex">[B, B^d]</script>，我们直接对它取两次对数，第一次以<script type="math/tex">B</script>为底，第二次以<script type="math/tex">d</script>为底，即可将它 map 到<script type="math/tex">[0,1]</script>， 所以：</p>
+
+<script type="math/tex; mode=display">RIC = \lim_{n \to \infty}(n - { {\log { { \log|z_n| } \over { log B } } } \over { log d } } )</script>
+
+<p>注意，这次如果只去以 <script type="math/tex">B</script> 为底的第一次对数，变换到 <script type="math/tex">[1,d]</script>，再通过线性变换到 <script type="math/tex">[0,1]</script>，得到的结果是不对的，你可以看到虽然出现了 Gradient，但是仍然有 Banding Effect 在,
+这是因为对<script type="math/tex">|z_n|</script>取一次对数之后，<script type="math/tex">log_B |z_n|</script> 的增长依然是以 <script type="math/tex">d</script> 为指数的，为什么呢，还记得前面我们提到的 Orbit， 我们忽略掉常数部分，那么 Orbit 即为：</p>
+
+<script type="math/tex; mode=display">z, z^2, z^4, z^8, z^{16}, ...</script>
+
+<p>取一次对数之后变成：</p>
+
+<script type="math/tex; mode=display">1, 2, 4, 8, 16, ...</script>
+
+<p>再去一次对数才会成为：</p>
+
+<script type="math/tex; mode=display">0, 1, 2, 3, 4, ...</script>
+
+<p>这就是对为什么会有两次<script type="math/tex">log</script>的推导，有了理论基础以后，我们就能轻松得到下面这个完全平滑的结果：</p>
+<center><img src="/assets/images/mandelbrot/smooth.png" /></center>
+<p><br /></p>
+
+<h3 id="distance-estimation">Distance Estimation</h3>
+<p>跟绘制其他任何函数图形一样，我们也可以为 Mandelbrot Set 找到一个距离函数，这就要利用到之前提到的 Douady-Hubbard 势函数， 假如我们把 Mandelbrot Set 看做一个磁铁，那么它创造的磁场就像下图这样：</p>
+
+<center><img src="/assets/images/mandelbrot/force.gif" /></center>
+<p><br /></p>
+
+<p>围绕在 Mandelbrot Set 周围的 Contours 就是等势线，而垂直于这些 Contours 的曲线就表示向量场。</p>
+
+<p>Douady 和 Hubbard 在他们的<a href="http://www.math.cornell.edu/~hubbard/OrsayEnglish.pdf">论文</a>中，给出了这个势函数：</p>
+
+<script type="math/tex; mode=display">G(c) = \lim_{n \to \infty} {1 \over 2^n} \log |z_n|</script>
+
+<p>我们即可利用这个势函数，来求得平面上任意一点到 Mandelbrot Set 的边界的距离，对到任意等值面的距离的估计方法可以参见<a href="http://www.iquilezles.org/www/articles/distance/distance.htm">这里</a>，于是我们可以得到距离的估计值：</p>
+
+<script type="math/tex; mode=display">d = { G(c) \over |G'(c)| }</script>
+
+<p>其中<script type="math/tex">G'(c)</script> 为：</p>
+
+<script type="math/tex; mode=display">|G'(c)| = \lim_{n \to \infty} {1 \over 2^n} {|z_n'| \over |z_n|}</script>
+
+<p>于是<script type="math/tex">d</script>展开即为：</p>
+
+<script type="math/tex; mode=display">d = \lim_{n \to \infty} {|z_n| log|z_n| \over |z_n'|}</script>
+
+<p>在迭代计算的时候，我们只需要同时计算每次迭代的<script type="math/tex">z_n</script>的导数，最后即可求得距离<script type="math/tex">d</script></p>
+
+<p>绘制得到的结果与 RIC 类似，这里不再重复。</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-01-01T17:40:42+08:00">January 01, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Mandelbrot+Set+%E7%9A%84%E5%B9%B3%E6%BB%91%E7%BB%98%E5%88%B6%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbrot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbrot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbrot%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmandelbrot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/apollonian/" class="pagination--pager" title="利用 Circle Inversion 实现 Apollonian Fractal
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/fractal/mandelbulb/" class="pagination--pager" title="MandelBulb 的绘制方法
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

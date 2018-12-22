@@ -1,0 +1,778 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>More Space Folding，空间折叠进阶 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="More Space Folding，空间折叠进阶">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/space-folding-advanced/">
+  <meta property="og:url" content="http://localhost:4000/fractal/space-folding-advanced/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-03-14T21:13:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="More Space Folding，空间折叠进阶">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="March 14, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">More Space Folding，空间折叠进阶
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<center><img src="/assets/images/space_folding_advanced/01.png" /></center>
+<p><br /></p>
+
+<h2 id="空间折叠回顾">空间折叠回顾</h2>
+
+<p>在之前的<a href="https://evil-ryu.github.io/fractal/menger-spone-introduction/">post</a>中，已经介绍过基本的 Space Folding，通过迭代这些简单的折叠，我们可以生成极为复杂的分形。涉及到的空间折叠包括沿坐标轴，沿任意线性函数，乃至于圆的反演变换， 而本文将介绍一种基于反射的折叠方法，这种方法能将坐标空间折叠到特定的对称图形中，不仅能依靠这种方法直接绘制一系列几何体，而且可以被应用到各种造型中，创造更灵活的形状，值得一提的是，这个折叠方法再一次来源于伟大的 knighty！诶我为什么要说又。</p>
+
+<p>Anyways，无论是三维空间中的三角形：</p>
+<center><img src="/assets/images/space_folding_advanced/04.png" /></center>
+<p><br /></p>
+
+<p>八边形：</p>
+<center><img src="/assets/images/space_folding_advanced/05.png" /></center>
+<p><br /></p>
+
+<p>还是五角星：</p>
+<center><img src="/assets/images/space_folding_advanced/06.png" /></center>
+<p><br /></p>
+
+<p>都能通过简单几次空间折叠直接绘制出来，而不需要借助通常的方法，譬如求到解析函数的距离，或者基于预定义法向量的方法。</p>
+
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/space_folding_advanced/02.png" alt="what" />
+<figcaption>分形的一部分，在计算前被折叠到了近似三角形的空间中。</figcaption>
+</figure>
+<p><br /></p>
+
+<h2 id="基于反射的折叠">基于反射的折叠</h2>
+
+<p>对于任何图形学爱好者来说，对光线反射的计算不能更熟悉了。</p>
+<center><img src="/assets/images/space_folding_advanced/03.jpg" /></center>
+<p><br /></p>
+
+<p>对入射向量 I，反射向量 R = I - 2.0 * dot(N, I) * N，其中 N 为表面法向量。
+那么考虑整个坐标系中，位于原点的单位圆内，在所有的单位向量中，选取一个作为法向量 N， 其余所有向量都根据这个法向量做反射，得到的结果会是怎样？可以想象一下，用以 N 为法向的平面将单位圆分成上下两部分，上半部分的所有向量因为沿法向做了反射计算，效果就等于都沿法向做了折叠，下半部分的所有向量经过反射计算，效果等同于沿这个平面折叠到了上半部分，而这个平面恰好为 I 和 R 的中间向量，而并没有沿法线折叠的效果，可以看到这两半部分的行为并不统一，我们更感兴趣的是，假如我只想沿这个平面将下半部分折叠到上半部分，而不希望上半部分沿法线折叠呢？操作非常简单，只需要排除掉上半部分的计算即可：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R = I - 2.0 * min(0.0, dot(N, I)) * N;
+</code></pre></div></div>
+
+<p>接下来我们就要利用这个变换，得到类似于本文开头图中的结果，但是我们从一个三角形开始以便理解，多边形是同样的原理。</p>
+
+<h3 id="将空间折叠到三角形中">将空间折叠到三角形中</h3>
+<p>先画个图以便分析：</p>
+
+<figure>
+<img src="/assets/images/space_folding_advanced/07.png" alt="what" />
+<figcaption>图中单位圆以白色表示，天蓝色为 y 轴，正向朝上， 粉红色为 x 轴， 正向朝右， 黄色为原点， 四个象限分别用红，绿，蓝，青色表示，颜色的渐变表示了坐标数值的增加，这样的表示可以让我们更容易看明白变换后的空间。</figcaption>
+</figure>
+
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/space_folding_advanced/08.png" alt="what" />
+<figcaption>青色的向量表示法向 N， 蓝色的向量（图中被紫色向量覆盖）表示入射向量 I， 紫色的向量表示反射向量 R， 可以看到当 N 和 I 的夹角小于 90 度的时候，并不进行反射计算，I 和 R 是相等的。</figcaption>
+</figure>
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/space_folding_advanced/09.png" alt="what" />
+<figcaption>到当 N 和 I 的夹角大于 90 度的时候，开始计算反射，反射向量 R 开始顺时针往回旋转（当 I 继续逆时针旋转时）。 所以这样就简单地将坐标空间沿与 N 垂直的平面折叠了。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>研究了单个向量的变化规律以后，让我们来看看当整个坐标空间都执行这个变换之后的样子：</p>
+<center><img src="/assets/images/space_folding_advanced/10.png" /></center>
+<p><br />
+注意上图中绿色和青色区域的不连续处，正好是与 N 夹角为 90 度的方向，反射向量 R 在这个地方开始往回转。右下角同理。可以看到，x 轴和 y 轴变成了两条折线，而我们的第三象限彻底没了。</p>
+
+<p>这个变换到这里已经有些接近三角形了，因为 x 轴始终是和 y 轴垂直的，所以如果我们能够再把一条 y 轴折叠到现在第四象限的中线（不连续）处，也就是下图中第四象限中深绿色向量的部位， 这样一来 x 轴就自然能围成三角形了。</p>
+
+<center><img src="/assets/images/space_folding_advanced/15.png" /></center>
+<p><br /></p>
+
+<p>如何折叠出第三条 y 轴到第四象限呢，我们可以重复利用刚才的反射方法，所以我们需要一个新的法向量，使得垂直于它的平面，要恰好平分竖直的 y 轴和上图中深绿色向量，这样一来，反射计算就能刚好把竖直的 y 轴，反射到深绿色向量处，假设这个新的法向量为 N’， 它的计算方法为：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N‘ = normalize( N - vec2(1.0, 0.0) )
+
+</code></pre></div></div>
+
+<p>这里读者可能有一个疑问，要是我并不想折叠出一个标准的三角形，而任意选择 N’ 的方向会怎样呢，在某些情况下可能不会有大问题，但是大多数情况下，比如现在的第四象限，深绿色向量两边是镜像的，经过上一次反射折叠而形成的，如果 N’ 的方向稍有偏移，第二次折叠会在第四象限中折叠出两条 y 轴（因为第四象限已经处于折叠状态中，如果在一张已经对折的纸中间剪一个孔，必然会导致打开的纸张出现两个孔）, 如下图，N’ 的方向沿逆时针稍微旋转了一点，出现了两条 y 轴：</p>
+
+<figure>
+<img src="/assets/images/space_folding_advanced/16.png" alt="what" />
+<figcaption>N' 的方向略微偏移， 竖直的 y 轴不再被恰好反射到第四象限中线处，于是出现了两条新的 y 轴。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>这样的后果一方面是生成的形状难以控制，更重要的是，即使结果仍然围成闭合形状，闭合区域内容易出现多个不同象限，导致难以作为距离函数参与计算。后面我会举一个这样的例子说明问题。</p>
+
+<h3 id="新法线方向-n-的推导">新法线方向 N’ 的推导</h3>
+
+<p>设竖直 y 轴上的单位向量为：</p>
+
+<script type="math/tex; mode=display">\hat y = (0, 1)</script>
+
+<p>第四象限中线向量为 <script type="math/tex">\hat a</script>, 第一次折叠使用的法线方向为:</p>
+
+<script type="math/tex; mode=display">\hat N = (x, y)</script>
+
+<p>根据反射计算公式可知，<script type="math/tex">\hat N</script> 垂直于 <script type="math/tex">\hat a</script>。那么 <script type="math/tex">\hat a</script> 的坐标即为：<script type="math/tex">\hat a = (y, -x)</script></p>
+
+<p>因为根据欧拉公式，<script type="math/tex">\hat a</script> 等于 <script type="math/tex">\hat N</script> 顺时针旋转 90 度， 等价于：</p>
+
+<script type="math/tex; mode=display">\hat a = \hat{N}e^{-{\pi\over2}i} = (x+iy) * (\cos{\pi\over2} + i\sin{\pi\over2}) = (y, -x)</script>
+
+<p>由于新的法线方向 <script type="math/tex">\hat N'</script> 要垂直于 <script type="math/tex">\hat y</script> 与 <script type="math/tex">\hat a</script> 的中间向量，设为 <script type="math/tex">\hat m</script>， 那么：</p>
+
+<script type="math/tex; mode=display">\hat m = { (y, -x) + (0, 1) \over 2} = ({y\over2}, {(1-x)\over 2})</script>
+
+<p>于是新的法线方向等于将 <script type="math/tex">\hat m</script> 逆时针旋转 90 度， 即：</p>
+
+<script type="math/tex; mode=display">\hat N' = \hat{m}e^{ {\pi\over2} i } = ({y\over2}+i{(1-x)\over 2}) * (\cos{\pi\over2} + i\sin{\pi\over2}) = {1\over2}(x-1, yi)</script>
+
+<p>最后再将结果 normalize 即可。这就是为什么新的法线方向为：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N‘ = normalize( N - vec2(1.0, 0.0) )
+</code></pre></div></div>
+
+<p>的原因。</p>
+
+<h3 id="继续剩下的折叠">继续剩下的折叠</h3>
+
+<p>有了新的法线 N’， 那么第二次折叠产生的新反射向量即为：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R' = I - 2.0 * min(0.0, dot(N’, I)) * N‘;
+</code></pre></div></div>
+
+<p>再一次计算反射之后，并且沿 y 轴折叠（把左侧的第二象限也去除），结果是这样：</p>
+
+<center><img src="/assets/images/space_folding_advanced/11.png" /></center>
+<p><br /></p>
+
+<p>完美，整个坐标空间完全对称，而且都被变换成为了原先的第一象限，三条 y 轴已经就位， 但是等等，x 轴去哪里了? 不如让我把 x 轴加粗十倍瞧瞧？</p>
+
+<center><img src="/assets/images/space_folding_advanced/12.png" /></center>
+<p><br /></p>
+
+<p>啊哈，x 轴当然是跟 y 轴垂直啦， 毫无疑问 x 轴已经围成了我们想要的三角形，只不过已经聚到一点了，这时候如果可视化出到 x 轴的距离，可以看到距离场已经是三角形了，现在我们还需要一个操作，不过这里从这一步来看这个操作不太直观（读者有兴趣的话可以调换前面的变换顺序来观察坐标轴的变化），那就是:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> abs(p.y) - 1.0
+</code></pre></div></div>
+
+<p>熟悉 Distance Field 的小伙伴们知道，这个操作的效果就是将整个空间沿 y 轴正方向平移 1.0 然后沿 x 轴折叠，那么我们现在有三个 y 轴，正向都朝外，结果不就是：</p>
+
+<center><img src="/assets/images/space_folding_advanced/13.png" /></center>
+<p><br /></p>
+
+<p>这时候请允许我说：嗒哒！</p>
+
+<p>有趣的是，之前被做掉的第四象限，又复活了，于是坐标平面被变换成三份，其中三个 x 轴围城三角形，三角形外全是第一象限，三角形内部全是第四象限，<strong>在这个坐标系下，要判断一个点是否在三角形内，只需要判断点的 y 坐标是否小于 0</strong>。</p>
+
+<h3 id="一致的变换更好用">一致的变换更好用</h3>
+
+<p>其实如果只想要得到三个 x 轴围成三角形，甚至不需要第二次折叠，我们只需要取第一折叠的法向量 N 为： <script type="math/tex">({-1\over2},{\sqrt3\over 2})</script>，就能得到下面的结果：</p>
+
+<center><img src="/assets/images/space_folding_advanced/17.png" /></center>
+<p><br /></p>
+
+<p>这时候，三角形内外都有两个象限，这使得距离场有严重的 discontinuity，也会增加计算的复杂性。</p>
+
+<h2 id="实现与应用">实现与应用</h2>
+
+<p>通用的 Folding 代码， 不同的折叠次数和初始法向量的方向决定了折叠后的形状。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vec2 fold(in vec2 p, in float a)
+{
+    p.x = abs(p.x);
+    vec2 N = vec2(cos(a), sin(a));
+	for(int i = 0; i &lt; ITER; ++i)
+   	{
+   		// Folding by reflection calculation
+   		// it has the effect of folding by the plane which perpendicular to N
+    	p -= 2.0 * min(0.0, dot(p, N)) * N;
+    	
+    	// The next normal for reflection foldig
+    	// This calculation makes it perpendicular to the 
+    	// half vector between the vector perpendicular 
+    	// to the previous N, and the vertical y axis
+    	N = normalize(vec2(N.x - 1.0, N.y));
+    }
+ 	return p;    
+}
+
+// ITER=2, a = PI/3. 即为上文变换到三角形空间。
+// 增加 ITER 和角度，就可以变换到多边形中。
+// Quad: ITER = 2,  A = PI/2.0
+// Pentagon: ITER = 3, a = PI / 5.0
+// Hexagon: ITER = 3, a = PI / 3.0
+// Octagon: ITER= 3, a = PI / 2.0
+   
+// 当然也可以自定义每次变换的法向量 N，来获得不同形状，并且由于本文介绍的变换是二维平面的变换，所以三维空间中不同平面的变换还可以结合起来生成特殊的形状，比如本文中的五角星，这些组合非常灵活，所以有兴趣就自己试验去吧。
+</code></pre></div></div>
+
+<p>前文中利用这个空间折叠直接画出三角形的 code：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float triangle(in vec3 p)
+{  
+    p.xy = fold2(p.xy, PI / 3.);  // ITER=2 version
+    p.y -= 1.0;
+    return (p.y &gt; 0.0) ? length(p.yz) : abs(p.z) - 0.001;
+}
+
+</code></pre></div></div>
+
+<p>五角星的：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float star(in vec3 p)
+{
+    p.xy = fold3(p.xy,  PI /5.0); // 这是五边形
+    p.y -= 1.0; // 平移 x 轴
+    p.y -= p.x*0.5;  // x 轴 逆时针旋转一点角度
+    p.z = abs(p.z) + p.y*0.8; // z 方向上的突起
+    
+    // 0.5 is compensation for the scaling.
+    return 0.5 * ((p.y &gt; 0.0) ? length(p.yz) : (abs(p.z) - 0.001)); 
+}
+</code></pre></div></div>
+
+<p>五角星的距离场：</p>
+
+<center><img src="/assets/images/space_folding_advanced/14.png" /></center>
+<p><br /></p>
+
+<p>可以看到，在折叠中对坐标轴进行一些偏移，错切，能得到很多有趣的形状。</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-03-14T21:13:00+08:00">March 14, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=More+Space+Folding%EF%BC%8C%E7%A9%BA%E9%97%B4%E6%8A%98%E5%8F%A0%E8%BF%9B%E9%98%B6%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fspace-folding-advanced%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fspace-folding-advanced%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fspace-folding-advanced%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fspace-folding-advanced%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/basis-from-normal/" class="pagination--pager" title="基于法向量构建本地正交标架的快速算法
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/noise/voronoi/" class="pagination--pager" title="Voronoi与伪Voronoi Pattern的快速生成算法
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

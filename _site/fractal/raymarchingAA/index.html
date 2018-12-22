@@ -1,0 +1,714 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Raymarching下的快速抗锯齿算法 - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="Raymarching下的快速抗锯齿算法">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/raymarchingAA/">
+  <meta property="og:url" content="http://localhost:4000/fractal/raymarchingAA/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-01-20T14:43:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Raymarching下的快速抗锯齿算法">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="January 20, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Raymarching下的快速抗锯齿算法
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<center><img src="/assets/images/aa/aa0.jpg" /></center>
+<p><br /></p>
+
+<h2 id="anti-aliasing">Anti-Aliasing</h2>
+<p>Raymarching 跟 Raytracing 一样，比起光栅化的管线，抗锯齿并不是那么容易，在光栅化渲染管线下， 简单利用 MSAA 就能做到基本的抗锯齿，并且性能一般不会受到太大影响，因为对 MSAA 来说， fragment shader 仍然只会对每个像素执行一次，再根据 primitive 对像素中采样点的覆盖情况来决定最后像素颜色，在某些架构下，MSAA 的开销甚至可以忽略不计。</p>
+
+<p>而对 Raymaching 来说情况则不同，MSAA 在 Raymarching 下则需要对每个像素发射多条光线，导致求交/光照，甚至多级光线的的计算重复很多次， 计算量可以说是成倍增长，这样的方法，在实时计算中暂时只能在一些简单场景下使用。</p>
+
+<p>本文介绍的方法来自于 eiffie，核心思想是在 Raymarching 的过程中，记录下经过的边，最后计算像素颜色的时候，Blend 所有经过的边和最终相交的点的颜色。这个算法在效果上不及超采样完美，但是速度非常快，更加适合实时的 Demo 中使用。</p>
+
+<h2 id="算法步骤">算法步骤</h2>
+
+<p>通常 Raymarching 中的求交是采用 Sphere Tracing 的方式，每次光线前进的距离等于当前光线所在点到场景中物体的最近距离，直到所在点到场景中物体表面的距离小于一定值，我们就认为光线击中物体表面：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+float intersect( in vec3 ro, in vec3 rd )
+{
+	//当距离小于一个像素的大小，可认为相交
+    float pixel_size = 0.5/(iResolution.y);
+
+    float t = 1.0;
+    for( int i=0; i&lt;128; i++ )
+    {
+        float d = f(ro + rd * t);
+        if( d &lt; pixel_size * t ) break;
+        t += c;
+        if( t &gt; 20.0 ) return -1.0;
+    }
+    return t;
+}
+
+</code></pre></div></div>
+
+<p>但是光线不仅可以击中，也可以经过物体表面，最后停留在半空中，或者击中更远的物体，这时候，所经过的表面，就是最后投影到屏幕上的图像的“边”， 如果我们能够在 Marching 的时候检测到这样的边，就可以将边的颜色与背景/远处表面的颜色进行混合，以达到抗锯齿的效果，并且这样做的一个优势是，我们并不需要处理任何不在边上的点，比起超采样来说，可以极大的节省计算量。</p>
+
+<p>如何检测到我们正在经过一条边呢？ 想象一下当我们路过一条边的时候，距离 d 值的变化情况，当我们不断接近物体表面的时候，d 值一定是递减的，如果我们 hit 到物体表面，d 值最终会减为 0 或者负值，但是如果我们路过了一条边，光线会继续前进，这时候会出现 d 值减小到一定程度之后，又开始增大，直到光线开始逼近下一个物体表面，d 又再次递减。由此可以推知，我们只需要记录上一次的 d 值： old_d， 当我们发现本次的 d &gt; old_d 时， 表明这时候我们刚刚好经过了一条边。</p>
+
+<p>有了判断边缘的方法，接下来就是选择是否记录边的条件，很简单，只有与 Ray Position 的距离小于一个像素大小的边，我们才需要记录。</p>
+
+<p>于是我们有了新的求交计算：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+	// 最多记录 3 条边
+	float edges[3];
+	edges[0]=edges[1]=edges[2]=-1.;
+	int j = 0;
+	float 
+	float t=0.01， d=0.0, od=10.0;
+	
+	// 是否记录当前边
+	bool b_record=false;
+
+	for(int i=0;i&lt;78;i++)
+	{
+		d=DE(ro+rd*t);
+		t+=d;
+		if(d&gt;od)
+		{
+		 	// px*t 为距离t下的像素大小
+			if(b_record &amp;&amp; od&lt;px*t &amp;&amp; j&lt;3)
+			{
+				edges[j]=t-od;
+				j++;
+				b_record=false;
+			}
+		}else b_record=true;
+		od=d;
+		
+		// 需要一个足够小的值作为d的bailout条件
+		// 否则会出现Banding Effect
+		if(t&gt;10.0 || d&lt;0.00001)break;
+	}    
+}
+
+</code></pre></div></div>
+
+<p>在上面的计算中，我们获得了与物体表面交点的距离 t， 以及 Marching 过程中所经过的至多 3 条边的距离 edges[j]，现在我们只需要将它们的结果 Blend 起来即可：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(i=2;i&gt;=0;i--)
+{
+	// 存在边被记录
+	if(edges[i]&gt;0.0) 
+	{
+		float t = edges[i];
+		col = mix(lighting(ro+rd*t, rd, pixel_size * edges[i]), col,
+				clamp(f(ro+rd*t)/(pixel_size * t), 0.0, 1.0)));
+				// Blending factor， 也就是点到表面的距离与像素大小的比值
+	}
+}
+
+</code></pre></div></div>
+
+<p>上面的 code 是对边的处理，对交点的处理类似，甚至可以用同样的 Blending 代码，因为对交点来说，d 值极小，col 就约等于 Lighting 的值。</p>
+
+<h3 id="进一步简化">进一步简化</h3>
+<p>上面的算法记录了3条边，最后最多需要4次 Lighting 计算，比起原始的方法还是增加了不少开销，在实际情况中，大多时候是不需要记录多条边即可取得非常好的效果，只需要记录第一条经过的边即可，也就是离视点最近的那条，这样一来，我们最后只需要计算2次 Lighting 即可。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vec4 intersect( in vec3 ro, in vec3 rd )
+{
+    float d_first = 0.0, t_first = 0.0;
+    float old_d = 1000.0;
+    float d_max = 1000.0, t_max = 0.0;
+    float t = 1.0;
+    float d = 100.0;
+    
+    for(int i = 0; i &lt; 128; ++i) 
+    {
+        d = f(ro + rd * t);
+        if(d_first == 0.0)  // 只记录第一条边
+        {
+            if(d &gt; old_d)
+            {
+                if(old_d &lt; pixel_size * (t - old_d))                					{
+                    d_first = old_d;
+                    t_first = t - old_d;
+                }
+            }
+            old_d = d;
+        }
+        if(d &lt; d_max) // max 表示 max occluder
+        { 
+            t_max = t; 
+            d_max = d;
+        }  
+        if(d &lt; 0.00001 || t &gt; 20.0)             
+        	break;
+        t += d;
+    }
+    return vec4(t_max, d_max, t_first, d_first);
+}
+
+// Blending 示例
+{
+    if(d_max &lt; pixel_size * t_max) // if the max occluder occludes the pixel
+    {
+        col = mix(lighting(ro+rd*t_max, rd, pixel_size * t_max), col, 
+                  clamp(d_max/(pixel_size * t_max), 0.0, 1.0));
+    }
+    if(d_first == 0.0 || t_max == t_first)
+    {
+    	 t_first = t_max;
+        d_first = d_max;
+    }
+    col = mix(lighting(ro + rd * t_first, rd, pixel_size*t_first),
+             col, clamp(d_first/(pixel_size*t_first), 0.0, 1.0));
+             
+}
+
+</code></pre></div></div>
+
+<p>简化版效果，对比无AA的算法：</p>
+
+<p>无 Anti-aliasing：</p>
+<center><img src="/assets/images/aa/noaa.png" /></center>
+<p><br /></p>
+
+<p>Anti-aliasing with 1 edge recorded：</p>
+<center><img src="/assets/images/aa/withaa.png" /></center>
+<p><br /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-01-20T14:43:00+08:00">January 20, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Raymarching%E4%B8%8B%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8A%97%E9%94%AF%E9%BD%BF%E7%AE%97%E6%B3%95%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2FraymarchingAA%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2FraymarchingAA%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2FraymarchingAA%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2FraymarchingAA%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/fractal/mandelbulb/" class="pagination--pager" title="MandelBulb 的绘制方法
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/fractal/linearly-transformed-cosines/" class="pagination--pager" title="Linearly Transformed Cosines 详解与实现
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

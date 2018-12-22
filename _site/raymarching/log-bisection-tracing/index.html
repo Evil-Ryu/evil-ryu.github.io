@@ -1,0 +1,686 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Log Bisection Tracing - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="Log Bisection Tracing">
+
+
+  <link rel="canonical" href="http://localhost:4000/raymarching/log-bisection-tracing/">
+  <meta property="og:url" content="http://localhost:4000/raymarching/log-bisection-tracing/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-04-09T22:34:00+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Log Bisection Tracing">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="April 09, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Log Bisection Tracing
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<h2 id="sphere-tracing-的问题">Sphere Tracing 的问题</h2>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/01.png" alt="what" />
+<figcaption> 在 SDF 存在 overestimation 的情况下，sphere tracing 得到的距离场出现了扭曲。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>由于并非所有 SDF 都是完美的， 在存在距离估计过大，或者 SDF 有奇点等情况，sphere tracing 会存在穿过表面，甚至穿过了比较薄的物体的情况，这时候一个解决办法就是 Bisection， 保存上一次的距离值，跟最后得到的距离值做 bisection 来得到更精确的距离，但是光这样做仍然无法完全解决上述问题，因为做 bisection 的区间不一定合适，要是这个区间全都穿过了表面，再怎么 bisect 都没用，所以要正确的 bisect，必须保证要求的与表面的交点一定要在这个区间之中。</p>
+
+<h3 id="正确的-bisection">正确的 Bisection</h3>
+<p>在 raymarching 过程中，加入另一个条件来终止 Marching，也就是当距离值的符号改变时，那么保存的上一个距离值与当前距离值一定是异号，也就是说要求的表面交点一定是在两者之间，在这个区间做 bisection 的话，一定可以保证得到正确的距离值，当然这是在 SDF 连续的条件下。</p>
+
+<p>有了这个 bisection 就够了吗？ 来看另一个例子：</p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/02.png" alt="what" />
+<figcaption> Twist 后的 Lattice， 可以看到远端的距离场惨不忍睹， 因为 Twisting 操作不是保距的变换，Naive 的解决方法是在 marching 的时候缩短步长。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>我们加上这个 Bisection 试试：</p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/03.png" alt="what" />
+<figcaption> Bisection 后，近处的距离场略有改善，远端仍然一塌糊涂。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>好吧，没办法， 这是因为远端还是存在整个 bisection 区间直接跨过表面的情况，如果我们用上 Naive 的解决方法，直接缩短步长，比如采用原步长的 0.4 倍，那么要 hit 到同样距离的表面，marching 步数也要相应增加至少一倍：</p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/05.png" alt="what" />
+<figcaption> Bisection + 0.4 倍步长，基本干净漂亮的距离场，但是性能下降太多，特别是在距离函数非常复杂的情况下 （对于 shadertoy 玩家来说，就是所有情况）。</figcaption>
+</figure>
+<p><br /></p>
+
+<p>那么问题就来了， 我们想要高质量就要小步长，用小步长就丢性能，那么有没有一个两全其美，或者说较为折中的方法呢？</p>
+
+<h3 id="log-bisection-tracing">Log Bisection Tracing</h3>
+
+<p>这个算法来自于<a href="https://www.shadertoy.com/user/nimitz">nimitz</a>，算法的核心在于，要能够尽量避免越过较薄的物体，特别是一次性越过两个以上，这样的情况光是 Bisection 是解决不了的，所以需要一个 huristic 来控制步长。</p>
+
+<p>Log Bisection Tracing 算法顾名思义，就是每次 marching 的步长为当前距离值 d+1 的对数， 也就是 log(d+1)， 在 d 值较小的时候，log(d+1) 与 d 非常接近，但比 d 值小，d 值越大，log(d+1) 越是一个保守的步长。 可以作图对比一下 log(d+1) 与 0.4*d， 在 d 值较小时，log(d+1) 的收敛速度还是要快不少的，但是当 d 太大的时候， log(d+1) 就会太过保守了，所以可以和普通的 sphere tracing 混合使用，当 d 大于一个阈值的时候，就采用普通的 sphere tracing 来提高收敛速度。</p>
+
+<p>这是采用了 Log Bisection Tracing 之后的结果:</p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/04.png" alt="what" />
+<figcaption>Log Bisection Tracing，步长为 log(d+1.1)</figcaption>
+</figure>
+<p><br /></p>
+
+<p>可以看到质量非常不错，那么速度相比又如何呢，下面将 marching 的步数可视化出来，颜色越浅的区域代表步数越多：</p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/06.png" alt="what" />
+<figcaption> Sphere Tracing， 默认步长 </figcaption>
+</figure>
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/07.png" alt="what" />
+<figcaption> Bisection + 0.4 倍步长 </figcaption>
+</figure>
+<p><br /></p>
+
+<figure>
+<img src="/assets/images/log_bisection_tracing/08.png" alt="what" />
+<figcaption> Log Bisection Tracing </figcaption>
+</figure>
+<p><br /></p>
+
+<p>可以看到 Sphere Tracing 的整个画面都更暗，说明步数整体更少，但是物体边缘部分较亮，说明光线在经过边缘的时候由于距离太小，白白花了了非常多的步数，边缘对于 sphere tracing 就像一个黑洞一样， 紧紧吸住光线不让你离开。</p>
+
+<p>第二幅图是 0.4 倍步长，整个画面是三者中最亮的，物体边缘也有跟第一幅图中一样的情况，这是性能最差的一个。</p>
+
+<p>第三幅图整体较第一幅稍亮一些，但关键是物体边缘亮度并无太大改变，得益于 log(d+1.1) 在 d 值较小时给出更宽松的步长，让光线得以快速地经过边缘。性能反而比 Sphere Tracing 更好。</p>
+
+<p>Log Bisection Tracing 算法中也有一些经验值需要根据不同场景来设置， 比如上面的 1.1 和下面 sample code 中的宏，来控制不同 d 值下的步长， 但总体来说，仍然比普通的 Sphere Tracing 更 Robust，既可以保证不亚于传统 Sphere Tracing 的速度，又可以保证对复杂距离场得到更高质量的结果，所以这个算法应该仍是目前最好的基于 Sphere Tracing 的优化。</p>
+
+<h3 id="sample-code">Sample code</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define BASE_STRIDE 1.
+#define FAR_STRIDE .56
+#define MIN_STEP .1
+</span><span class="k">const</span> <span class="kt">float</span> <span class="n">logvl</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">+</span><span class="n">MIN_STEP</span><span class="p">;</span>
+
+<span class="kt">float</span> <span class="nf">bisect</span><span class="p">(</span><span class="n">vec3</span> <span class="n">ro</span><span class="p">,</span> <span class="n">vec3</span> <span class="n">rd</span><span class="p">,</span> <span class="kt">float</span> <span class="n">near</span><span class="p">,</span> <span class="kt">float</span> <span class="n">far</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">sgn</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="n">rd</span><span class="o">*</span><span class="n">near</span><span class="o">+</span><span class="n">ro</span><span class="p">));</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span> 
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">near</span> <span class="o">+</span> <span class="n">far</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">d</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">rd</span><span class="o">*</span><span class="n">mid</span><span class="o">+</span><span class="n">ro</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.002</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+        <span class="n">d</span><span class="o">*</span><span class="n">sgn</span> <span class="o">&lt;</span> <span class="mf">0.</span> <span class="o">?</span> <span class="n">far</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">:</span> <span class="n">near</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">near</span><span class="o">+</span><span class="n">far</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">intersect</span><span class="p">(</span><span class="n">vec3</span> <span class="n">ro</span><span class="p">,</span> <span class="n">vec3</span> <span class="n">rd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">d</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">rd</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">ro</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">sgn</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">told</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">do_bisect</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">128</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.002</span> <span class="o">||</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mf">100.</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>            
+        <span class="k">if</span> <span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">!=</span> <span class="n">sgn</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">do_bisect</span><span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">told</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">)</span><span class="n">t</span> <span class="o">+=</span> <span class="n">d</span><span class="o">*</span><span class="n">FAR_STRIDE</span><span class="p">;</span>
+        <span class="k">else</span> <span class="n">t</span> <span class="o">+=</span> <span class="n">log</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="n">logvl</span><span class="p">)</span><span class="o">*</span><span class="n">BASE_STRIDE</span><span class="p">;</span>
+       	<span class="n">d</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">rd</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">ro</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">do_bisect</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">ro</span><span class="p">,</span><span class="n">rd</span><span class="p">,</span><span class="n">told</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">100.</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#raymarching" class="page__taxonomy-item" rel="tag">Raymarching</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-04-09T22:34:00+08:00">April 09, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Log+Bisection+Tracing%20http%3A%2F%2Flocalhost%3A4000%2Fraymarching%2Flog-bisection-tracing%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fraymarching%2Flog-bisection-tracing%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fraymarching%2Flog-bisection-tracing%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fraymarching%2Flog-bisection-tracing%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/noise/voronoi/" class="pagination--pager" title="Voronoi与伪Voronoi Pattern的快速生成算法
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/conference/siggraph2018/" class="pagination--pager" title="SIGGRAPH 2018 总结
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/fractal/space-folding-advanced/" rel="permalink">More Space Folding，空间折叠进阶
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

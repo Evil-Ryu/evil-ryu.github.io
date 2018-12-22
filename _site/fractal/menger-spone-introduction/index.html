@@ -1,0 +1,699 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.8.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Menger Carpet 2D 与 Space Folding - Evil-Ryu’s Site</title>
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+<meta name="author" content="Liming Xu">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Evil-Ryu's Site">
+<meta property="og:title" content="Menger Carpet 2D 与 Space Folding">
+
+
+  <link rel="canonical" href="http://localhost:4000/fractal/menger-spone-introduction/">
+  <meta property="og:url" content="http://localhost:4000/fractal/menger-spone-introduction/">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-12-10T19:30:42+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Liming Xu",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Evil-Ryu's Site Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">Evil-Ryu's Site</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://evil-ryu.github.io/" >home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/year-archive/" >Articles</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/sample-page/" >About</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="http://localhost:4000/assets/images/penguin.jpg" alt="Liming Xu" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Liming Xu</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        A Software Engineer.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Shanghai</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.shadertoy.com/user/EvilRyu" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:liming72217@gmail.com">
+            <meta itemprop="email" content="liming72217@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Menger Carpet 2D 与 Space Folding">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="December 10, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Menger Carpet 2D 与 Space Folding
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<center><img src="/assets/images/menger/00.png" /></center>
+<p><br />
+Menger Carpet 是属于IFS类型的分形，也就是可以通过无穷次迭代变换来产生的分形,对于这类型的分形，我们可以使用 space-folding 算法来生成，这个方法非常巧妙，而且与我们的剪纸异曲同工，这篇文章就以Menger Carpet为例，详细解释Space-Folding算法的推导过程。</p>
+
+<h2 id="distance-field">Distance Field</h2>
+<p>基于距离场的绘制方法是本文要讲解的算法的基础，这里简单提一下理解 Space-folding 所需要的基本知识。
+如果读者接触过基于距离场的绘制的话，其实已经接触过 Space-folding 了，一个最简单的 Space-folding 函数就是:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>这个“abs“将空间沿 y 轴折叠，所有只在 x&gt;=0 下的计算，全部都应用到了 x&lt;0 的部分，比如我们只在 x&gt;=0 下画半个圆，如果在画圆之前应用了”abs“，那么得到的将会是整个圆，想象一下剪纸如果要在纸中间剪出一个圆形，会怎么做，是不是完全相同的办法？</p>
+
+<p>对于剪纸我们实际上可以折叠很多次，而且每次都换着花样折，最后一刀下去，得到的图案可能非常复杂，非常精美，而 Space-folding 同样有这样的性质，也就是，可以多次折叠，例如</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>这里我们依次沿y轴和x轴进行了折叠，最后得到的实际上是把第二，三，四象限，全部折叠到了第一象限，那么这时候我们画一个在(1,1)处的圆，将会得到分别在(1,1), (-1,1), (-1,-1), (1,-1)的四个圆。</p>
+
+<p>有了这样的基础以后，如果我们让空间的折叠足够复杂，次数足够多，那么就能够生成非常复杂的图形。</p>
+
+<h2 id="space-folding">Space Folding</h2>
+
+<p>有了前面的基础，我们来看看，如何通过空间折叠来得到 Menger Carpet.
+如下图所示，可以看出，Menger Carpet 的生成方式，可以看做是循环的将每个矩形，切分成边长为原来1/3，等大小的9个矩形，并将中间的抛弃，再接着对每个子矩形做同样的操作，无穷进行下去。
+<br /></p>
+<center><img src="/assets/images/menger/0.gif" /></center>
+<p><br /></p>
+
+<p>要研究怎么画出每次迭代的9个矩形，其实不太直观，所以首先，让我们考虑只往一个方向上画的情况，比如:<br />
+<br /></p>
+<center><img src="/assets/images/menger/1.png" /></center>
+<p><br /></p>
+
+<p>图中子矩形的颜色随迭代次数加深，实际上就是每次边长缩小到原来的1/3，然后平移到上一次迭代的矩形的右上角, 这样简化后就非常容易画了，但是我们需要的，是从这个最简单的 case 中得出 Menger Carpet 的变换规律:</p>
+
+<p>我们定义初始状态为一个半径为1的矩形，也就是一个边长为2的矩形，中心在原点，那么在第0次迭代的时候这个矩形内所有的点，都是属于 Menger Carpet 的点，于是我们可以画一个灰色的矩形，来表示当前的 Menger Carpet。
+那么第1次迭代呢，这个矩形边长首先是要缩小到原来的1/3，然后位置挪到原矩形的右上角，还是像上面一样，只画一个子矩形：
+<br /></p>
+<center><img src="/assets/images/menger/2.png" /></center>
+<p><br /></p>
+
+<p>很容易算得第0次迭代时，矩形的中心，到第1次迭代是这个子矩形的中心的距离是: 2/3</p>
+
+<p>同样再往下继续迭代，可推知第1次迭代时矩形的中心，到第2次迭代时矩形中心的距离：2/9
+这时候，可以归纳得出，在迭代变换过程中，每次矩形缩放和偏移分别为：</p>
+
+<script type="math/tex; mode=display">scale = {1 \over 3}</script>
+
+<script type="math/tex; mode=display">offset = {2 \over 3^n}</script>
+
+<p><br /></p>
+<center><img src="/assets/images/menger/3.png" /></center>
+<p><br /></p>
+
+<p>有了这个公式，这时候我们可以迭代画出”只有一个子矩形“的情形了，那其他位置上的矩形怎么办呢，这就该让 Space-folding 出场了，还记得之前提到的”abs()”函数吗，我们将其余三个象限全部折叠到第一象限，之前一直在第一象限画的所有内容，全部被map到所有象限，在使用abs之后，我们惊喜地得到了这样的图形：
+<br /></p>
+<center><img src="/assets/images/menger/4.png" /></center>
+<p><br /></p>
+
+<p>但是我们还缺少x和y轴方向上十字形的区域，我们分开解决，先看y轴方向上的区域，第一个想法就是，我们继续利用空间折叠来填充，但是这时候如果沿<script type="math/tex">x = -{1 \over 3}</script>来折叠，会导致本来不该被画上东西的区域被画上，于是我们考虑另外一种方法：平移，以第二次迭代为例，我们只需要将<script type="math/tex">[-1, {-{1 \over 3}}]</script>的部分平移到<script type="math/tex">[{-{1 \over 3}}, {1 \over 3}]</script>即可， 于是我们成功得填充了y方向上的区域（这里故意在子矩形之间留了缝隙以便观察）：
+<br /></p>
+<center><img src="/assets/images/menger/5.png" /></center>
+<p><br />
+如果继续往下迭代，可知平移的规律为：</p>
+
+<script type="math/tex; mode=display">x=x+{2 \over 3^n} \qquad \text{if} \ \ x \le -{1 \over 3^n}</script>
+
+<p>最后只剩下x轴上的区域，离成功还差一小步，我们发现x轴上与y轴上的这个十字架形区域实际上是沿<script type="math/tex">y=x</script>对称的，于是我们再沿<script type="math/tex">y=x</script>折叠一次：</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+	<span class="n">p</span><span class="p">.</span><span class="n">xy</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">yx</span>
+</code></pre></div></div>
+
+<p>于是我们把x轴上的区域也填充上了：
+<br /></p>
+<center><img src="/assets/images/menger/6.png" /></center>
+<p><br /></p>
+
+<p>大功告成，让我们试试增加迭代次数：
+<br /></p>
+<center><img src="/assets/images/menger/7.png" /></center>
+<p><br />
+要注意的是，折叠的方向和顺序是不能随意颠倒的，这很容易想象，那么我们整个算法的折叠和变换的顺序是怎样的呢：</p>
+
+<p><strong>Loop：</strong></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">1.</span> <span class="err">平移</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> 
+		<span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">);</span>
+
+<span class="mf">2.</span> <span class="n">abs</span> <span class="err">折叠到第一象限</span>
+
+	<span class="n">p</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+<span class="mf">3.</span> <span class="err">沿</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="err">折叠</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+		<span class="n">p</span><span class="p">.</span><span class="n">xy</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">yx</span><span class="p">;</span>
+
+<span class="mf">4.</span> <span class="n">Scale</span> <span class="o">&amp;</span> <span class="n">Offset</span>
+ 	<span class="n">p</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">p</span> <span class="o">-</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">);</span>    
+</code></pre></div></div>
+<p>注意上面的代码中，由于是基于距离场的计算，所以scale不是<script type="math/tex">1 \over 3</script> 而是<script type="math/tex">3</script>。</p>
+
+<p>最有趣的在于，我们在不断迭代变换的循环中，竟然不用真正地去画任何东西，等到迭代完成，在当前点绘制任意的图元，就能得到整个Menger Carpet，比如在之前我们推导的时候每次都画方块表示当前的menger Carpet集合，其实画一个任何其他图形也没有问题，因为迭代到一定次数的时候，图元已经缩小到比一个像素还小了， 所以为了计算量考虑，我们都通常画最简单的图元， 比如圆形。</p>
+
+<p>因为整个算法非常短小简洁，最后附上完整的C code以供参考：</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span> <span class="cp">#include &lt;math.h&gt;
+</span> <span class="k">struct</span> <span class="n">vec3</span> <span class="p">{</span>
+     <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+     <span class="n">vec3</span><span class="p">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">){</span> <span class="n">x</span><span class="o">=</span><span class="n">r</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="n">g</span><span class="p">;</span> <span class="n">z</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+ <span class="p">};</span>
+ <span class="k">static</span> <span class="n">vec3</span> <span class="n">menger_carpet</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
+     <span class="n">vec3</span> <span class="n">p</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">((</span><span class="o">-</span><span class="mf">640.0</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mf">480.0</span> <span class="o">*</span> <span class="mf">3.0</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">480.0</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mf">480.0</span> <span class="o">*</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+     <span class="kt">double</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="n">fabs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="n">fabs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+         <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="o">&gt;</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span><span class="kt">double</span> <span class="n">t</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="n">t</span><span class="p">;}</span>
+         <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="n">scale</span><span class="o">*</span><span class="p">(</span><span class="n">scale</span><span class="o">-</span><span class="mf">1.</span><span class="p">);</span>
+         <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="n">scale</span><span class="o">*</span><span class="p">(</span><span class="n">scale</span><span class="o">-</span><span class="mf">1.</span><span class="p">);</span>
+         <span class="n">k</span><span class="o">*=</span><span class="n">scale</span><span class="p">;</span>
+         <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">scale</span><span class="o">*</span><span class="p">(</span><span class="n">scale</span><span class="o">-</span><span class="mf">1.0</span><span class="p">))</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">scale</span><span class="o">*</span><span class="p">(</span><span class="n">scale</span><span class="o">-</span><span class="mf">1.0</span><span class="p">);</span>
+     <span class="p">}</span>
+     <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">fmax</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">),</span><span class="n">fabs</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">))</span> <span class="o">-</span> <span class="mf">3.</span><span class="p">)</span><span class="o">/</span><span class="n">k</span><span class="p">;</span>
+     <span class="k">if</span><span class="p">(</span><span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span> <span class="k">else</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+     <span class="k">return</span> <span class="n">vec3</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
+ <span class="p">}</span>
+ <span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+     <span class="kt">FILE</span> <span class="o">*</span><span class="n">f</span><span class="o">=</span><span class="n">fopen</span><span class="p">(</span><span class="s">"image.ppm"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
+     <span class="n">fprintf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s">"P3</span><span class="se">\n</span><span class="s">%d %d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">,</span><span class="mi">255</span><span class="p">);</span>
+     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">480</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">640</span><span class="p">;</span><span class="o">++</span><span class="n">j</span><span class="p">){</span>
+             <span class="n">vec3</span> <span class="n">col</span><span class="o">=</span><span class="n">menger_carpet</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+             <span class="n">fprintf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s">"%d %d %d "</span><span class="p">,</span><span class="kt">int</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="mf">255.0</span><span class="p">),</span><span class="kt">int</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="mf">255.0</span><span class="p">),</span><span class="kt">int</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">z</span><span class="o">*</span><span class="mf">255.0</span><span class="p">));</span>
+         <span class="p">}</span>
+     <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#graphics" class="page__taxonomy-item" rel="tag">Graphics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#fractal" class="page__taxonomy-item" rel="tag">Fractal</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-12-10T19:30:42+08:00">December 10, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Menger+Carpet+2D+%E4%B8%8E+Space+Folding%20http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmenger-spone-introduction%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmenger-spone-introduction%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmenger-spone-introduction%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffractal%2Fmenger-spone-introduction%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="http://localhost:4000/fractal/menger-spone/" class="pagination--pager" title="从 Menger Spone 到 KIFS
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/demoscene/tdf2018/" rel="permalink">Tokyo Demo Fest 2018 见闻
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/conference/siggraph2018/" rel="permalink">SIGGRAPH 2018 总结
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/raymarching/log-bisection-tracing/" rel="permalink">Log Bisection Tracing
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/noise/voronoi/" rel="permalink">Voronoi与伪Voronoi Pattern的快速生成算法
+</a>
+      
+    </h3>
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+  <input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  <div id="results" class="results"></div>
+</div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!--
+          <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Liming Xu. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+        -->
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+  <script src="http://localhost:4000/assets/js/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/js/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
