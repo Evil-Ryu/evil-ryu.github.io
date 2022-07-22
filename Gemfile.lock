@@ -94,7 +94,7 @@ GEM
       faraday (~> 0.8, < 1.0)
     thread_safe (0.3.6)
     tin (1.0.2)
-    tzinfo (1.2.4)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
 
 PLATFORMS
